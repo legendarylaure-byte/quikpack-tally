@@ -39,13 +39,6 @@
         { "fieldPath": "type", "order": "ASCENDING" },
         { "fieldPath": "name", "order": "ASCENDING" }
       ]
-    },
-    {
-      "collectionGroup": "auditLogs",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "createdAt", "order": "DESCENDING" }
-      ]
     }
   ],
   "fieldOverrides": []

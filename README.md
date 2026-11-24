@@ -12,18 +12,22 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+Fill `.env.local` with the Firebase web config for the dev project. See `docs/FIREBASE_SETUP.md`.
+
 ## Checks
 
 ```bash
 npm run lint
-npm run build
 npm run typecheck
+npm test
+npm run build
 ```
 
 ## Project links
 
 - [Build plan](docs/BUILD_PLAN.md)
 - [Locked decisions](docs/DECISIONS.md)
+- [Firebase setup](docs/FIREBASE_SETUP.md)
 - [GitHub](https://github.com/legendarylaure-byte/quikpack-tally)
 
 ## Current foundation
@@ -31,15 +35,35 @@ npm run typecheck
 - Next.js App Router + TypeScript + Tailwind CSS.
 - QUIKPACK brand tokens and recolored text logo/favicon.
 - Health endpoint: `/api/health`.
-- CI workflow for lint and build.
-- Environment template for Firebase and payment providers.
-- Firebase web client initialization.
-- Draft Firestore, Storage and index rules.
+- GitHub Actions CI for lint, typecheck, tests and build.
+- Tracked environment template: `.env.example`.
+- Firebase web client with optional Storage support.
+- Firestore, Storage and index rules.
+- Firebase project aliases: `dev` and `prod`.
 - Ghana VAT/NHIL/GETFund calculation module with tests.
+- Email/password signup, login and sign out.
+- Owner workspace creation and company onboarding.
+- Tiny logo support in Firestore until Cloud Storage is enabled.
+- Role-aware Firestore rules for owner, accountant, cashier, viewer and auditor.
+
+## Firebase environments
+
+| Environment | Project ID |
+|---|---|
+| Dev | `quikpack-tally-dev-787fd` |
+| Prod | `quikpack-tally-prod` |
+
+Deploy dev rules:
+
+```bash
+npx firebase-tools deploy --only firestore:rules,firestore:indexes --project dev
+```
+
+Do not deploy prod rules until emulator/rules tests are added.
 
 ## What is not built yet
 
-Auth, Firebase data, tenants, vouchers, inventory, invoicing, reports, subscriptions and payment webhooks are roadmap items. See `docs/BUILD_PLAN.md`.
+Masters, vouchers, inventory, invoicing, PDF generation, reports, subscriptions, payment webhooks, audit log writes and user invitation flows are roadmap items. See `docs/BUILD_PLAN.md`.
 
 ## Legal
 

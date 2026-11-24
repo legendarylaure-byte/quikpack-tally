@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "quikpack-tally-dev-787fd",
+    "dev": "quikpack-tally-dev-787fd",
+    "prod": "quikpack-tally-prod"
+  }
+}

@@ -6,12 +6,14 @@ service cloud.firestore {
       return request.auth != null;
     }
 
-    function memberRoles(companyId) {
-      return get(/databases/$(database)/documents/companyUsers/$(companyId)/users/$(request.auth.uid)).data.role;
+    function membershipPath(companyId) {
+      return /databases/$(database)/documents/companyUsers/$(companyId)/users/$(request.auth.uid);
     }
 
     function hasRole(companyId, roles) {
-      return isSignedIn() && memberRoles(companyId) in roles;
+      return isSignedIn()
+        && exists(membershipPath(companyId))
+        && get(membershipPath(companyId)).data.role in roles;
     }
 
     function canRead(companyId) {

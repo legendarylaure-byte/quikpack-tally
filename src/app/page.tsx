@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { COMPANY, CURRENCIES, SUPPORT, TAX } from "@/lib/constants";
 
 const foundationSteps = [
   { label: "GitHub repository", done: true },
   { label: "Next.js + Tailwind foundation", done: true },
-  { label: "Firebase dev and prod projects", done: false },
-  { label: "Vercel project + custom domain", done: false },
+  { label: "Firebase dev and prod projects", done: true },
+  { label: "Vercel project connected", done: true },
+  { label: "Custom domain", done: false },
   { label: "Recolored logo + favicon", done: true },
   { label: "Payment provider accounts", done: false },
 ];
@@ -42,12 +44,20 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <a
-            href={SUPPORT.whatsappUrl}
-            className="rounded-full border border-navy/15 px-4 py-2 text-sm font-semibold text-navy transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-          >
-            WhatsApp support
-          </a>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/login"
+              className="rounded-full border border-navy/15 px-4 py-2 text-sm font-semibold text-navy transition hover:border-brand hover:text-brand"
+            >
+              Sign in
+            </Link>
+            <a
+              href={SUPPORT.whatsappUrl}
+              className="rounded-full border border-navy/15 px-4 py-2 text-sm font-semibold text-navy transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            >
+              WhatsApp support
+            </a>
+          </div>
         </div>
       </header>
 
@@ -65,6 +75,21 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/signup"
+              className="brand-gradient rounded-full px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
+            >
+              Start free
+            </Link>
+            <Link
+              href="/login"
+              className="rounded-full border border-navy/20 px-6 py-3 text-sm font-bold text-navy transition hover:border-brand hover:text-brand"
+            >
+              Sign in
+            </Link>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
             {CURRENCIES.map((currency) => (
               <span
                 key={currency}
