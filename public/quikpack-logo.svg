@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160" role="img" aria-label="quikpack">
+  <rect x="8" y="8" width="144" height="144" rx="36" fill="#7DBD17"/>
+  <circle cx="80" cy="80" r="48" fill="none" stroke="#FFFFFF" stroke-width="14"/>
+  <path d="M84 100 L108 124" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round"/>
+  <text x="180" y="82" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#2F1D58">quikpack</text>
+  <text x="182" y="116" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="4" fill="#68C924">PACK IT. SERVE IT. LOVE IT.</text>
+</svg>
