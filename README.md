@@ -35,6 +35,7 @@ npm run typecheck
 - Environment template for Firebase and payment providers.
 - Firebase web client initialization.
 - Draft Firestore, Storage and index rules.
+- Ghana VAT/NHIL/GETFund calculation module with tests.
 
 ## What is not built yet
 
