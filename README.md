@@ -33,6 +33,8 @@ npm run typecheck
 - Health endpoint: `/api/health`.
 - CI workflow for lint and build.
 - Environment template for Firebase and payment providers.
+- Firebase web client initialization.
+- Draft Firestore, Storage and index rules.
 
 ## What is not built yet
 

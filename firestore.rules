@@ -1,0 +1,120 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function memberRoles(companyId) {
+      return get(/databases/$(database)/documents/companyUsers/$(companyId)/users/$(request.auth.uid)).data.role;
+    }
+
+    function hasRole(companyId, roles) {
+      return isSignedIn() && memberRoles(companyId) in roles;
+    }
+
+    function canRead(companyId) {
+      return hasRole(companyId, ['owner', 'accountant', 'cashier', 'viewer', 'auditor']);
+    }
+
+    function canWriteMasters(companyId) {
+      return hasRole(companyId, ['owner', 'accountant']);
+    }
+
+    function canWriteMoney(companyId) {
+      return hasRole(companyId, ['owner', 'accountant', 'cashier']);
+    }
+
+    match /users/{userId} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+
+    match /companies/{companyId} {
+      allow read: if canRead(companyId);
+      allow create: if isSignedIn() && request.auth.uid == request.resource.data.ownerUid;
+      allow update, delete: if hasRole(companyId, ['owner']);
+
+      match /branches/{branchId} {
+        allow read: if canRead(companyId);
+        allow write: if canWriteMasters(companyId);
+      }
+    }
+
+    match /companyUsers/{companyId}/users/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId || canRead(companyId);
+      allow create: if isSignedIn()
+        && userId == request.auth.uid
+        && get(/databases/$(database)/documents/companies/$(companyId)).data.ownerUid == request.auth.uid;
+      allow update, delete: if hasRole(companyId, ['owner']);
+    }
+
+    match /accounts/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow write: if canWriteMasters(companyId);
+    }
+
+    match /parties/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow write: if canWriteMasters(companyId);
+    }
+
+    match /items/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow write: if canWriteMasters(companyId);
+    }
+
+    match /vouchers/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow create, update: if canWriteMoney(companyId);
+      allow delete: if hasRole(companyId, ['owner']);
+    }
+
+    match /stock/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow write: if canWriteMoney(companyId);
+    }
+
+    match /invoices/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow create, update: if canWriteMoney(companyId);
+      allow delete: if hasRole(companyId, ['owner']);
+    }
+
+    match /attachments/{companyId}/{docId} {
+      allow read: if canRead(companyId);
+      allow create, update: if canWriteMoney(companyId);
+      allow delete: if hasRole(companyId, ['owner', 'accountant']);
+    }
+
+    match /settings/{companyId}/settings/{settingId} {
+      allow read: if canRead(companyId);
+      allow write: if canWriteMasters(companyId);
+    }
+
+    match /auditLogs/{companyId}/{docId} {
+      allow read: if hasRole(companyId, ['owner', 'auditor']);
+      allow write: if false;
+    }
+
+    match /catalogue/{itemId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && request.auth.token.admin == true;
+    }
+
+    match /exchangeRates/{rateId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && request.auth.token.admin == true;
+    }
+
+    match /subscriptions/{companyId} {
+      allow read: if hasRole(companyId, ['owner']);
+      allow write: if false;
+    }
+
+    match /payments/{paymentId} {
+      allow read: if isSignedIn() && request.auth.token.admin == true;
+      allow write: if false;
+    }
+  }
+}

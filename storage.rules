@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    function isCompanyMember(companyId) {
+      return isSignedIn()
+        && request.auth.token.companyIds != null
+        && companyId in request.auth.token.companyIds;
+    }
+
+    match /companies/{companyId}/{allPaths=**} {
+      allow read: if isCompanyMember(companyId) || isAdmin();
+      allow write: if (isCompanyMember(companyId) || isAdmin())
+        && request.resource.size < 10 * 1024 * 1024;
+    }
+  }
+}
