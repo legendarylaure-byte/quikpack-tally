@@ -1,13 +1,13 @@
 "use client";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import { AuthCard } from "@/components/auth-card";
 import { useAuth } from "@/components/auth-provider";
 import { getErrorMessage } from "@/lib/errors";
 import { getAuthClient, isFirebaseConfigured } from "@/lib/firebase";
+import { SUPPORT } from "@/lib/constants";
 
 const inputClass =
   "mt-1 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-navy outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20";
@@ -39,7 +39,7 @@ export default function LoginPage() {
 
     try {
       await signInWithEmailAndPassword(getAuthClient(), email, password);
-      router.push("/dashboard");
+      router.replace("/dashboard");
     } catch (submitError) {
       setError(getErrorMessage(submitError));
     } finally {
@@ -52,12 +52,12 @@ export default function LoginPage() {
       title="Welcome back"
       subtitle="Sign in to your quikpack Tally workspace."
       footer={
-        <>
-          New here?{" "}
-          <Link href="/signup" className="font-bold text-brand hover:underline">
-            Create an account
-          </Link>
-        </>
+        <a
+          href={SUPPORT.whatsappUrl}
+          className="font-bold text-brand hover:underline"
+        >
+          Need help? Contact support on WhatsApp
+        </a>
       }
     >
       <form onSubmit={handleSubmit} className="space-y-5">
@@ -83,7 +83,7 @@ export default function LoginPage() {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             className={inputClass}
-            placeholder="At least 8 characters"
+            placeholder="Enter your password"
           />
         </label>
 

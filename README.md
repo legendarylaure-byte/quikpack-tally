@@ -1,6 +1,6 @@
 # quikpack Tally
 
-Ghana-first SaaS accounting, inventory and invoicing system for SMEs and franchises.
+Ghana-first accounting, inventory and invoicing system for one private company workspace.
 
 ## Quick start
 
@@ -10,9 +10,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`.
-
-Fill `.env.local` with the Firebase web config for the dev project. See `docs/FIREBASE_SETUP.md`.
+Open `http://localhost:3000`. Fill `.env.local` with the dev Firebase web config and the server credentials described in `docs/FIREBASE_SETUP.md`.
 
 ## Checks
 
@@ -23,28 +21,33 @@ npm test
 npm run build
 ```
 
+## Access model
+
+This is an invite-only, single-company system. There is no public signup or onboarding.
+
+- Fixed company: `quikpack-main`
+- Only an administrator can create users, assign roles, grant feature access and suspend accounts.
+- Users receive a Firebase password setup link by email (Resend).
+- Firestore rules deny all client-side writes; admin actions run through protected server routes using the Firebase Admin SDK.
+- Roles: `admin`, `accountant`, `cashier`, `viewer`, `auditor`.
+
+## First administrator
+
+The first admin must be bootstrapped once per Firebase project:
+
+```bash
+FIREBASE_SERVICE_ACCOUNT_JSON="$(cat path/to/service-account.json)" \
+  npm run bootstrap:admin -- phuyal.shekhar@gmail.com
+```
+
+The script sets the `admin` custom claim, seeds `companies/quikpack-main`, creates the owner membership and prints a password setup link. Sign out and back in after setting the password.
+
 ## Project links
 
 - [Build plan](docs/BUILD_PLAN.md)
 - [Locked decisions](docs/DECISIONS.md)
 - [Firebase setup](docs/FIREBASE_SETUP.md)
 - [GitHub](https://github.com/legendarylaure-byte/quikpack-tally)
-
-## Current foundation
-
-- Next.js App Router + TypeScript + Tailwind CSS.
-- QUIKPACK brand tokens and recolored text logo/favicon.
-- Health endpoint: `/api/health`.
-- GitHub Actions CI for lint, typecheck, tests and build.
-- Tracked environment template: `.env.example`.
-- Firebase web client with optional Storage support.
-- Firestore, Storage and index rules.
-- Firebase project aliases: `dev` and `prod`.
-- Ghana VAT/NHIL/GETFund calculation module with tests.
-- Email/password signup, login and sign out.
-- Owner workspace creation and company onboarding.
-- Tiny logo support in Firestore until Cloud Storage is enabled.
-- Role-aware Firestore rules for owner, accountant, cashier, viewer and auditor.
 
 ## Firebase environments
 
@@ -59,11 +62,24 @@ Deploy dev rules:
 npx firebase-tools deploy --only firestore:rules,firestore:indexes --project dev
 ```
 
-Do not deploy prod rules until emulator/rules tests are added.
+Deploy prod rules only after the dev flow has been tested.
+
+## Current foundation
+
+- Next.js App Router + TypeScript + Tailwind CSS.
+- QUIKPACK brand tokens, logo and favicon.
+- Health endpoint: `/api/health`.
+- GitHub Actions CI for lint, typecheck, tests and build.
+- Firebase web client with optional Storage support.
+- Locked Firestore rules for the single company workspace.
+- Ghana VAT/NHIL/GETFund calculation module with tests.
+- Email/password login with approval and suspension gating.
+- Admin-only user management with role and feature permissions.
+- Resend invite emails with Firebase password setup links.
 
 ## What is not built yet
 
-Masters, vouchers, inventory, invoicing, PDF generation, reports, subscriptions, payment webhooks, audit log writes and user invitation flows are roadmap items. See `docs/BUILD_PLAN.md`.
+Masters, vouchers, inventory, invoicing, PDF generation, reports, subscriptions, payment webhooks, audit log writes and product images are roadmap items. See `docs/BUILD_PLAN.md`.
 
 ## Legal
 

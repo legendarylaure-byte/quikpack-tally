@@ -12,7 +12,7 @@ const foundationSteps = [
 ];
 
 const releaseModules = [
-  "Multi-tenant workspaces",
+  "Private single-company workspace",
   "Roles and permissions",
   "Chart of accounts",
   "Customers and suppliers",
@@ -76,14 +76,8 @@ export default function Home() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/signup"
-              className="brand-gradient rounded-full px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
-            >
-              Start free
-            </Link>
-            <Link
               href="/login"
-              className="rounded-full border border-navy/20 px-6 py-3 text-sm font-bold text-navy transition hover:border-brand hover:text-brand"
+              className="brand-gradient rounded-full px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
             >
               Sign in
             </Link>

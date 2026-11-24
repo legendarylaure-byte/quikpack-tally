@@ -14,6 +14,8 @@ export const SUPPORT = {
 
 export const CURRENCIES = ["GHS", "USD", "NPR"] as const;
 
+export const MAIN_COMPANY_ID = "quikpack-main";
+
 export const TAX = {
   vatRate: 0.15,
   nhilRate: 0.025,

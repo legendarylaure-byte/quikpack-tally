@@ -6,117 +6,49 @@ service cloud.firestore {
       return request.auth != null;
     }
 
-    function membershipPath(companyId) {
-      return /databases/$(database)/documents/companyUsers/$(companyId)/users/$(request.auth.uid);
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
     }
 
-    function hasRole(companyId, roles) {
+    function memberPath() {
+      return /databases/$(database)/documents/companyUsers/quikpack-main/users/$(request.auth.uid);
+    }
+
+    function isApprovedMember() {
       return isSignedIn()
-        && exists(membershipPath(companyId))
-        && get(membershipPath(companyId)).data.role in roles;
-    }
-
-    function canRead(companyId) {
-      return hasRole(companyId, ['owner', 'accountant', 'cashier', 'viewer', 'auditor']);
-    }
-
-    function canWriteMasters(companyId) {
-      return hasRole(companyId, ['owner', 'accountant']);
-    }
-
-    function canWriteMoney(companyId) {
-      return hasRole(companyId, ['owner', 'accountant', 'cashier']);
+        && exists(memberPath())
+        && get(memberPath()).data.status == "approved";
     }
 
     match /users/{userId} {
-      allow read, write: if isSignedIn() && request.auth.uid == userId;
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow write: if false;
     }
 
     match /companies/{companyId} {
-      allow read: if canRead(companyId);
-      allow create: if isSignedIn() && request.auth.uid == request.resource.data.ownerUid;
-      allow update, delete: if hasRole(companyId, ['owner']);
-
-      match /branches/{branchId} {
-        allow read: if canRead(companyId);
-        allow write: if canWriteMasters(companyId);
-      }
+      allow read: if companyId == "quikpack-main" && (isApprovedMember() || isAdmin());
+      allow write: if false;
     }
 
     match /companyUsers/{companyId}/users/{userId} {
-      allow read: if isSignedIn() && request.auth.uid == userId || canRead(companyId);
-      allow create: if isSignedIn()
-        && userId == request.auth.uid
-        && get(/databases/$(database)/documents/companies/$(companyId)).data.ownerUid == request.auth.uid;
-      allow update, delete: if hasRole(companyId, ['owner']);
-    }
-
-    match /accounts/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow write: if canWriteMasters(companyId);
-    }
-
-    match /parties/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow write: if canWriteMasters(companyId);
-    }
-
-    match /items/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow write: if canWriteMasters(companyId);
-    }
-
-    match /vouchers/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow create, update: if canWriteMoney(companyId);
-      allow delete: if hasRole(companyId, ['owner']);
-    }
-
-    match /stock/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow write: if canWriteMoney(companyId);
-    }
-
-    match /invoices/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow create, update: if canWriteMoney(companyId);
-      allow delete: if hasRole(companyId, ['owner']);
-    }
-
-    match /attachments/{companyId}/{docId} {
-      allow read: if canRead(companyId);
-      allow create, update: if canWriteMoney(companyId);
-      allow delete: if hasRole(companyId, ['owner', 'accountant']);
-    }
-
-    match /settings/{companyId}/settings/{settingId} {
-      allow read: if canRead(companyId);
-      allow write: if canWriteMasters(companyId);
-    }
-
-    match /auditLogs/{companyId}/{docId} {
-      allow read: if hasRole(companyId, ['owner', 'auditor']);
+      allow read: if isSignedIn()
+        && ((companyId == "quikpack-main" && request.auth.uid == userId) || isAdmin());
       allow write: if false;
     }
 
     match /catalogue/{itemId} {
-      allow read: if isSignedIn();
-      allow write: if isSignedIn() && request.auth.token.admin == true;
+      allow read: if isApprovedMember() || isAdmin();
+      allow write: if isAdmin();
     }
 
     match /exchangeRates/{rateId} {
-      allow read: if isSignedIn();
-      allow write: if isSignedIn() && request.auth.token.admin == true;
+      allow read: if isApprovedMember() || isAdmin();
+      allow write: if isAdmin();
     }
 
-    match /subscriptions/{companyId} {
-      allow read: if hasRole(companyId, ['owner']);
-      allow write: if false;
-    }
-
-    match /payments/{paymentId} {
-      allow read: if isSignedIn() && request.auth.token.admin == true;
-      allow write: if false;
+    // Business modules are server-owned until their route-level rules are built.
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { AuthProvider } from "@/components/auth-provider";
 import "./globals.css";
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   keywords: ["accounting", "inventory", "invoicing", "Ghana", "VAT", "SaaS"],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-GH" className="h-full antialiased">
       <body className="flex min-h-full flex-col">

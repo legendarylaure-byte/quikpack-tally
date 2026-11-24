@@ -1,7 +1,6 @@
 "use client";
 
 import { doc, getDoc } from "firebase/firestore";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AppShell } from "@/components/app-shell";
 import { AuthGuard } from "@/components/auth-guard";
@@ -9,19 +8,18 @@ import { useAuth } from "@/components/auth-provider";
 import { SignOutButton } from "@/components/sign-out-button";
 import { getErrorMessage } from "@/lib/errors";
 import { getDb } from "@/lib/firebase";
-
-interface CompanySummary {
-  id: string;
-  name: string;
-  legalName: string;
-  baseCurrency: string;
-  displayCurrency: string;
-  onboardingComplete: boolean;
-}
+import { FEATURES, MAIN_COMPANY_ID } from "@/lib/permissions";
 
 function DashboardContent() {
-  const { user } = useAuth();
-  const [companies, setCompanies] = useState<CompanySummary[]>([]);
+  const { user, membership, isAdmin } = useAuth();
+  const [company, setCompany] = useState<{
+    name: string;
+    legalName: string;
+    registrationNumber: string;
+    tin: string;
+    baseCurrency: string;
+    displayCurrency: string;
+  } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -32,36 +30,21 @@ function DashboardContent() {
 
     let active = true;
 
-    async function loadCompanies() {
+    async function loadCompany() {
       try {
-        const db = getDb();
-        const userSnap = await getDoc(doc(db, "users", user!.uid));
-        const companyIds = (userSnap.data()?.companyIds as string[] | undefined) ?? [];
-
-        const companySnaps = await Promise.all(
-          companyIds.map((companyId) => getDoc(doc(db, "companies", companyId))),
-        );
-
-        const nextCompanies: CompanySummary[] = [];
-        for (const companySnap of companySnaps) {
-          if (!companySnap.exists()) {
-            continue;
-          }
-
-          const data = companySnap.data();
-          nextCompanies.push({
-            id: companySnap.id,
-            name: String(data.name ?? "Unnamed workspace"),
-            legalName: String(data.legalName ?? data.name ?? ""),
-            baseCurrency: String(data.baseCurrency ?? "GHS"),
-            displayCurrency: String(data.displayCurrency ?? "GHS"),
-            onboardingComplete: Boolean(data.onboardingComplete),
-          });
+        const snapshot = await getDoc(doc(getDb(), "companies", MAIN_COMPANY_ID));
+        if (!snapshot.exists() || !active) {
+          return;
         }
-
-        if (active) {
-          setCompanies(nextCompanies);
-        }
+        const data = snapshot.data();
+        setCompany({
+          name: String(data.name ?? data.legalName ?? "quikpack"),
+          legalName: String(data.legalName ?? ""),
+          registrationNumber: String(data.registrationNumber ?? ""),
+          tin: String(data.tin ?? ""),
+          baseCurrency: String(data.baseCurrency ?? "GHS"),
+          displayCurrency: String(data.displayCurrency ?? "GHS"),
+        });
       } catch (loadError) {
         if (active) {
           setError(getErrorMessage(loadError));
@@ -73,7 +56,7 @@ function DashboardContent() {
       }
     }
 
-    loadCompanies();
+    loadCompany();
     return () => {
       active = false;
     };
@@ -82,7 +65,7 @@ function DashboardContent() {
   return (
     <AppShell
       title="Dashboard"
-      subtitle={user?.email ? `Signed in as ${user.email}` : "Your workspaces"}
+      subtitle={user?.email ? `Signed in as ${user.email}` : "Your workspace"}
       actions={<SignOutButton />}
     >
       {error ? (
@@ -92,67 +75,50 @@ function DashboardContent() {
       ) : null}
 
       {loading ? (
-        <p className="text-sm text-navy/65">Loading workspaces…</p>
-      ) : companies.length === 0 ? (
-        <section className="glass-panel rounded-2xl p-8">
-          <h2 className="text-xl font-bold text-navy">No workspace found</h2>
-          <p className="mt-2 text-sm text-navy/65">
-            This account has no linked company workspace yet.
-          </p>
-          <Link
-            href="/onboarding"
-            className="mt-5 inline-block rounded-xl bg-navy px-5 py-3 text-sm font-bold text-white"
-          >
-            Go to company setup
-          </Link>
-        </section>
+        <p className="text-sm text-navy/65">Loading workspace…</p>
       ) : (
-        <section className="grid gap-5 sm:grid-cols-2">
-          {companies.map((company) => (
-            <article
-              key={company.id}
-              className="glass-panel rounded-2xl p-6"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-lg font-bold text-navy">{company.name}</h2>
-                  <p className="mt-1 text-xs text-navy/55">{company.legalName}</p>
-                </div>
-                <span
-                  className={`rounded-full px-3 py-1 text-xs font-bold ${
-                    company.onboardingComplete
-                      ? "bg-brand/15 text-brand"
-                      : "bg-warning/20 text-navy/60"
-                  }`}
-                >
-                  {company.onboardingComplete ? "Ready" : "Setup needed"}
-                </span>
-              </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <section className="glass-panel rounded-2xl p-6">
+            <h2 className="text-lg font-bold text-navy">Company</h2>
+            <p className="mt-3 text-2xl font-black text-navy">
+              {company?.name ?? "quikpack"}
+            </p>
+            <p className="mt-1 text-sm text-navy/65">{company?.legalName}</p>
+            <div className="mt-6 grid gap-3 text-sm text-navy/70">
+              <p>Reg: {company?.registrationNumber || "—"}</p>
+              <p>TIN: {company?.tin || "—"}</p>
+              <p>Base currency: {company?.baseCurrency}</p>
+              <p>Display currency: {company?.displayCurrency}</p>
+            </div>
+          </section>
 
-              <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-navy/60">
-                <span className="rounded-lg bg-surface px-3 py-2">
-                  Base {company.baseCurrency}
-                </span>
-                <span className="rounded-lg bg-surface px-3 py-2">
-                  Display {company.displayCurrency}
-                </span>
-              </div>
-
-              {company.onboardingComplete ? (
-                <p className="mt-6 text-sm font-semibold text-brand">
-                  Workspace ready for books.
-                </p>
-              ) : (
-                <Link
-                  href="/onboarding"
-                  className="mt-6 inline-block rounded-xl bg-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-info"
-                >
-                  Finish setup
-                </Link>
-              )}
-            </article>
-          ))}
-        </section>
+          <section className="glass-panel rounded-2xl p-6">
+            <h2 className="text-lg font-bold text-navy">Your access</h2>
+            <p className="mt-3 text-sm font-semibold text-brand capitalize">
+              {isAdmin ? "Administrator" : (membership?.role ?? "No role assigned")}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {FEATURES.map((feature) => {
+                const enabled = isAdmin || membership?.permissions[feature.key] === true;
+                return (
+                  <span
+                    key={feature.key}
+                    className={`rounded-lg px-3 py-2 text-xs font-bold ${
+                      enabled
+                        ? "bg-brand/15 text-brand"
+                        : "bg-navy/5 text-navy/40 line-through"
+                    }`}
+                  >
+                    {feature.label}
+                  </span>
+                );
+              })}
+            </div>
+            <p className="mt-6 text-xs text-navy/55">
+              Accounting modules are being added in the next release.
+            </p>
+          </section>
+        </div>
       )}
     </AppShell>
   );

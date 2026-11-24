@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { COMPANY, SUPPORT } from "@/lib/constants";
+import { useAuth } from "./auth-provider";
 
 interface AppShellProps {
   title: string;
@@ -10,6 +13,8 @@ interface AppShellProps {
 }
 
 export function AppShell({ title, subtitle, children, actions }: AppShellProps) {
+  const { isAdmin } = useAuth();
+
   return (
     <div className="flex min-h-screen flex-col bg-surface">
       <header className="border-b border-navy/10 bg-white/80 backdrop-blur">
@@ -35,6 +40,14 @@ export function AppShell({ title, subtitle, children, actions }: AppShellProps) 
             >
               Dashboard
             </Link>
+            {isAdmin ? (
+              <Link
+                href="/admin/users"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-navy transition hover:bg-brand/10"
+              >
+                Users
+              </Link>
+            ) : null}
             <a
               href={SUPPORT.whatsappUrl}
               className="rounded-full border border-navy/15 px-4 py-2 text-sm font-semibold text-navy transition hover:border-brand"
