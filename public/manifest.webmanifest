@@ -6,7 +6,7 @@
   "scope": "/",
   "display": "standalone",
   "background_color": "#f5f7f2",
-  "theme_color": "#2f1d58",
+  "theme_color": "#145A4A",
   "icons": [
     {
       "src": "/quikpack-logo.svg",

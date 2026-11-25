@@ -28,11 +28,11 @@ export async function sendUserInvite({
   const from = process.env.EMAIL_FROM || "QUIKPACK Tally <onboarding@resend.dev>";
   const expiresNote = "This link expires soon. If it expires, ask your admin to resend it.";
   const html = `
-    <div style="font-family:Arial,sans-serif;line-height:1.6;color:#2f1d58">
+    <div style="font-family:Arial,sans-serif;line-height:1.6;color:#145A4A">
       <h2>Welcome to quikpack Tally</h2>
       <p>Hello ${escapeHtml(fullName)},</p>
       <p>Your administrator has approved your access with the role <strong>${escapeHtml(role)}</strong>.</p>
-      <p><a href="${escapeHtml(resetUrl)}" style="background:#7dbd17;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block">Set your password</a></p>
+      <p><a href="${escapeHtml(resetUrl)}" style="background:#145A4A;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block">Set your password</a></p>
       <p>${escapeHtml(expiresNote)}</p>
       <p>If you did not expect this invitation, you can ignore this email.</p>
       <hr />

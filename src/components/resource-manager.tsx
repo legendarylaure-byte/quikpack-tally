@@ -253,7 +253,7 @@ export function ResourceManager({
                     type="checkbox"
                     checked={draft[field.key] === true}
                     onChange={(event) => setField(field.key, event.target.checked)}
-                    className="mt-2 size-5 accent-[#7dbd17]"
+                    className="mt-2 size-5 accent-brand"
                   />
                 ) : field.type === "textarea" ? (
                   <textarea

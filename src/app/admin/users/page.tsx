@@ -345,7 +345,7 @@ function UserManagement() {
                             },
                           })
                         }
-                        className="size-4 accent-[#7dbd17]"
+                        className="size-4 accent-brand"
                       />
                       {feature.label}
                     </label>

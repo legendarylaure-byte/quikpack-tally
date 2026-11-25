@@ -7,6 +7,8 @@ import { MARKETING_ASSETS, PRODUCT_CATEGORIES } from "@/lib/marketing";
 
 type Params = { params: Promise<{ slug: string }> };
 
+export const instant = false;
+
 export function generateStaticParams() {
   return PRODUCT_CATEGORIES.map((category) => ({ slug: category.slug }));
 }
