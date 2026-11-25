@@ -21,6 +21,14 @@ npm test
 npm run build
 ```
 
+## Demo seed (dev only)
+
+```bash
+DEMO_PASSWORD='...' npm run seed:demo
+```
+
+This seeds the dev Firebase project with PDF-derived Everpack items, sample stock and five role-based demo users. Never run it against production or reuse demo passwords in production.
+
 ## Access model
 
 This is an invite-only, single-company system. There is no public signup or onboarding.
@@ -47,6 +55,8 @@ The script sets the `admin` custom claim, seeds `companies/quikpack-main`, creat
 - [Build plan](docs/BUILD_PLAN.md)
 - [Locked decisions](docs/DECISIONS.md)
 - [Firebase setup](docs/FIREBASE_SETUP.md)
+- [Handover checklist](docs/HANDOVER.md)
+- [User help](docs/USER_HELP.md)
 - [GitHub](https://github.com/legendarylaure-byte/quikpack-tally)
 
 ## Firebase environments
@@ -67,7 +77,7 @@ Deploy prod rules only after the dev flow has been tested.
 ## Included modules
 
 - Company settings, branches, currencies, fiscal calendar and effective-dated Ghana tax rates.
-- Chart of accounts, parties/custom fields, items/SKU/barcode and Everpack catalogue import.
+- Chart of accounts, parties/custom fields, items/SKU/barcode, CSV import for items/parties and Everpack catalogue import.
 - Balanced vouchers with reversal records and branch tags.
 - Stock by item/location with batch/expiry fields, FIFO/weighted valuation and low-stock alerts.
 - Client-branded invoices with separate VAT/NHIL/GETFund lines and PDF download.
