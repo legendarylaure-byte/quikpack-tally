@@ -15,7 +15,7 @@ export default function Home() {
       <section className="mk-hero" id="top" data-theme="light">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          className="mk-flower mk-hero__flower"
+          className="mk-visual mk-hero__visual"
           src={MARKETING_ASSETS.cosmos}
           alt=""
           data-speed="-0.25"

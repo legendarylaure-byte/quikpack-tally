@@ -1,18 +1,12 @@
 import { COMPANY, SUPPORT } from "./constants";
 
 export const MARKETING_ASSETS = {
-  heroBg:
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261016_130303_301c35dd-e2d1-4b40-a396-2b53f884d787.png",
-  cosmos:
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132919_c994332b-7f9d-43b5-933d-1e94faa91dd4.png",
-  hangingCosmos:
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132924_764b726d-d37a-44cc-8eba-662d823d9a4c.png",
-  darkBg:
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132814_c3d2b090-c27d-49d1-8107-66d0cfa216c2.png",
-  iris:
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132926_a7892ae5-8052-4e4b-96a8-ccbdcaaaa5ad.png",
-  passion:
-    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132921_d71538ea-5066-4372-963a-2f2d6468374f.png",
+  heroBg: "/assets/marketing/hero-backdrop.jpg",
+  cosmos: "/assets/marketing/product-cups.jpg",
+  hangingCosmos: "/assets/marketing/eco-carry-bag.jpg",
+  darkBg: "/assets/marketing/table-napkins.jpg",
+  iris: "/assets/marketing/household-tissue.jpg",
+  passion: "/assets/marketing/cleaning-supplies.jpg",
   beeGlb:
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132918_e8364d8f-7df2-4788-a725-dec28ec19af8.glb",
   beeFallback: "/assets/marketing/bee-fallback.png",

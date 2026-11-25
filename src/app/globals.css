@@ -388,7 +388,7 @@ body.mk-dark-nav .mk-badge b {
   }
 }
 
-.mk-flower {
+.mk-visual {
   position: absolute;
   pointer-events: none;
   user-select: none;
@@ -399,7 +399,7 @@ body.mk-dark-nav .mk-badge b {
   z-index: 3;
   overflow: visible;
   background: #e4e0fa
-    url("https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261016_130303_301c35dd-e2d1-4b40-a396-2b53f884d787.png")
+    url("/assets/marketing/hero-backdrop.jpg")
     center / cover no-repeat;
 }
 
@@ -485,7 +485,7 @@ body.mk-dark-nav .mk-badge b {
   }
 }
 
-.mk-hero__flower {
+.mk-hero__visual {
   z-index: 1;
   bottom: -24vw;
   left: -14vw;
@@ -547,7 +547,7 @@ body.mk-dark-nav .mk-badge b {
 .mk-section--dark {
   z-index: 3;
   background: var(--mk-deep)
-    url("https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132814_c3d2b090-c27d-49d1-8107-66d0cfa216c2.png")
+    url("/assets/marketing/table-napkins.jpg")
     center / cover no-repeat;
   color: #fff;
 }
@@ -745,7 +745,7 @@ body.mk-dark-nav .mk-badge b {
   align-items: center;
   padding: 20vh var(--mk-pad) 10vh;
   background: #e4e0fa
-    url("https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261016_130303_301c35dd-e2d1-4b40-a396-2b53f884d787.png")
+    url("/assets/marketing/hero-backdrop.jpg")
     center / cover no-repeat;
 }
 
@@ -776,7 +776,7 @@ body.mk-dark-nav .mk-badge b {
   place-items: center;
   padding: 12vh var(--mk-pad);
   background: var(--mk-deep)
-    url("https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132814_c3d2b090-c27d-49d1-8107-66d0cfa216c2.png")
+    url("/assets/marketing/table-napkins.jpg")
     center / cover no-repeat;
   color: #fff;
   text-align: center;
@@ -867,7 +867,7 @@ body.mk-dark-nav .mk-badge b {
   align-items: center;
   padding: 20vh var(--mk-pad) 10vh;
   background: #e4e0fa
-    url("https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261016_130303_301c35dd-e2d1-4b40-a396-2b53f884d787.png")
+    url("/assets/marketing/hero-backdrop.jpg")
     center / cover no-repeat;
 }
 
@@ -1171,7 +1171,7 @@ body.mk-dark-nav .mk-badge b {
     margin-top: 16px;
   }
 
-  .mk-hero__flower {
+  .mk-hero__visual {
     bottom: -55vw;
     left: -38vw;
     width: 110vw;
