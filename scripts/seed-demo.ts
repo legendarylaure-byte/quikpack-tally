@@ -108,12 +108,14 @@ async function seedUsers(): Promise<string> {
   return adminUser.uid;
 }
 
-async function seedItems(adminUid: string): Promise<string[]> {
+async function seedItems(
+  adminUid: string,
+): Promise<Array<{ id: string; purchasePriceMinor: number }>> {
   const items = JSON.parse(
     readFileSync(resolve(process.cwd(), "scripts/demo-items.json"), "utf8"),
   ) as DemoItem[];
   const itemsCol = db.collection("items").doc(COMPANY_ID).collection("items");
-  const itemIds: string[] = [];
+  const seeded: Array<{ id: string; purchasePriceMinor: number }> = [];
 
   let batch = db.batch();
   let pending = 0;
@@ -128,7 +130,7 @@ async function seedItems(adminUid: string): Promise<string[]> {
   for (const item of items) {
     const existing = await itemsCol.where("sku", "==", item.sku).limit(1).get();
     const ref = existing.empty ? itemsCol.doc() : existing.docs[0].ref;
-    itemIds.push(ref.id);
+    seeded.push({ id: ref.id, purchasePriceMinor: item.purchasePriceMinor });
     batch.set(
       ref,
       {
@@ -147,10 +149,13 @@ async function seedItems(adminUid: string): Promise<string[]> {
     }
   }
   await flush();
-  return itemIds;
+  return seeded;
 }
 
-async function seedStock(adminUid: string, itemIds: string[]): Promise<number> {
+async function seedStock(
+  adminUid: string,
+  seeded: Array<{ id: string; purchasePriceMinor: number }>,
+): Promise<number> {
   const stockCol = db.collection("stock").doc(COMPANY_ID).collection("stock");
   const movementCol = db
     .collection("stockMovements")
@@ -158,17 +163,17 @@ async function seedStock(adminUid: string, itemIds: string[]): Promise<number> {
     .collection("stockMovements");
   const batch = db.batch();
 
-  for (const [index, itemId] of itemIds.slice(0, 24).entries()) {
+  for (const [index, item] of seeded.slice(0, 24).entries()) {
     const quantity = index < 3 ? 2 + index : 40 + index;
-    const key = `${itemId}-main`;
+    const key = `${item.id}-main`;
     batch.set(
       stockCol.doc(key),
       {
-        itemId,
+        itemId: item.id,
         location: "Main",
         branch: "Main",
         quantity,
-        unitCostMinor: 0,
+        unitCostMinor: item.purchasePriceMinor,
         reorderLevel: 10,
         companyId: COMPANY_ID,
         createdBy: adminUid,
@@ -181,12 +186,12 @@ async function seedStock(adminUid: string, itemIds: string[]): Promise<number> {
     batch.set(
       movementCol.doc(`${key}-in`),
       {
-        itemId,
+        itemId: item.id,
         location: "Main",
         branch: "Main",
         direction: "in",
         quantity,
-        unitCostMinor: 0,
+        unitCostMinor: item.purchasePriceMinor,
         date: today,
         reference: `DEMO-GRN-${index + 1}`,
         reason: "Demo opening stock",
@@ -205,14 +210,14 @@ async function seedStock(adminUid: string, itemIds: string[]): Promise<number> {
 
 async function main() {
   const adminUid = await seedUsers();
-  const itemIds = await seedItems(adminUid);
-  const stockRows = await seedStock(adminUid, itemIds);
+  const seeded = await seedItems(adminUid);
+  const stockRows = await seedStock(adminUid, seeded);
   console.log(
     JSON.stringify(
       {
         project: serviceAccount.project_id,
         companyId: COMPANY_ID,
-        itemsUpserted: itemIds.length,
+        itemsUpserted: seeded.length,
         stockRowsUpserted: stockRows,
         users: DEMO_USERS.map(({ email, role }) => ({ email, role })),
         password: "set from DEMO_PASSWORD",
