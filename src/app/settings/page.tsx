@@ -6,6 +6,7 @@ import {
   TotpMultiFactorGenerator,
   type TotpSecret,
 } from "firebase/auth";
+import { QRCodeSVG } from "qrcode.react";
 import { AppShell } from "@/components/app-shell";
 import { AuthGuard } from "@/components/auth-guard";
 import { useAuth } from "@/components/auth-provider";
@@ -143,9 +144,21 @@ function MfaPanel() {
         </button>
       ) : (
         <form onSubmit={confirm} className="mt-4 space-y-3">
-          <p className="text-sm text-navy/70">Scan this URL in your authenticator app, or enter the key manually.</p>
-          <p className="break-all rounded-lg bg-navy/5 p-3 text-xs text-navy/70">{qrUrl}</p>
-          <p className="font-mono text-sm font-bold text-navy">{secretKey}</p>
+          <div className="mx-auto w-fit rounded-2xl bg-white p-4 ring-1 ring-navy/10">
+            <QRCodeSVG
+              value={qrUrl}
+              size={192}
+              level="M"
+              includeMargin
+              role="img"
+              aria-label="Authenticator app QR code"
+            />
+          </div>
+          <p className="text-center text-sm text-navy/70">Scan this QR code with your authenticator app.</p>
+          <div>
+            <p className="text-xs text-navy/60">Can’t scan it? Enter this key manually:</p>
+            <p className="font-mono text-sm font-bold text-navy">{secretKey}</p>
+          </div>
           <label className="block text-sm font-semibold text-navy">
             Verification code
             <input value={code} onChange={(event) => setCode(event.target.value)} inputMode="numeric" className={inputClass} required />
