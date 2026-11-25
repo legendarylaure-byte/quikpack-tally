@@ -239,10 +239,84 @@ function CatalogueImport({ onImported }: { onImported: () => void }) {
   );
 }
 
+function MasterCsvImport({
+  collection,
+  title,
+  headers,
+  placeholder,
+  onImported,
+}: {
+  collection: "items" | "parties";
+  title: string;
+  headers: string;
+  placeholder: string;
+  onImported: () => void;
+}) {
+  const { user } = useAuth();
+  const [csv, setCsv] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
+
+  async function importCsv(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!user || !csv.trim()) {
+      return;
+    }
+    setBusy(true);
+    setMessage("");
+    try {
+      const token = await user.getIdToken();
+      const result = await apiFetch<{ created: number; updated: number }>(
+        token,
+        "/api/masters/import",
+        { method: "POST", body: JSON.stringify({ collection, csv }) },
+      );
+      setMessage(`Created ${result.created} and updated ${result.updated} ${title.toLowerCase()}.`);
+      setCsv("");
+      onImported();
+    } catch (error) {
+      setMessage(getErrorMessage(error));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <section className="glass-panel rounded-2xl p-6">
+      <h2 className="text-lg font-bold text-navy">Import {title.toLowerCase()}</h2>
+      <p className="mt-1 text-sm text-navy/65">
+        Paste CSV with headers <code>{headers}</code>. Matching SKUs or names are updated, not
+        duplicated.
+      </p>
+      <form onSubmit={importCsv} className="mt-4">
+        <textarea
+          value={csv}
+          onChange={(event) => setCsv(event.target.value)}
+          rows={4}
+          placeholder={placeholder}
+          className="w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-navy outline-none focus:border-brand"
+        />
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          <button
+            type="submit"
+            disabled={busy}
+            className="rounded-xl bg-navy px-5 py-2.5 text-sm font-bold text-white disabled:opacity-60"
+          >
+            {busy ? "Importing…" : "Import CSV"}
+          </button>
+          {message ? <p className="text-sm text-navy/70">{message}</p> : null}
+        </div>
+      </form>
+    </section>
+  );
+}
+
 function MastersContent() {
   const { can } = useAuth();
   const [tab, setTab] = useState("accounts");
   const [catalogueVersion, setCatalogueVersion] = useState(0);
+  const [partiesVersion, setPartiesVersion] = useState(0);
+  const [itemsVersion, setItemsVersion] = useState(0);
   const canWriteMasters = can("masters");
   const canWriteSettings = can("settings");
 
@@ -292,32 +366,56 @@ function MastersContent() {
           />
         ) : null}
         {tab === "parties" ? (
-          <ResourceManager
-            collection="parties"
-            title="Customers and suppliers"
-            fields={partyFields}
-            columns={partyColumns}
-            defaults={{ type: "customer", currency: "GHS" }}
-            canWrite={canWriteMasters}
-          />
+          <>
+            {canWriteMasters ? (
+              <MasterCsvImport
+                collection="parties"
+                title="parties"
+                headers="name,type,contactPerson,phone,email,tin,currency"
+                placeholder={`name,type,contactPerson,phone,email,tin,currency\nAma Serwaa,customer,,0240000000,ama@example.com,,GHS`}
+                onImported={() => setPartiesVersion((value) => value + 1)}
+              />
+            ) : null}
+            <ResourceManager
+              key={`parties-${partiesVersion}`}
+              collection="parties"
+              title="Customers and suppliers"
+              fields={partyFields}
+              columns={partyColumns}
+              defaults={{ type: "customer", currency: "GHS" }}
+              canWrite={canWriteMasters}
+            />
+          </>
         ) : null}
         {tab === "items" ? (
-          <ResourceManager
-            collection="items"
-            title="Items and services"
-            fields={itemFields}
-            columns={itemColumns}
-            defaults={{
-              taxCategory: "standard",
-              unit: "piece",
-              trackStock: true,
-              resellable: true,
-              salePriceMinor: 0,
-              purchasePriceMinor: 0,
-              reorderLevel: 0,
-            }}
-            canWrite={canWriteMasters}
-          />
+          <>
+            {canWriteMasters ? (
+              <MasterCsvImport
+                collection="items"
+                title="items"
+                headers="sku,name,unit,salePrice,purchasePrice,reorderLevel"
+                placeholder={`sku,name,unit,salePrice,purchasePrice,reorderLevel\nEP-001,A4 tissues,pack,45.00,30.00,10`}
+                onImported={() => setItemsVersion((value) => value + 1)}
+              />
+            ) : null}
+            <ResourceManager
+              key={`items-${itemsVersion}`}
+              collection="items"
+              title="Items and services"
+              fields={itemFields}
+              columns={itemColumns}
+              defaults={{
+                taxCategory: "standard",
+                unit: "piece",
+                trackStock: true,
+                resellable: true,
+                salePriceMinor: 0,
+                purchasePriceMinor: 0,
+                reorderLevel: 0,
+              }}
+              canWrite={canWriteMasters}
+            />
+          </>
         ) : null}
         {tab === "catalogue" ? (
           <>

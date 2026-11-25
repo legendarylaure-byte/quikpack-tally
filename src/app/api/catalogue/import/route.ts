@@ -1,47 +1,10 @@
 import { NextResponse } from "next/server";
 import { readBody } from "@/lib/api-body";
 import { requireMember } from "@/lib/api-member";
+import { parseCsvObjects } from "@/lib/csv";
 import { createDoc } from "@/lib/data";
 import { getErrorMessage } from "@/lib/errors";
 import { parseMoney } from "@/lib/money";
-
-function parseCsv(text: string): string[][] {
-  const rows: string[][] = [];
-  let row: string[] = [];
-  let cell = "";
-  let quoted = false;
-  for (let i = 0; i < text.length; i += 1) {
-    const char = text[i];
-    if (char === '"') {
-      if (quoted && text[i + 1] === '"') {
-        cell += '"';
-        i += 1;
-      } else {
-        quoted = !quoted;
-      }
-    } else if (char === "," && !quoted) {
-      row.push(cell.trim());
-      cell = "";
-    } else if ((char === "\n" || char === "\r") && !quoted) {
-      if (char === "\r" && text[i + 1] === "\n") {
-        i += 1;
-      }
-      row.push(cell.trim());
-      if (row.some(Boolean)) {
-        rows.push(row);
-      }
-      row = [];
-      cell = "";
-    } else {
-      cell += char;
-    }
-  }
-  row.push(cell.trim());
-  if (row.some(Boolean)) {
-    rows.push(row);
-  }
-  return rows;
-}
 
 export async function POST(request: Request) {
   const member = await requireMember(request, "masters");
@@ -61,14 +24,11 @@ export async function POST(request: Request) {
   if (Array.isArray(body.items)) {
     rows = body.items as Record<string, unknown>[];
   } else if (typeof body.csv === "string") {
-    const parsed = parseCsv(body.csv);
-    if (parsed.length < 2) {
-      return NextResponse.json({ error: "The CSV has no data rows." }, { status: 400 });
+    try {
+      rows = parseCsvObjects(body.csv);
+    } catch (error) {
+      return NextResponse.json({ error: getErrorMessage(error) }, { status: 400 });
     }
-    const headers = parsed[0].map((header) => header.toLowerCase().replace(/[^a-z0-9]/g, ""));
-    rows = parsed.slice(1).map((values) =>
-      Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])),
-    );
   } else {
     return NextResponse.json(
       { error: "Provide items or CSV data to import." },
