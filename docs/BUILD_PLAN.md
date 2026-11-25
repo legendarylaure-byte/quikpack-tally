@@ -19,11 +19,11 @@ This is the working build plan. It is based on every supplied document and the l
 
 | Blueprint area | Release | Notes |
 |---|---|---|
-| Multi-tenancy | MVP | Every document carries `companyId`; deny cross-tenant access. |
+| Single fixed company | MVP | One workspace, `quikpack-main`. Admin-created users only; no public signup or onboarding. |
 | Auth and RBAC | MVP | Owner, Accountant, Cashier, Viewer, Auditor. |
 | Optional 2FA/MFA | MVP | Firebase MFA where available; minimum optional email/password now. |
-| Onboarding wizard | MVP | Company, currency, tax status, fiscal period, opening balances. |
-| Sandbox/test company | MVP | Free demo workspace with Everpack sample data. |
+| Company setup screen | MVP | Admin-managed company, currency, tax status, fiscal period, opening balances. |
+| Demo seed data | MVP-lite | Everpack sample items inside the same workspace; no separate company. |
 | Excel/CSV import | MVP-lite | Items/parties import first. |
 | Tally ERP migration | Phase 2 | Too risky for first paid release. |
 | Company profile/settings | MVP | Logo, address, TIN, branches, fiscal calendar, currencies. |
@@ -92,8 +92,8 @@ This is the working build plan. It is based on every supplied document and the l
 
 A client is considered ready to pay when they can:
 
-1. Sign up and create a secure company workspace.
-2. Invite users with roles.
+1. Sign in to the fixed private workspace using an admin-created account.
+2. Admin invites users with roles.
 3. Set company profile, logo, TIN, currency, fiscal year and branches.
 4. Import or create chart of accounts, parties and items.
 5. Record sales, purchases, payments, receipts, journals and expenses.
@@ -109,7 +109,7 @@ A client is considered ready to pay when they can:
 
 - Frontend: Next.js App Router, TypeScript, Tailwind CSS, `src/`.
 - Hosting: Vercel.
-- Backend: Firebase Auth, Firestore, Cloud Functions, Storage, Security Rules.
+- Backend: Firebase Auth, Firestore and Security Rules; Next.js server API routes with the Admin SDK for privileged writes. No Cloud Functions or Storage on Spark.
 - Repo: GitHub monorepo-lite (`src/`, `functions/`, `docs/`, `scripts/`).
 - Environments: dev and prod Firebase projects; Vercel preview and production.
 - PDF: server-side invoice generation.

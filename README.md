@@ -64,13 +64,24 @@ npx firebase-tools deploy --only firestore:rules,firestore:indexes --project dev
 
 Deploy prod rules only after the dev flow has been tested.
 
+## Included modules
+
+- Company settings, branches, currencies, fiscal calendar and effective-dated Ghana tax rates.
+- Chart of accounts, parties/custom fields, items/SKU/barcode and Everpack catalogue import.
+- Balanced vouchers with reversal records and branch tags.
+- Stock by item/location with batch/expiry fields, FIFO/weighted valuation and low-stock alerts.
+- Client-branded invoices with separate VAT/NHIL/GETFund lines and PDF download.
+- Dashboard, P&L, trial balance, balance sheet, VAT, AR/AP, stock, cashflow, ledger and day book reports.
+- JSON/CSV export, append-only audit log, data deletion requests and manual payment proofs.
+- Optional TOTP authenticator enrollment, command bar, floating quick action and installable PWA shell.
+
 ## Current foundation
 
 - Next.js App Router + TypeScript + Tailwind CSS.
 - QUIKPACK brand tokens, logo and favicon.
 - Health endpoint: `/api/health`.
 - GitHub Actions CI for lint, typecheck, tests and build.
-- Firebase web client with optional Storage support.
+- Firebase web client; attachments are URL references only (no Cloud Storage on Spark).
 - Locked Firestore rules for the single company workspace.
 - Ghana VAT/NHIL/GETFund calculation module with tests.
 - Email/password login with approval and suspension gating.
@@ -79,7 +90,7 @@ Deploy prod rules only after the dev flow has been tested.
 
 ## What is not built yet
 
-Masters, vouchers, inventory, invoicing, PDF generation, reports, subscriptions, payment webhooks, audit log writes and product images are roadmap items. See `docs/BUILD_PLAN.md`.
+Provider-hosted Paystack/Flutterwave/Stripe checkout and webhook reconciliation, Cloud Storage attachment uploads, barcode scanning, Tally migration, AI entry, recurring invoices, full bank reconciliation and native mobile apps remain later phases. See `docs/BUILD_PLAN.md`.
 
 ## Legal
 

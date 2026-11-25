@@ -20,7 +20,7 @@ Use the legal identity on QUIKPACK subscription invoices, terms, receipts and le
 - Product name: QUIKPACK Tally System.
 - Target: cloud SaaS accounting/inventory/invoicing system for SMEs, franchises and non-technical users.
 - First paid release: MVP-first.
-- Delivery model: multi-tenant SaaS.
+- Delivery model: one fixed, private company workspace (`quikpack-main`). No public signup, onboarding or company creation; the admin creates every user.
 - Primary market: Ghana; foreign-currency display required.
 
 ## Branding
@@ -80,8 +80,10 @@ Use the legal identity on QUIKPACK subscription invoices, terms, receipts and le
 Keep the implementation boring and small:
 
 - Next.js monolith on Vercel.
-- Firebase Auth/Firestore/Functions/Storage.
+- Firebase Auth and Firestore only. Both projects stay on Spark; no Cloud Functions or Cloud Storage.
+- Privileged writes run in server API routes using the Firebase Admin SDK.
 - No microservices.
 - No plugin marketplace in first paid release.
 - No AI assistant in first paid release.
 - No native mobile app in first paid release.
+- All accounting, inventory, invoicing and reporting features from the build plan remain in scope.

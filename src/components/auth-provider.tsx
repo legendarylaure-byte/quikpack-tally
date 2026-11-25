@@ -11,7 +11,13 @@ import {
   type ReactNode,
 } from "react";
 import { getAuthClient, getDb, isFirebaseConfigured } from "@/lib/firebase";
-import { MAIN_COMPANY_ID, toMembership, type Membership } from "@/lib/permissions";
+import {
+  MAIN_COMPANY_ID,
+  toMembership,
+  type FeatureKey,
+  type Membership,
+  type Role,
+} from "@/lib/permissions";
 
 interface AuthState {
   user: User | null;
@@ -25,6 +31,8 @@ interface AuthValue {
   loading: boolean;
   configured: boolean;
   isAdmin: boolean;
+  role: Role | null;
+  can: (feature: FeatureKey) => boolean;
   membership: Membership | null;
 }
 
@@ -117,16 +125,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const value = useMemo<AuthValue>(
-    () => ({
+  const value = useMemo<AuthValue>(() => {
+    const isAdmin = state.claims.admin === true;
+    return {
       user: state.user,
       loading: state.status !== "ready",
       configured: isFirebaseConfigured,
-      isAdmin: state.claims.admin === true,
+      isAdmin,
+      role: isAdmin ? "admin" : (state.membership?.role ?? null),
+      can: (feature: FeatureKey) =>
+        isAdmin || state.membership?.permissions[feature] === true,
       membership: state.membership,
-    }),
-    [state],
-  );
+    };
+  }, [state]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
