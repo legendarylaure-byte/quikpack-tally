@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MarketingShell, marketingMetadata } from "@/components/marketing/marketing-shell";
 import { EnquiryForm } from "@/components/marketing/enquiry-form";
+import { AccentText } from "@/components/marketing/accent-text";
 import { MARKETING_ASSETS, PRODUCT_CATEGORIES } from "@/lib/marketing";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -34,7 +35,7 @@ export default async function ProductCategoryPage({ params }: Params) {
         <div className="mk-product-hero__inner">
           <div>
             <p className="mk-eyebrow" data-reveal>{category.eyebrow}</p>
-            <h1 data-reveal>{category.name}</h1>
+            <h1 data-reveal><AccentText text={category.name} words={1} animated /></h1>
             <p data-reveal>{category.title}</p>
           </div>
           <div className="mk-product-hero__visual" data-speed="-0.12" data-rot="4">
@@ -48,7 +49,7 @@ export default async function ProductCategoryPage({ params }: Params) {
         <div className="mk-section__inner">
           <div className="mk-section__lead">
             <p className="mk-eyebrow" data-reveal>What we supply</p>
-            <h2 data-reveal>Practical products, chosen for how you work.</h2>
+            <h2 data-reveal><AccentText text="Practical products, chosen for how you work." /></h2>
             <p className="mk-section__body" data-reveal>{category.body}</p>
           </div>
           <div className="mk-detail-list">
@@ -66,7 +67,7 @@ export default async function ProductCategoryPage({ params }: Params) {
         <div className="mk-section__inner">
           <div className="mk-section__lead">
             <p className="mk-eyebrow" data-reveal>Enquire</p>
-            <h2 data-reveal>Need this range for your business?</h2>
+            <h2 data-reveal><AccentText text="Need this range for your business?" /></h2>
             <p className="mk-section__body" data-reveal>Send volumes, pack preferences and delivery location. We will respond on WhatsApp.</p>
             <Link href={`/products/${next.slug}`} className="mk-text-link">Next: {next.name} →</Link>
           </div>

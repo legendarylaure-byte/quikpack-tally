@@ -17,7 +17,7 @@ import { totpHint } from "@/lib/mfa";
 import { SUPPORT } from "@/lib/constants";
 
 const inputClass =
-  "mt-1 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-navy outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20";
+  "mt-1 w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-navy outline-none transition focus:border-brand focus:ring-2 focus:ring-accent/40";
 
 export default function LoginPage() {
   const router = useRouter();

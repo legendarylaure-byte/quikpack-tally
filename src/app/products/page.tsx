@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MarketingShell, marketingMetadata } from "@/components/marketing/marketing-shell";
 import { MARKETING_ASSETS, PRODUCT_CATEGORIES } from "@/lib/marketing";
+import { AccentText } from "@/components/marketing/accent-text";
 
 export const metadata = marketingMetadata({
   title: "Products & Solutions",
@@ -15,7 +16,7 @@ export default function ProductsPage() {
       <section className="mk-page-hero" data-theme="light">
         <div className="mk-page-hero__inner">
           <p className="mk-eyebrow" data-reveal>Products & solutions</p>
-          <h1 data-reveal>Products that keep your day moving.</h1>
+          <h1 data-reveal><AccentText text="Products that keep your day moving." animated /></h1>
           <p className="mk-page-hero__body" data-reveal>
             Four practical ranges serve hotels, restaurants, cafés, retailers,
             institutions and homes across Ghana. Choose the products that fit

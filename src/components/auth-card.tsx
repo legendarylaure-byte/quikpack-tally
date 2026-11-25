@@ -29,7 +29,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
 
         <div className="auth-shell__story-content">
           <p className="auth-shell__eyebrow">Ghana-first supply partner</p>
-          <h2>Stocked for service, packed for speed.</h2>
+          <h2>Stocked for <span className="mk-accent mk-accent--sheen">service, packed</span> for speed.</h2>
           <p>
             From napkins and tissue to takeaway containers and cleaning
             essentials, QUIKPACK keeps hotels, restaurants, shops and homes
