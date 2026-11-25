@@ -1,155 +1,128 @@
 import Link from "next/link";
-import { COMPANY, CURRENCIES, SUPPORT, TAX } from "@/lib/constants";
+import { MarketingShell, marketingMetadata } from "@/components/marketing/marketing-shell";
+import { MARKETING_ASSETS, PRODUCT_CATEGORIES, SITE } from "@/lib/marketing";
 
-const foundationSteps = [
-  { label: "GitHub repository", done: true },
-  { label: "Next.js + Tailwind foundation", done: true },
-  { label: "Firebase dev and prod projects", done: true },
-  { label: "Vercel project connected", done: true },
-  { label: "Custom domain", done: false },
-  { label: "Recolored logo + favicon", done: true },
-  { label: "Payment provider accounts", done: false },
-];
-
-const releaseModules = [
-  "Private single-company workspace",
-  "Roles and permissions",
-  "Chart of accounts",
-  "Customers and suppliers",
-  "Products and barcode/SKU",
-  "Vouchers and reversals",
-  "Stock by location",
-  "Client-branded invoices",
-  "Ghana VAT, NHIL and GETFund",
-  "GHS, USD and NPR",
-  "Financial and tax reports",
-  "Append-only audit log",
-];
+export const metadata = marketingMetadata({
+  title: "QUIKPACK — Disposables & Cleaning Supply in Ghana",
+  description:
+    "QUIKPACK supplies HORECA, corporate and household customers with paper towels, napkins, takeaway containers, carry bags and cleaning supplies across Ghana.",
+  path: "/",
+});
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col bg-surface">
-      <header className="border-b border-navy/10">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-3">
-            <span className="brand-gradient flex size-10 items-center justify-center rounded-xl text-xl font-black text-white">
-              q
-            </span>
-            <div>
-              <p className="text-lg leading-none font-extrabold tracking-tight text-navy">
-                {COMPANY.brandName}
-              </p>
-              <p className="mt-1 text-[10px] tracking-[0.2em] text-navy/60 uppercase">
-                Tally System
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Link
-              href="/login"
-              className="rounded-full border border-navy/15 px-4 py-2 text-sm font-semibold text-navy transition hover:border-brand hover:text-brand"
-            >
-              Sign in
+    <MarketingShell>
+      <section className="mk-hero" id="top" data-theme="light">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="mk-flower mk-hero__flower"
+          src={MARKETING_ASSETS.cosmos}
+          alt=""
+          data-speed="-0.25"
+          data-rot="8"
+        />
+        <h1 className="mk-hero__title" data-speed="0.35">
+          <span className="line"><span>Everything your business</span></span>{" "}
+          <span className="line"><span>needs to serve, pack</span></span>{" "}
+          <span className="line"><span>and clean.</span></span>
+        </h1>
+        <div className="mk-hero__side">
+          <p>
+            From paper towels and napkins to takeaway containers, carry bags and
+            cleaning supplies — QUIKPACK supplies HORECA, corporate and household
+            customers across Ghana.
+          </p>
+          <div className="mk-hero__actions">
+            <Link href="/products" className="mk-button mk-button--primary">
+              Explore solutions
             </Link>
-            <a
-              href={SUPPORT.whatsappUrl}
-              className="rounded-full border border-navy/15 px-4 py-2 text-sm font-semibold text-navy transition hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-            >
-              WhatsApp support
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <section className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-24">
-        <div className="glass-panel rounded-3xl p-8 sm:p-12">
-          <p className="text-sm font-bold tracking-[0.25em] text-brand uppercase">
-            Ghana-first accounting SaaS
-          </p>
-          <h1 className="mt-5 max-w-3xl text-4xl leading-tight font-black tracking-tight sm:text-6xl">
-            Tally that fits how Ghana business actually works.
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-navy/70">
-            {COMPANY.tagline} Built for non-technical staff and accountants —
-            with client-branded invoices, stock control and GRA-ready tax lines.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/login"
-              className="brand-gradient rounded-full px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
-            >
+            <Link href={SITE.loginUrl} className="mk-button mk-button--dark">
               Sign in
             </Link>
           </div>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            {CURRENCIES.map((currency) => (
-              <span
-                key={currency}
-                className="rounded-full bg-navy px-4 py-2 text-sm font-bold text-white"
-              >
-                {currency}
-              </span>
-            ))}
-            <span className="rounded-full border border-brand/40 px-4 py-2 text-sm font-bold text-brand">
-              VAT {(TAX.vatRate * 100).toFixed(0)}%
-            </span>
-            <span className="rounded-full border border-brand/40 px-4 py-2 text-sm font-bold text-brand">
-              NHIL {(TAX.nhilRate * 100).toFixed(1)}%
-            </span>
-            <span className="rounded-full border border-brand/40 px-4 py-2 text-sm font-bold text-brand">
-              GETFund {(TAX.getfundRate * 100).toFixed(1)}%
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <section className="rounded-2xl border border-navy/10 bg-white p-6">
-            <h2 className="text-xl font-bold text-navy">Foundation checklist</h2>
-            <ul className="mt-5 space-y-3">
-              {foundationSteps.map((step) => (
-                <li key={step.label} className="flex items-center justify-between gap-4">
-                  <span className="text-sm text-navy/80">{step.label}</span>
-                  <span
-                    className={`rounded-full px-3 py-1 text-xs font-bold ${
-                      step.done
-                        ? "bg-brand/15 text-brand"
-                        : "bg-warning/20 text-navy/60"
-                    }`}
-                  >
-                    {step.done ? "Ready" : "Next"}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="rounded-2xl border border-navy/10 bg-white p-6">
-            <h2 className="text-xl font-bold text-navy">First paid release</h2>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {releaseModules.map((module) => (
-                <span
-                  key={module}
-                  className="rounded-lg bg-surface px-3 py-2 text-xs font-semibold text-navy/70"
-                >
-                  {module}
-                </span>
-              ))}
-            </div>
-          </section>
         </div>
       </section>
 
-      <footer className="mt-auto border-t border-navy/10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-8 text-xs text-navy/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            {COMPANY.legalName} · Reg {COMPANY.registrationNumber} · TIN{" "}
-            {COMPANY.tin}
-          </p>
-          <p>Powered by quikpack · Support {SUPPORT.whatsappNumber}</p>
+      <section className="mk-section mk-section--range" id="range" data-theme="light">
+        <div className="mk-section__inner">
+          <div className="mk-section__lead">
+            <p className="mk-eyebrow" data-reveal>One dependable source</p>
+            <h2 data-reveal>Everything your operation reaches for every day.</h2>
+            <p className="mk-section__body" data-reveal>
+              We bring the products busy kitchens, counters, homes and washrooms
+              use again and again into one practical supply relationship.
+            </p>
+          </div>
+          <div className="mk-category-grid">
+            {PRODUCT_CATEGORIES.map((category, index) => (
+              <Link
+                key={category.slug}
+                href={`/products/${category.slug}`}
+                className="mk-category-card"
+                data-reveal
+              >
+                <span className="mk-category-card__num">0{index + 1}</span>
+                <span className="mk-category-card__name">{category.name}</span>
+                <span className="mk-category-card__copy">{category.eyebrow}</span>
+                <span className="mk-category-card__arrow" aria-hidden="true">↗</span>
+              </Link>
+            ))}
+          </div>
         </div>
-      </footer>
-    </main>
+      </section>
+
+      <section className="mk-section mk-section--dark mk-section--manufacturing" id="manufacturing" data-theme="dark">
+        <div className="mk-section__inner">
+          <div className="mk-section__lead">
+            <div className="mk-big-num" data-speed="0.18" data-reveal>02</div>
+            <p className="mk-eyebrow" data-reveal>Manufacturing · new</p>
+            <h2 data-reveal>From trading strength to local production.</h2>
+            <p className="mk-section__body" data-reveal>
+              QUIKPACK is setting up manufacturing for table napkins and other
+              tissue materials — giving customers a more consistent, locally
+              grounded source for products they use in volume.
+            </p>
+            <Link href="/manufacturing" className="mk-button mk-button--light" data-reveal>
+              See our capability
+            </Link>
+          </div>
+          <div className="mk-section__visual" data-speed="-0.2" data-rot="10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={MARKETING_ASSETS.hangingCosmos} alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section className="mk-section mk-section--sustainability" id="sustainability" data-theme="light">
+        <div className="mk-section__inner">
+          <div className="mk-section__lead">
+            <p className="mk-eyebrow" data-reveal>Sustainability</p>
+            <h2 data-reveal>Practical choices for less waste.</h2>
+            <p className="mk-section__body" data-reveal>
+              Sustainability in disposables is about better decisions at the
+              product, pack and replenishment level — not slogans. We focus on
+              choices that can hold up in daily operations.
+            </p>
+            <div className="mk-detail-list">
+              <article data-reveal>
+                <h3>Responsible sourcing</h3>
+                <p>Supplier and material choices reviewed with care.</p>
+              </article>
+              <article data-reveal>
+                <h3>Right-sized packing</h3>
+                <p>Less unnecessary material in transit and storage.</p>
+              </article>
+            </div>
+            <Link href="/sustainability" className="mk-text-link" data-reveal>
+              Read our approach →
+            </Link>
+          </div>
+          <div className="mk-section__visual" data-speed="-0.16" data-rot="-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={MARKETING_ASSETS.iris} alt="" />
+          </div>
+        </div>
+      </section>
+    </MarketingShell>
   );
 }
