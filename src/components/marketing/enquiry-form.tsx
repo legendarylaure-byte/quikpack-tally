@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { PRODUCT_CATEGORIES, SITE } from "@/lib/marketing";
+import { ACCESS_REQUEST_URL, PRODUCT_CATEGORIES, SITE } from "@/lib/marketing";
 
 type FormState = {
   name: string;
@@ -99,11 +99,14 @@ export function EnquiryForm() {
         <button type="submit" className="mk-button mk-button--primary">
           Send via WhatsApp
         </button>
-        <a className="mk-button mk-button--ghost" href={SITE.whatsappUrl} target="_blank" rel="noreferrer">
+        <a className="mk-button mk-button--outline" href={SITE.whatsappUrl} target="_blank" rel="noreferrer">
           Chat directly
         </a>
       </div>
       <p className="mk-form__note">This opens WhatsApp with your enquiry prefilled — no separate account needed.</p>
+      <a href={ACCESS_REQUEST_URL} target="_blank" rel="noreferrer" className="mk-text-link">
+        Need QUIKPACK Tally access? Sign up →
+      </a>
     </form>
   );
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { NAV_LINKS, SITE } from "@/lib/marketing";
+import { ACCESS_REQUEST_URL, NAV_LINKS, SITE } from "@/lib/marketing";
 
 const MOBILE_LINKS = [
   { href: "/", label: "Home" },
@@ -40,7 +40,7 @@ export function MarketingHeader() {
             <StarMark />
             <span>
               <strong>{SITE.brand}</strong>
-              <small>Tally System</small>
+              <small>{SITE.legalName}</small>
             </span>
           </Link>
 
@@ -57,7 +57,10 @@ export function MarketingHeader() {
           </nav>
 
           <div className="mk-nav__actions">
-            <Link href={SITE.loginUrl} className="mk-button mk-button--dark">
+            <a href={ACCESS_REQUEST_URL} target="_blank" rel="noreferrer" className="mk-button mk-button--primary">
+              Sign up
+            </a>
+            <Link href={SITE.loginUrl} className="mk-button mk-button--outline">
               Sign in
             </Link>
             <button
@@ -82,7 +85,16 @@ export function MarketingHeader() {
                 {link.label}
               </Link>
             ))}
-            <Link href={SITE.loginUrl} className="mk-button mk-button--primary" onClick={() => setOpen(false)}>
+            <a
+              href={ACCESS_REQUEST_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="mk-button mk-button--primary"
+              onClick={() => setOpen(false)}
+            >
+              Sign up
+            </a>
+            <Link href={SITE.loginUrl} className="mk-button mk-button--outline" onClick={() => setOpen(false)}>
               Sign in to Tally
             </Link>
           </nav>

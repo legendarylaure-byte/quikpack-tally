@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
@@ -23,34 +23,40 @@ type BeeAssets = {
   wingTexture: THREE.CanvasTexture;
 };
 
+type WingParts = {
+  flaps: Array<{ group: THREE.Group; phase: number }>;
+  geometries: THREE.BufferGeometry[];
+  materials: THREE.Material[];
+};
+
 let assetsPromise: Promise<BeeAssets> | null = null;
 
 const HOME_DESKTOP: Keyframe[] = [
-  { x: -0.03, y: -0.12, s: 1, yaw: 150, pitch: 6, roll: -4 },
-  { x: -0.3, y: -0.04, s: 1, yaw: 125, pitch: 10, roll: 6 },
-  { x: 0.22, y: -0.3, s: 1, yaw: 40, pitch: -6, roll: -8 },
-  { x: -0.22, y: 0.02, s: 0.96, yaw: 160, pitch: 8, roll: 4 },
-  { x: 0.02, y: -0.08, s: 0.92, yaw: 105, pitch: 4, roll: 0 },
+  { x: -0.03, y: -0.12, s: 1, yaw: 18, pitch: 6, roll: -4 },
+  { x: -0.3, y: -0.04, s: 1, yaw: -14, pitch: 10, roll: 6 },
+  { x: 0.22, y: -0.3, s: 1, yaw: 24, pitch: -6, roll: -8 },
+  { x: -0.22, y: 0.02, s: 0.96, yaw: -20, pitch: 8, roll: 4 },
+  { x: 0.02, y: -0.08, s: 0.92, yaw: 8, pitch: 4, roll: 0 },
 ];
 
 const HOME_MOBILE: Keyframe[] = [
-  { x: 0.05, y: -0.02, s: 0.75, yaw: 150, pitch: 6, roll: -4 },
-  { x: 0.1, y: 0.12, s: 0.8, yaw: 125, pitch: 10, roll: 6 },
-  { x: 0.15, y: -0.2, s: 0.75, yaw: 40, pitch: -6, roll: -8 },
-  { x: 0.25, y: 0.2, s: 0.72, yaw: 160, pitch: 8, roll: 4 },
-  { x: 0, y: 0.1, s: 0.7, yaw: 105, pitch: 4, roll: 0 },
+  { x: 0.05, y: -0.02, s: 0.75, yaw: 14, pitch: 6, roll: -4 },
+  { x: 0.1, y: 0.12, s: 0.8, yaw: -12, pitch: 10, roll: 6 },
+  { x: 0.15, y: -0.2, s: 0.75, yaw: 20, pitch: -6, roll: -8 },
+  { x: 0.25, y: 0.2, s: 0.72, yaw: -16, pitch: 8, roll: 4 },
+  { x: 0, y: 0.1, s: 0.7, yaw: 6, pitch: 4, roll: 0 },
 ];
 
 const INNER_DESKTOP: Keyframe[] = [
-  { x: -0.22, y: -0.08, s: 0.92, yaw: 145, pitch: 6, roll: -4 },
-  { x: 0.24, y: -0.16, s: 0.96, yaw: 55, pitch: -5, roll: 7 },
-  { x: -0.12, y: 0.04, s: 0.9, yaw: 165, pitch: 7, roll: -5 },
+  { x: -0.22, y: -0.08, s: 0.92, yaw: 16, pitch: 6, roll: -4 },
+  { x: 0.24, y: -0.16, s: 0.96, yaw: -16, pitch: -5, roll: 7 },
+  { x: -0.12, y: 0.04, s: 0.9, yaw: 20, pitch: 7, roll: -5 },
 ];
 
 const INNER_MOBILE: Keyframe[] = [
-  { x: 0.08, y: -0.04, s: 0.7, yaw: 150, pitch: 5, roll: -3 },
-  { x: 0.16, y: -0.18, s: 0.72, yaw: 60, pitch: -4, roll: 6 },
-  { x: 0.05, y: 0.12, s: 0.68, yaw: 160, pitch: 6, roll: -4 },
+  { x: 0.08, y: -0.04, s: 0.7, yaw: 12, pitch: 5, roll: -3 },
+  { x: 0.16, y: -0.18, s: 0.72, yaw: -18, pitch: -4, roll: 6 },
+  { x: 0.05, y: 0.12, s: 0.68, yaw: 18, pitch: 6, roll: -4 },
 ];
 
 function ease(t: number): number {
@@ -66,12 +72,16 @@ function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t;
 }
 
+function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
+}
+
 function targetAt(progress: number, keys: Keyframe[]): Target {
   const value = Number.isFinite(progress) ? progress : 0;
-  const clamped = Math.max(0, Math.min(value, keys.length - 1));
+  const clamped = clamp(value, 0, keys.length - 1);
   const index = Math.min(keys.length - 2, Math.floor(clamped));
   const fraction = clamped - index;
-  const t = ease(Math.max(0, Math.min((fraction - 0.12) / 0.76, 1)));
+  const t = ease(clamp((fraction - 0.12) / 0.76, 0, 1));
   const a = keys[index];
   const b = keys[Math.min(index + 1, keys.length - 1)];
   const moving = Math.sin(t * Math.PI);
@@ -108,7 +118,7 @@ function loadWingTexture(image: HTMLImageElement): THREE.CanvasTexture {
     const green = data[index + 1];
     const blue = data[index + 2];
     const luminance = (red * 0.3 + green * 0.59 + blue * 0.11) / 255;
-    const alpha = Math.max(0, Math.min((luminance - 0.035) * 4.2, 1)) * 255;
+    const alpha = clamp((luminance - 0.035) * 4.2, 0, 1) * 255;
     data[index] = Math.min(255, red * 1.5 + 30);
     data[index + 1] = Math.min(255, green * 1.5 + 30);
     data[index + 2] = Math.min(255, blue * 1.5 + 40);
@@ -150,14 +160,12 @@ function getBeeAssets(): Promise<BeeAssets> {
   return assetsPromise;
 }
 
-type Flap = { group: THREE.Group; phase: number };
-
 function buildWings(
   beeRoot: THREE.Group,
   anchor: THREE.Vector3,
   texture: THREE.CanvasTexture,
-): Flap[] {
-  const flaps: Flap[] = [];
+): WingParts {
+  const parts: WingParts = { flaps: [], geometries: [], materials: [] };
   const wings = [
     { span: 0.72, sweep: -0.42, phase: 0, lift: 0.02 },
     { span: 0.52, sweep: -0.95, phase: -0.5, lift: -0.01 },
@@ -184,6 +192,7 @@ function buildWings(
       geometry.translate(wing.span / 2 - wing.span * 0.03, 0, 0);
       geometry.rotateX(-Math.PI / 2);
       geometry.rotateY(-Math.PI / 2);
+      parts.geometries.push(geometry);
 
       for (const copy of copies) {
         const material = new THREE.MeshBasicMaterial({
@@ -195,36 +204,51 @@ function buildWings(
           color: 0xffffff,
           blending: THREE.NormalBlending,
         });
+        parts.materials.push(material);
         const mesh = new THREE.Mesh(geometry, material);
         mesh.frustumCulled = false;
         const flap = new THREE.Group();
         flap.add(mesh);
         sweep.add(flap);
-        flaps.push({ group: flap, phase: wing.phase + copy.offset });
+        parts.flaps.push({ group: flap, phase: wing.phase + copy.offset });
       }
     }
   }
 
-  return flaps;
+  return parts;
 }
 
 export function BeeScene() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const pathname = usePathname();
+  return <BeeSceneCanvas key={pathname} pathname={pathname} />;
+}
+
+function BeeSceneCanvas({ pathname }: { pathname: string }) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [showFallback, setShowFallback] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!canvas) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
 
     let disposed = false;
     let frame = 0;
+    let loadTimer = 0;
     let scene: THREE.Scene | null = null;
+    let environmentTexture: THREE.Texture | null = null;
+    let wings: WingParts = { flaps: [], geometries: [], materials: [] };
 
-    const rendererInstance = new THREE.WebGLRenderer({
-      canvas,
-      antialias: true,
-      alpha: true,
-    });
+    let rendererInstance: THREE.WebGLRenderer;
+    try {
+      rendererInstance = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    } catch {
+      return;
+    }
+
     rendererInstance.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     rendererInstance.outputColorSpace = THREE.SRGBColorSpace;
     rendererInstance.toneMapping = THREE.ACESFilmicToneMapping;
@@ -232,7 +256,8 @@ export function BeeScene() {
 
     scene = new THREE.Scene();
     const pmrem = new THREE.PMREMGenerator(rendererInstance);
-    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    environmentTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environment = environmentTexture;
 
     const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.set(0, 0, 10);
@@ -265,19 +290,23 @@ export function BeeScene() {
     onResize();
     window.addEventListener("resize", onResize);
 
-    let assets: BeeAssets | null = null;
-    let flaps: Flap[] = [];
+    let ready = false;
+
+    loadTimer = window.setTimeout(() => {
+      if (!ready) setShowFallback(true);
+    }, 6000);
 
     getBeeAssets()
       .then((loaded) => {
         if (disposed) return;
-        assets = loaded;
+
+        const model = loaded.model.clone(true);
         const holder = new THREE.Group();
         beeRoot.add(holder);
-        holder.add(loaded.model);
-        loaded.model.rotation.set(0, Math.PI / 2, 0);
+        holder.add(model);
+        model.rotation.set(0, Math.PI / 2, 0);
 
-        loaded.model.traverse((object) => {
+        model.traverse((object) => {
           const mesh = object as THREE.Mesh;
           if (!mesh.isMesh) return;
           mesh.frustumCulled = false;
@@ -304,8 +333,11 @@ export function BeeScene() {
           (finalBox.max.z - finalBox.min.z) * 0.05,
         );
 
-        flaps = buildWings(beeRoot, anchor, loaded.wingTexture);
+        wings = buildWings(beeRoot, anchor, loaded.wingTexture);
+        ready = true;
         canvas.classList.add("ready");
+        setShowFallback(false);
+        window.clearTimeout(loadTimer);
 
         const keys = keyframesFor(pathname, window.innerWidth < 760);
         const current = targetAt(0, keys);
@@ -313,8 +345,9 @@ export function BeeScene() {
         const radians = Math.PI / 180;
 
         function animate() {
-          if (disposed || !assets) return;
+          if (disposed) return;
           frame = window.requestAnimationFrame(animate);
+          if (document.hidden) return;
 
           const delta = Math.min(clock.getDelta(), 0.05);
           const elapsed = clock.getElapsedTime();
@@ -331,7 +364,11 @@ export function BeeScene() {
           current.s += (target.s - current.s) * easePosition;
           current.pitch += (target.pitch - current.pitch) * easePosition;
           current.roll += (target.roll - current.roll) * easePosition;
-          current.yaw += lerpAngle(current.yaw, target.yaw, easeYaw);
+
+          const desiredYawStep = lerpAngle(current.yaw, target.yaw, easeYaw);
+          const maxYawStep = 75 * delta;
+          current.yaw += clamp(desiredYawStep, -maxYawStep, maxYawStep);
+          current.yaw = ((current.yaw + 180) % 360 + 360) % 360 - 180;
 
           const velocityX = delta > 0 ? (current.x - previousX) / delta : 0;
           const velocityY = delta > 0 ? (current.y - previousY) / delta : 0;
@@ -349,14 +386,14 @@ export function BeeScene() {
             Math.sin(elapsed * 0.9) * 0.15,
           );
           flight.scale.setScalar(halfHeight * 2 * 0.3 * current.s);
-          flight.rotation.set(0, -(current.yaw + pointer.sx * 12) * radians, 0);
+          flight.rotation.set(0, -(current.yaw + pointer.sx * 6) * radians, 0);
 
-          const pitch = current.pitch - Math.max(-28, Math.min(28, velocityY * 22)) + Math.sin(elapsed * 2.1 + 1) * 3 + pointer.sy * 6;
-          const roll = current.roll + Math.max(-30, Math.min(30, velocityX * 18)) + Math.sin(elapsed * 1.7) * 4;
+          const pitch = current.pitch - clamp(velocityY * 16, -20, 20) + Math.sin(elapsed * 2.1 + 1) * 2 + pointer.sy * 4;
+          const roll = current.roll + clamp(velocityX * 12, -20, 20) + Math.sin(elapsed * 1.7) * 3;
           beeRoot.rotation.set(roll * radians, 0, pitch * radians, "YZX");
 
           const frequency = Math.PI * 2 * (17 + target.moving * 5);
-          for (const flap of flaps) {
+          for (const flap of wings.flaps) {
             const wave = Math.sin(elapsed * frequency + flap.phase);
             flap.group.rotation.x = -0.25 + wave * 0.95;
             flap.group.rotation.y = wave * 0.18;
@@ -368,28 +405,32 @@ export function BeeScene() {
         animate();
       })
       .catch(() => {
-        canvas.classList.remove("ready");
+        window.clearTimeout(loadTimer);
+        if (!disposed) setShowFallback(true);
       });
 
     return () => {
       disposed = true;
+      window.clearTimeout(loadTimer);
       window.cancelAnimationFrame(frame);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("resize", onResize);
       canvas.classList.remove("ready");
-      if (scene) {
-        scene.traverse((object) => {
-          const mesh = object as THREE.Mesh;
-          if (!mesh.isMesh) return;
-          mesh.geometry?.dispose();
-          const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
-          for (const material of materials) material?.dispose();
-        });
-      }
+      for (const geometry of wings.geometries) geometry.dispose();
+      for (const material of wings.materials) material.dispose();
+      environmentTexture?.dispose();
       pmrem.dispose();
       rendererInstance.dispose();
     };
   }, [pathname]);
 
-  return <canvas ref={canvasRef} id="bee" aria-hidden="true" />;
+  return (
+    <>
+      <canvas ref={canvasRef} id="bee" aria-hidden="true" />
+      {showFallback ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img id="bee-fallback" src={MARKETING_ASSETS.beeFallback} alt="" aria-hidden="true" />
+      ) : null}
+    </>
+  );
 }

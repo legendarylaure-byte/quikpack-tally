@@ -15,6 +15,7 @@ export const MARKETING_ASSETS = {
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132921_d71538ea-5066-4372-963a-2f2d6468374f.png",
   beeGlb:
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132918_e8364d8f-7df2-4788-a725-dec28ec19af8.glb",
+  beeFallback: "/assets/marketing/bee-fallback.png",
   wingTexture:
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132814_3a56ac14-47d8-4e49-a163-94234dea5639.png",
 } as const;
@@ -29,6 +30,10 @@ export const SITE = {
   whatsappUrl: SUPPORT.whatsappUrl,
   loginUrl: "/login",
 } as const;
+
+export const ACCESS_REQUEST_URL = `https://wa.me/${SITE.whatsapp.replace("+", "")}?text=${encodeURIComponent(
+  "Hello QUIKPACK, I would like to request access to QUIKPACK Tally. Please share the next steps.",
+)}`;
 
 export const NAV_LINKS = [
   { href: "/products", label: "Products" },

@@ -36,7 +36,7 @@ export default function Home() {
             <Link href="/products" className="mk-button mk-button--primary">
               Explore solutions
             </Link>
-            <Link href={SITE.loginUrl} className="mk-button mk-button--dark">
+            <Link href={SITE.loginUrl} className="mk-button mk-button--outline">
               Sign in
             </Link>
           </div>

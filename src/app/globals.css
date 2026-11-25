@@ -89,7 +89,7 @@ body {
   font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
 
-.mk-site a {
+.mk-site a:not(.mk-button) {
   color: inherit;
   text-decoration: none;
 }
@@ -153,11 +153,14 @@ body {
 
 .mk-logo small {
   display: block;
+  max-width: 210px;
   margin-top: 4px;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  opacity: 0.6;
+  font-size: 8.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.68;
 }
 
 .mk-nav__links {
@@ -208,8 +211,8 @@ body.mk-dark-nav .mk-badge {
   justify-content: center;
   gap: 10px;
   border-radius: 999px;
-  padding: 12px 20px;
-  font-size: 14px;
+  padding: 12px 22px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.2;
   transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
@@ -217,22 +220,31 @@ body.mk-dark-nav .mk-badge {
 
 .mk-button:hover {
   transform: translateY(-2px);
+  opacity: 0.94;
 }
 
-.mk-button--dark {
-  background: var(--mk-ink);
-  color: #fff;
+.mk-button:focus-visible {
+  outline: 3px solid rgba(91, 59, 209, 0.35);
+  outline-offset: 3px;
 }
 
 .mk-button--primary {
+  border: 1px solid var(--mk-violet);
   background: var(--mk-violet);
   color: #fff;
   box-shadow: 0 14px 30px rgba(91, 59, 209, 0.25);
 }
 
+.mk-button--outline {
+  border: 1px solid rgba(91, 59, 209, 0.3);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--mk-violet);
+  box-shadow: 0 10px 24px rgba(47, 29, 88, 0.08);
+}
+
 .mk-button--ghost {
-  border: 1px solid rgba(13, 11, 26, 0.18);
-  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(13, 11, 26, 0.16);
+  background: rgba(255, 255, 255, 0.72);
   color: var(--mk-ink);
 }
 
@@ -241,10 +253,11 @@ body.mk-dark-nav .mk-badge {
   color: var(--mk-violet);
 }
 
-.mk-button--dark:hover,
-.mk-button--primary:hover,
-.mk-button--light:hover {
-  opacity: 0.92;
+body.mk-dark-nav .mk-nav .mk-button--primary,
+body.mk-dark-nav .mk-nav .mk-button--outline {
+  border-color: transparent;
+  background: #fff;
+  color: var(--mk-violet);
 }
 
 .mk-menu-button {
@@ -285,14 +298,21 @@ body.mk-dark-nav .mk-badge {
   font-weight: 500;
 }
 
-.mk-mobile-menu nav a:hover {
+.mk-mobile-menu nav a:not(.mk-button):hover {
   background: rgba(91, 59, 209, 0.08);
   color: var(--mk-violet);
 }
 
 .mk-mobile-menu .mk-button {
   margin-top: 8px;
+}
+
+.mk-mobile-menu .mk-button--primary {
   color: #fff;
+}
+
+.mk-mobile-menu .mk-button--outline {
+  color: var(--mk-violet);
 }
 
 .mk-badge {
@@ -338,6 +358,34 @@ body.mk-dark-nav .mk-badge b {
 
 #bee.ready {
   opacity: 1;
+}
+
+#bee-fallback {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  width: min(30vh, 220px);
+  max-width: 32vw;
+  pointer-events: none;
+  filter: drop-shadow(0 24px 34px rgba(47, 29, 88, 0.24));
+  animation: mk-bee-float 5s ease-in-out infinite;
+}
+
+@keyframes mk-bee-float {
+  0%,
+  100% {
+    transform: translate(-50%, calc(-50% + 4px)) rotate(-2deg);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 8px)) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #bee-fallback {
+    animation: none;
+  }
 }
 
 .mk-flower {
@@ -1079,11 +1127,31 @@ body.mk-dark-nav .mk-badge b {
     padding-top: 14px;
   }
 
-  .mk-logo span {
-    display: none;
+  .mk-logo {
+    margin-right: 12px;
   }
 
-  .mk-nav .mk-button--dark {
+  .mk-logo svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mk-logo strong {
+    font-size: 13px;
+  }
+
+  .mk-logo small {
+    max-width: 132px;
+    font-size: 7px;
+    letter-spacing: 0.06em;
+  }
+
+  .mk-nav__actions .mk-button {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
+  .mk-nav__actions .mk-button--outline {
     display: none;
   }
 
@@ -1155,6 +1223,11 @@ body.mk-dark-nav .mk-badge b {
   .mk-footer__links {
     gap: 28px;
     font-size: 13px;
+  }
+
+  #bee-fallback {
+    width: min(26vh, 150px);
+    max-width: 38vw;
   }
 
   .mk-badge {
