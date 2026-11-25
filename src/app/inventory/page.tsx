@@ -65,8 +65,11 @@ function InventoryContent() {
   const itemName = (id: unknown) =>
     String(items.find((item) => item.id === id)?.name ?? id ?? "—");
 
+  const reorderFor = (row: Row) =>
+    Number(row.reorderLevel ?? 0) ||
+    Number(items.find((item) => item.id === row.itemId)?.reorderLevel ?? 0);
   const lowStock = stock.filter(
-    (row) => Number(row.quantity ?? 0) <= Number(row.reorderLevel ?? 0),
+    (row) => Number(row.quantity ?? 0) <= reorderFor(row),
   );
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -210,13 +213,13 @@ function InventoryContent() {
               </thead>
               <tbody>
                 {stock.map((row) => {
-                  const isLow = Number(row.quantity ?? 0) <= Number(row.reorderLevel ?? 0);
+                  const isLow = Number(row.quantity ?? 0) <= reorderFor(row);
                   return (
                     <tr key={row.id} className="border-b border-navy/5 last:border-0">
                       <td className="px-3 py-3 font-semibold text-navy">{itemName(row.itemId)}</td>
                       <td className="px-3 py-3 text-navy/70">{String(row.location ?? "")}</td>
                       <td className="px-3 py-3 text-navy/70">{Number(row.quantity ?? 0)}</td>
-                      <td className="px-3 py-3 text-navy/70">{Number(row.reorderLevel ?? 0)}</td>
+                      <td className="px-3 py-3 text-navy/70">{reorderFor(row)}</td>
                       <td className="px-3 py-3 text-navy/70">{formatMoney(Number(row.unitCostMinor ?? 0))}</td>
                       <td className="px-3 py-3">
                         <span className={`rounded-full px-3 py-1 text-xs font-bold ${isLow ? "bg-error/10 text-error" : "bg-brand/15 text-brand"}`}>

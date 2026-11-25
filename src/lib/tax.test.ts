@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { calculateGhanaTax } from "./tax";
+import { calculateGhanaTax, DEFAULT_TAX_RATES, resolveTaxRates } from "./tax";
 
 test("tax-exclusive GHS 1,000 adds VAT, NHIL and GETFund", () => {
   assert.deepEqual(
@@ -62,6 +62,11 @@ test("rounding stays consistent for awkward amounts", () => {
       result.taxableMinor + result.totalTaxMinor,
     );
   }
+});
+
+test("missing or unusable tax rates fall back to Ghana defaults", () => {
+  assert.deepEqual(resolveTaxRates([], "2026-11-25"), DEFAULT_TAX_RATES);
+  assert.deepEqual(resolveTaxRates([], "not-a-date"), DEFAULT_TAX_RATES);
 });
 
 test("invalid amounts are rejected", () => {

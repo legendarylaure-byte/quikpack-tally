@@ -179,7 +179,7 @@ const taxFields: FieldDef[] = [
   { key: "note", label: "Note", type: "text" },
 ];
 
-function CatalogueImport() {
+function CatalogueImport({ onImported }: { onImported: () => void }) {
   const { user } = useAuth();
   const [csv, setCsv] = useState("");
   const [busy, setBusy] = useState(false);
@@ -201,6 +201,7 @@ function CatalogueImport() {
       );
       setMessage(`Imported ${result.imported} items.`);
       setCsv("");
+      onImported();
     } catch (error) {
       setMessage(getErrorMessage(error));
     } finally {
@@ -241,6 +242,7 @@ function CatalogueImport() {
 function MastersContent() {
   const { can } = useAuth();
   const [tab, setTab] = useState("accounts");
+  const [catalogueVersion, setCatalogueVersion] = useState(0);
   const canWriteMasters = can("masters");
   const canWriteSettings = can("settings");
 
@@ -319,8 +321,9 @@ function MastersContent() {
         ) : null}
         {tab === "catalogue" ? (
           <>
-            <CatalogueImport />
+            <CatalogueImport onImported={() => setCatalogueVersion((value) => value + 1)} />
             <ResourceManager
+              key={`catalogue-${catalogueVersion}`}
               collection="catalogue"
               title="Everpack catalogue"
               description="Source prices stay in GHS; display is controlled by company settings."

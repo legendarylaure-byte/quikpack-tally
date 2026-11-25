@@ -165,7 +165,10 @@ export async function getAllDataForExport(uid: string) {
   const unique = Array.from(new Set(names));
   const result: Record<string, unknown[]> = {};
   for (const name of unique) {
-    result[name] = await listDocs(name, { orderBy: "createdAt" });
+    result[name] = await listDocs(
+      name,
+      name === "auditLogs" ? { orderBy: "at" } : { orderBy: "createdAt" },
+    );
   }
   await writeAudit("auditLogs", "export", "export", uid);
   return result;

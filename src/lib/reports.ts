@@ -363,7 +363,7 @@ export interface StockMovementRow {
 export function stockMovementReport(
   stock: StockDoc[],
   movements: StockMovement[],
-  items: Array<{ id?: string; name: string }>,
+  items: Array<{ id?: string; name: string; reorderLevel?: number }>,
   method: ValuationMethod = "weighted",
 ): StockMovementRow[] {
   return stock.map((doc) => {
@@ -372,10 +372,11 @@ export function stockMovementReport(
         movement.itemId === doc.itemId && movement.location === doc.location,
     );
     const valuation = valueStock(relevant, method);
+    const item = items.find((candidate) => candidate.id === doc.itemId);
     return {
       itemId: doc.itemId,
       location: doc.location,
-      name: items.find((item) => item.id === doc.itemId)?.name ?? doc.itemId,
+      name: item?.name ?? doc.itemId,
       quantityIn: relevant
         .filter((movement) => movement.direction === "in")
         .reduce((sum, movement) => sum + num(movement.quantity), 0),
@@ -384,7 +385,7 @@ export function stockMovementReport(
         .reduce((sum, movement) => sum + num(movement.quantity), 0),
       onHand: valuation.quantity || num(doc.quantity),
       valueMinor: valuation.valueMinor || num(doc.quantity) * num(doc.unitCostMinor),
-      reorderLevel: num(doc.reorderLevel),
+      reorderLevel: num(doc.reorderLevel) || num(item?.reorderLevel),
     };
   });
 }

@@ -158,6 +158,7 @@ export interface Invoice {
 
 export interface StockMovement {
   id?: string;
+  createdAt?: string;
   itemId: string;
   location: string;
   direction: "in" | "out";

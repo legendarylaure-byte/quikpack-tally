@@ -15,8 +15,9 @@ export function valueStock(
   method: ValuationMethod = "weighted",
 ): StockValuation {
   const ordered = [...movements].sort((a, b) => {
-    const byDate = new Date(a.date).getTime() - new Date(b.date).getTime();
-    return byDate || String(a.id ?? "").localeCompare(String(b.id ?? ""));
+    const byDate = String(a.date ?? "").localeCompare(String(b.date ?? ""));
+    const byCreated = String(a.createdAt ?? "").localeCompare(String(b.createdAt ?? ""));
+    return byDate || byCreated || String(a.id ?? "").localeCompare(String(b.id ?? ""));
   });
 
   let quantity = 0;
