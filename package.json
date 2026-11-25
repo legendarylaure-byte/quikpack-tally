@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test src/**/*.test.ts",
-    "bootstrap:admin": "tsx scripts/bootstrap-admin.ts"
+    "bootstrap:admin": "tsx scripts/bootstrap-admin.ts",
+    "seed:demo": "tsx scripts/seed-demo.ts"
   },
   "dependencies": {
     "firebase": "^11.10.0",
