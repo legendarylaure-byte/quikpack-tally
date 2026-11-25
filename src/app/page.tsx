@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MarketingShell, marketingMetadata } from "@/components/marketing/marketing-shell";
-import { MARKETING_ASSETS, PRODUCT_CATEGORIES, SITE } from "@/lib/marketing";
+import { MARKETING_ASSETS, PRODUCT_CATEGORIES } from "@/lib/marketing";
 
 export const metadata = marketingMetadata({
   title: "QUIKPACK — Disposables & Cleaning Supply in Ghana",
@@ -16,7 +16,7 @@ export default function Home() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="mk-visual mk-hero__visual"
-          src={MARKETING_ASSETS.cosmos}
+          src={MARKETING_ASSETS.productCups}
           alt=""
           data-speed="-0.25"
           data-rot="8"
@@ -36,8 +36,8 @@ export default function Home() {
             <Link href="/products" className="mk-button mk-button--primary">
               Explore solutions
             </Link>
-            <Link href={SITE.loginUrl} className="mk-button mk-button--outline">
-              Sign in
+            <Link href="/contact" className="mk-button mk-button--outline">
+              Enquiry
             </Link>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function Home() {
           </div>
           <div className="mk-section__visual" data-speed="-0.2" data-rot="10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={MARKETING_ASSETS.hangingCosmos} alt="" />
+            <img src={MARKETING_ASSETS.carryBag} alt="" />
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function Home() {
           </div>
           <div className="mk-section__visual" data-speed="-0.16" data-rot="-8">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={MARKETING_ASSETS.iris} alt="" />
+            <img src={MARKETING_ASSETS.householdTissue} alt="" />
           </div>
         </div>
       </section>

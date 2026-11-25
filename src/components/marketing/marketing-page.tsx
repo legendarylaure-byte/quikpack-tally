@@ -17,7 +17,7 @@ function DetailList({ items }: { items?: MarketingSection["items"] }) {
 }
 
 function Section({ section, index }: { section: MarketingSection; index: number }) {
-  const visual = section.visual ?? MARKETING_ASSETS.cosmos;
+  const visual = section.visual ?? MARKETING_ASSETS.productCups;
 
   return (
     <section className={`mk-section mk-section--${section.layout ?? "split"}${section.reverse ? " mk-section--reverse" : ""}`} data-theme={section.theme ?? "light"}>

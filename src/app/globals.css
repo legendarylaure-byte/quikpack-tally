@@ -45,6 +45,60 @@ body {
   }
 }
 
+.auth-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #2f1d58;
+}
+
+.auth-shell__video {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-shell::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(47, 29, 88, 0.72), rgba(91, 59, 209, 0.42));
+  content: "";
+  pointer-events: none;
+}
+
+.auth-shell__content {
+  position: relative;
+  z-index: 2;
+}
+
+.auth-shell__brand img {
+  width: 136px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+}
+
+.auth-shell .glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 30px 80px rgba(21, 8, 59, 0.3);
+  backdrop-filter: blur(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-shell__video {
+    display: none;
+  }
+
+  .auth-shell {
+    background: #2f1d58 url("/assets/marketing/login-background.jpg") center / cover no-repeat;
+  }
+}
+
 .brand-gradient {
   background: linear-gradient(135deg, #7dbd17 0%, #68c924 100%);
 }
@@ -132,35 +186,25 @@ body {
   margin-right: clamp(20px, 4vw, 64px);
 }
 
-.mk-logo svg {
-  width: 38px;
-  height: 38px;
+.mk-logo__image {
+  width: clamp(92px, 9vw, 124px);
+  height: 40px;
   flex: none;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.mk-logo:hover svg {
-  transform: rotate(90deg);
-}
-
-.mk-logo strong {
-  display: block;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7));
 }
 
 .mk-logo small {
   display: block;
   max-width: 210px;
-  margin-top: 4px;
+  margin-top: 3px;
   font-size: 8.5px;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.68;
+  opacity: 0.82;
 }
 
 .mk-nav__links {
@@ -206,10 +250,12 @@ body.mk-dark-nav .mk-badge {
 }
 
 .mk-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  overflow: hidden;
   border-radius: 999px;
   padding: 12px 22px;
   font-size: 15px;
@@ -218,9 +264,24 @@ body.mk-dark-nav .mk-badge {
   transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
 }
 
+.mk-button::after {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 0%, rgba(255, 255, 255, 0.55), transparent 65%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
 .mk-button:hover {
   transform: translateY(-2px);
-  opacity: 0.94;
+  box-shadow: 0 18px 38px rgba(47, 29, 88, 0.2);
+  opacity: 0.98;
+}
+
+.mk-button:hover::after {
+  opacity: 1;
 }
 
 .mk-button:focus-visible {
@@ -403,6 +464,14 @@ body.mk-dark-nav .mk-badge b {
     center / cover no-repeat;
 }
 
+.mk-hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(231, 227, 251, 0.92), rgba(231, 227, 251, 0.68) 55%, rgba(231, 227, 251, 0.9));
+  content: "";
+}
+
 .mk-hero__title {
   position: absolute;
   z-index: 2;
@@ -414,7 +483,8 @@ body.mk-dark-nav .mk-badge b {
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.035em;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
+  color: var(--mk-deep);
+  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.85);
   will-change: transform;
 }
 
@@ -606,12 +676,30 @@ body.mk-dark-nav .mk-badge b {
 .mk-detail-list article,
 .mk-category-card,
 .mk-product-card {
-  border: 1px solid rgba(91, 59, 209, 0.14);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(91, 59, 209, 0.16);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.68);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(231, 227, 251, 0.62));
   box-shadow: 0 24px 60px rgba(47, 29, 88, 0.1);
-  backdrop-filter: blur(12px);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.mk-detail-list article::before,
+.mk-category-card::before,
+.mk-product-card::before {
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(91, 59, 209, 0.12), transparent 70%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateX(-20%);
 }
 
 .mk-detail-list article {
@@ -621,8 +709,16 @@ body.mk-dark-nav .mk-badge b {
 .mk-detail-list article:hover,
 .mk-category-card:hover,
 .mk-product-card:hover {
+  border-color: rgba(91, 59, 209, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 30px 70px rgba(47, 29, 88, 0.16);
+}
+
+.mk-detail-list article:hover::before,
+.mk-category-card:hover::before,
+.mk-product-card:hover::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .mk-detail-list h3 {
@@ -1131,13 +1227,9 @@ body.mk-dark-nav .mk-badge b {
     margin-right: 12px;
   }
 
-  .mk-logo svg {
-    width: 30px;
+  .mk-logo__image {
+    width: 82px;
     height: 30px;
-  }
-
-  .mk-logo strong {
-    font-size: 13px;
   }
 
   .mk-logo small {

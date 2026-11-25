@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ACCESS_REQUEST_URL, NAV_LINKS, SITE } from "@/lib/marketing";
+import { MARKETING_ASSETS, NAV_LINKS, SITE } from "@/lib/marketing";
 
 const MOBILE_LINKS = [
   { href: "/", label: "Home" },
@@ -17,17 +17,6 @@ const MOBILE_LINKS = [
   { href: "/careers", label: "Careers" },
 ];
 
-function StarMark() {
-  return (
-    <svg viewBox="0 0 40 40" aria-hidden="true" className="size-8">
-      <path
-        d="M20 0c1.2 11.5 8.5 18.8 20 20-11.5 1.2-18.8 8.5-20 20-1.2-11.5-8.5-18.8-20-20C11.5 18.8 18.8 11.5 20 0z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 export function MarketingHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -37,9 +26,9 @@ export function MarketingHeader() {
       <header className="mk-nav">
         <div className="mk-nav__inner">
           <Link href="/" className="mk-logo" aria-label="QUIKPACK home" onClick={() => setOpen(false)}>
-            <StarMark />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="mk-logo__image" src={MARKETING_ASSETS.logo} alt="" />
             <span>
-              <strong>{SITE.brand}</strong>
               <small>{SITE.legalName}</small>
             </span>
           </Link>
@@ -57,9 +46,9 @@ export function MarketingHeader() {
           </nav>
 
           <div className="mk-nav__actions">
-            <a href={ACCESS_REQUEST_URL} target="_blank" rel="noreferrer" className="mk-button mk-button--primary">
-              Sign up
-            </a>
+            <Link href="/contact" className="mk-button mk-button--primary">
+              Enquiry
+            </Link>
             <Link href={SITE.loginUrl} className="mk-button mk-button--outline">
               Sign in
             </Link>
@@ -85,17 +74,11 @@ export function MarketingHeader() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={ACCESS_REQUEST_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mk-button mk-button--primary"
-              onClick={() => setOpen(false)}
-            >
-              Sign up
-            </a>
+            <Link href="/contact" className="mk-button mk-button--primary" onClick={() => setOpen(false)}>
+              Enquiry
+            </Link>
             <Link href={SITE.loginUrl} className="mk-button mk-button--outline" onClick={() => setOpen(false)}>
-              Sign in to Tally
+              Sign in
             </Link>
           </nav>
         </div>

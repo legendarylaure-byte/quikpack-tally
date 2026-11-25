@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ACCESS_REQUEST_URL, FOOTER_LINKS, SITE } from "@/lib/marketing";
+import { FOOTER_LINKS, SITE } from "@/lib/marketing";
 
 export function MarketingFooter() {
   const first = FOOTER_LINKS.slice(0, 7);
@@ -48,10 +48,8 @@ export function MarketingFooter() {
             <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer">
               WhatsApp {SITE.whatsapp}
             </a>
-            <Link href={SITE.loginUrl}>Sign in to Tally</Link>
-            <a href={ACCESS_REQUEST_URL} target="_blank" rel="noreferrer">
-              Request Tally access
-            </a>
+            <Link href={SITE.loginUrl}>Sign in</Link>
+            <Link href="/contact">Enquiry</Link>
           </div>
         </div>
       </div>

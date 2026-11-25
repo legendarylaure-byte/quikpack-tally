@@ -22,3 +22,29 @@ copies, imply endorsement, redistribute the images as stock, or use them in a tr
 | `cleaning-supplies.jpg` | <https://www.pexels.com/photo/10566507/> | Ron Lach | White cleaning products arranged on a table |
 
 Attribution is not required, but the source and photographer are recorded here as proof of origin.
+
+## Company-supplied assets
+
+| Local file | Source | Use / notes |
+| --- | --- | --- |
+| `company-logo-official.svg` | `/Users/Ai Mark/Ghana/CompanyDocuments/companyLogo.svg` | Official QUIKPACK logo supplied by the company. |
+| `company-logo.svg` | Cropped from `company-logo-official.svg` for the site header and sign-in card. | Same official artwork; white background path removed. |
+| `login-background.mp4` | `/Users/saykar/Downloads/Google Chrome/motionsites-background-9be460b1.mp4` | Sign-in background video supplied for this project. |
+| `login-background.jpg` | Poster frame extracted from `login-background.mp4` at 00:02. | Reduced-motion and video-loading fallback. |
+
+Usage rights for the company-supplied logo and video are asserted by the project owner. Keep this record with the launch approval and obtain written owner confirmation before public release if the source is third-party.
+
+## Catalogue product images
+
+Extracted from `/Users/Ai Mark/Ghana/CompanyDocuments/Price List as 17102026 DST.pdf` (17 October 2026 Everpack price list) and converted to local JPEGs for the marketing site. Product descriptions and pack sizes on the site are taken from the same catalogue; prices are intentionally not published pending confirmation.
+
+| Local file | Catalogue page | Product |
+| --- | --- | --- |
+| `catalogue-napkins.jpg` | 1 | Evergreen napkin |
+| `catalogue-facial-tissue.jpg` | 5 | Facial tissue |
+| `catalogue-fine-cups.jpg` | 29 | Fine cups |
+| `catalogue-paper-cups.jpg` | 56 | Paper cups |
+| `catalogue-paper-bowls.jpg` | 60 | Paper bowls |
+| `catalogue-trash-bags.jpg` | 108 | Trash bags |
+| `catalogue-paper-bags.jpg` | 126 | Paper bags |
+| `catalogue-aluminium-containers.jpg` | 145 | Aluminium containers |

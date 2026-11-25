@@ -2,11 +2,22 @@ import { COMPANY, SUPPORT } from "./constants";
 
 export const MARKETING_ASSETS = {
   heroBg: "/assets/marketing/hero-backdrop.jpg",
-  cosmos: "/assets/marketing/product-cups.jpg",
-  hangingCosmos: "/assets/marketing/eco-carry-bag.jpg",
-  darkBg: "/assets/marketing/table-napkins.jpg",
-  iris: "/assets/marketing/household-tissue.jpg",
-  passion: "/assets/marketing/cleaning-supplies.jpg",
+  productCups: "/assets/marketing/product-cups.jpg",
+  carryBag: "/assets/marketing/eco-carry-bag.jpg",
+  tableNapkins: "/assets/marketing/table-napkins.jpg",
+  householdTissue: "/assets/marketing/household-tissue.jpg",
+  cleaningSupplies: "/assets/marketing/cleaning-supplies.jpg",
+  logo: "/assets/marketing/company-logo.svg",
+  loginVideo: "/assets/marketing/login-background.mp4",
+  loginPoster: "/assets/marketing/login-background.jpg",
+  catalogueNapkins: "/assets/marketing/catalogue-napkins.jpg",
+  catalogueFacialTissue: "/assets/marketing/catalogue-facial-tissue.jpg",
+  catalogueFineCups: "/assets/marketing/catalogue-fine-cups.jpg",
+  cataloguePaperCups: "/assets/marketing/catalogue-paper-cups.jpg",
+  cataloguePaperBowls: "/assets/marketing/catalogue-paper-bowls.jpg",
+  catalogueTrashBags: "/assets/marketing/catalogue-trash-bags.jpg",
+  cataloguePaperBags: "/assets/marketing/catalogue-paper-bags.jpg",
+  catalogueAluminiumContainers: "/assets/marketing/catalogue-aluminium-containers.jpg",
   beeGlb:
     "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132918_e8364d8f-7df2-4788-a725-dec28ec19af8.glb",
   beeFallback: "/assets/marketing/bee-fallback.png",
@@ -24,10 +35,6 @@ export const SITE = {
   whatsappUrl: SUPPORT.whatsappUrl,
   loginUrl: "/login",
 } as const;
-
-export const ACCESS_REQUEST_URL = `https://wa.me/${SITE.whatsapp.replace("+", "")}?text=${encodeURIComponent(
-  "Hello QUIKPACK, I would like to request access to QUIKPACK Tally. Please share the next steps.",
-)}`;
 
 export const NAV_LINKS = [
   { href: "/products", label: "Products" },
@@ -69,14 +76,14 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name: "HORECA Range",
     eyebrow: "For hotels, restaurants, cafés and caterers",
     title: "Built for busy counters, kitchens and takeaway service.",
-    body: "Practical disposables that keep service moving — from table napkins and paper towels to takeaway containers and carry bags.",
-    visual: MARKETING_ASSETS.heroBg,
+    body: "Practical disposables that keep service moving — from table napkins and paper towels to takeaway containers and carry bags. Catalogue examples are drawn from the 17 October 2026 Everpack price list; availability and pricing are confirmed on enquiry.",
+    visual: MARKETING_ASSETS.catalogueFineCups,
     items: [
-      { name: "Paper towels & kitchen rolls", detail: "Absorbent, reliable and easy to stock across busy sites." },
-      { name: "Table napkins & serviettes", detail: "Service-ready formats for restaurants, cafés and events." },
-      { name: "Paper cups & lids", detail: "Hot and cold drink formats for counters and takeaway." },
-      { name: "Takeaway containers", detail: "Food-grade containers for meals, sides and delivery." },
-      { name: "Carry bags", detail: "Retail, takeaway and event bags in practical sizes." },
+      { name: "Evergreen napkins — 29×29 cm, 80 sheets", detail: "15 packs per box. Catalogue NP01." },
+      { name: "Lunch napkins — 33×33 cm, 100 sheets", detail: "15 packs per box. Catalogue NP04/NP06." },
+      { name: "Paper cups — 4 oz to 16 oz", detail: "Single-wall 50-cup rolls, 20 rolls per carton. Catalogue PC01–PC07." },
+      { name: "Paper bowls — 12 oz to 24 oz", detail: "White and kraft bowls, 25 pieces per pack. Catalogue PB01–PB03." },
+      { name: "Microwave containers", detail: "Black 1–3 compartment trays, 200 pieces per carton. Catalogue MCB01–MCB04." },
     ],
   },
   {
@@ -84,13 +91,13 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name: "Household Range",
     eyebrow: "For everyday Ghanaian homes",
     title: "Everyday essentials, stocked without stress.",
-    body: "Tissue, napkins, kitchen rolls and household consumables that make daily life cleaner and easier.",
-    visual: MARKETING_ASSETS.iris,
+    body: "Tissue, napkins, kitchen rolls and household consumables that make daily life cleaner and easier. Catalogue details below come from the 17 October 2026 Everpack price list and are confirmed on enquiry.",
+    visual: MARKETING_ASSETS.catalogueFacialTissue,
     items: [
-      { name: "Facial & toilet tissue", detail: "Soft, dependable essentials for the home." },
-      { name: "Kitchen towels", detail: "For spills, cleaning and everyday kitchen use." },
-      { name: "Disposable napkins", detail: "Neat, convenient and ready for family meals." },
-      { name: "Home cleaning consumables", detail: "Practical supplies for routine household care." },
+      { name: "Akwaba & Prime facial tissue", detail: "76-sheet and 150-sheet formats, 36 packs per carton. Catalogue FT01–FT06." },
+      { name: "Evergreen & Fluffy toilet rolls", detail: "Family, 4-in-1 and 24/32-piece packs. Catalogue TRE/TRF ranges." },
+      { name: "Kitchen towels", detail: "Evergreen, Rainbow and jumbo towel formats. Catalogue KT01–KT23." },
+      { name: "Trash bags", detail: "Small to XXX-large, including easy-tie packs. Catalogue ST01–ST13." },
     ],
   },
   {
@@ -99,7 +106,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     eyebrow: "For hygiene, housekeeping and washrooms",
     title: "Clean spaces. Steady supply. Less procurement stress.",
     body: "Liquid soaps, bleaches, washing powders and hygiene consumables for businesses and homes that cannot afford to run short.",
-    visual: MARKETING_ASSETS.darkBg,
+    visual: MARKETING_ASSETS.cleaningSupplies,
     items: [
       { name: "Liquid soaps", detail: "Hand wash and general cleaning formats." },
       { name: "Bleaches & disinfectants", detail: "For washrooms, floors and high-use areas." },
@@ -112,13 +119,13 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name: "Eco / Sustainability Solutions",
     eyebrow: "Practical choices for lower waste",
     title: "Better material choices where it matters.",
-    body: "We focus on responsible sourcing, practical packaging choices and reliable supply so customers can reduce waste without disrupting service.",
-    visual: MARKETING_ASSETS.passion,
+    body: "We focus on responsible sourcing, practical packaging choices and reliable supply so customers can reduce waste without disrupting service. Catalogue examples are drawn from the 17 October 2026 Everpack price list.",
+    visual: MARKETING_ASSETS.cataloguePaperBags,
     items: [
+      { name: "Kraft square-bottom paper bags", detail: "20×28 cm to 35×37 cm, 200–1,000 pieces per bag. Catalogue PCB range." },
+      { name: "Paper cups and bowls", detail: "Paper formats alongside plastic options where paper fits the service." },
       { name: "Responsible sourcing", detail: "Supplier and material choices reviewed with care." },
-      { name: "Recyclable options", detail: "Select products and packs designed for recovery." },
       { name: "Right-sized packing", detail: "Reduce unnecessary material in transit and storage." },
-      { name: "Local supply", detail: "Shorter, more dependable replenishment routes." },
     ],
   },
 ];
@@ -180,7 +187,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageContent> = {
         ],
         layout: "split",
         reverse: true,
-        visual: MARKETING_ASSETS.hangingCosmos,
+        visual: MARKETING_ASSETS.carryBag,
       },
       {
         id: "approach",
@@ -231,7 +238,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageContent> = {
           "Manufacturing closer to the market means better planning, shorter replenishment loops and the ability to respond faster to customer requirements.",
         ],
         layout: "split",
-        visual: MARKETING_ASSETS.iris,
+        visual: MARKETING_ASSETS.householdTissue,
       },
       {
         id: "partner",
@@ -285,7 +292,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageContent> = {
         ],
         layout: "split",
         reverse: true,
-        visual: MARKETING_ASSETS.cosmos,
+        visual: MARKETING_ASSETS.productCups,
       },
     ],
     ctaTitle: "Compare your current supply with QUIKPACK.",
@@ -322,7 +329,7 @@ export const MARKETING_PAGES: Record<string, MarketingPageContent> = {
           "Accurate reorder planning, sensible pack sizes and local availability all help reduce overstock, emergency buying and product loss.",
         ],
         layout: "split",
-        visual: MARKETING_ASSETS.passion,
+        visual: MARKETING_ASSETS.cleaningSupplies,
       },
     ],
     ctaTitle: "Want to review your disposable choices?",
