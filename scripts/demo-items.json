@@ -1,7 +1,7 @@
 [
   {
     "sku": "40CC",
-    "name": "1X20 100PCSX20ROLL WITH LIDS",
+    "name": "1X20 SHITO CUPS BLACK 100PCSX20ROLL WITH LIDS",
     "barcode": "6033000160959",
     "unit": "roll",
     "taxCategory": "standard",
@@ -85,7 +85,7 @@
   },
   {
     "sku": "AC06",
-    "name": "ALUMINIUM TRAY 1X100PCS SMALL SIZE",
+    "name": "ALUMINIUM TRAY 1X100PCS",
     "barcode": "",
     "unit": "pack",
     "taxCategory": "standard",
@@ -99,7 +99,7 @@
   },
   {
     "sku": "AC07",
-    "name": "ALUMINIUM TRAY 1X40PCS MEDIUM SIZE",
+    "name": "ALUMINIUM TRAY 1X40PCS SMALL SIZE",
     "barcode": "",
     "unit": "pack",
     "taxCategory": "standard",
@@ -113,7 +113,7 @@
   },
   {
     "sku": "AC08",
-    "name": "ALUMINIUM TRAY 1X40PCS LARGE SIZE",
+    "name": "ALUMINIUM TRAY 1X40PCS MEDIUM SIZE LARGE SIZE",
     "barcode": "",
     "unit": "pack",
     "taxCategory": "standard",
@@ -127,7 +127,7 @@
   },
   {
     "sku": "AC09",
-    "name": "RA 90 225X128MM WITH PLASTIC 1X500PCS COVER STRAW 50pkt*100pcs",
+    "name": "RA 90 225X128MM WITH PLASTIC 1X500PCS COVER",
     "barcode": "",
     "unit": "pack",
     "taxCategory": "standard",
@@ -183,7 +183,7 @@
   },
   {
     "sku": "AF04",
-    "name": "ALUMINIUM FOIL 1X6 30CM X75M",
+    "name": "ALUMINIUM FOIL 1X6",
     "barcode": "6033000160416",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -197,7 +197,7 @@
   },
   {
     "sku": "AF05",
-    "name": "ALUMINIUM FOIL 1X6 30CMX150M",
+    "name": "ALUMINIUM FOIL 1X6 30CM X75M",
     "barcode": "6033000160119",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -211,7 +211,7 @@
   },
   {
     "sku": "AF06",
-    "name": "ALUMINIUM FOIL 1X6 45CM X150M",
+    "name": "ALUMINIUM FOIL 1X6 30CMX150M 45CM X150M",
     "barcode": "6033000160126",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -239,7 +239,7 @@
   },
   {
     "sku": "BP01",
-    "name": "BAKING PAPER 1X24 30CM X8 M",
+    "name": "BAKING PAPER 1X24",
     "barcode": "6033000160799",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -253,7 +253,7 @@
   },
   {
     "sku": "BP02",
-    "name": "BAKING PAPER 1X6 30CM X50M",
+    "name": "BAKING PAPER 1X6 30CM X8 M 30CM X50M",
     "barcode": "6033000160492",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -267,7 +267,7 @@
   },
   {
     "sku": "BP03",
-    "name": "BAKING PAPER 1X6 45CMX 50M GREASPROOF PAPER",
+    "name": "BAKING PAPER 1X6 45CMX 50M",
     "barcode": "6033000160508",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -281,7 +281,7 @@
   },
   {
     "sku": "BP04",
-    "name": "30CM X50M 1X6 (WE CAN PRINT YOUR LOGO ON IT )",
+    "name": "30CM X50M 1X6 GREASPROOF PAPER (WE CAN PRINT YOUR LOGO ON IT )",
     "barcode": "6033000161093",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -337,7 +337,7 @@
   },
   {
     "sku": "CB04",
-    "name": "Shopping Bag Small 30cm x 40cm 1X10 (50pcs x 10Pkt)",
+    "name": "Shopping Bag Small 30cm x 40cm 1X10",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -365,7 +365,7 @@
   },
   {
     "sku": "CF01",
-    "name": "Cling Film 100 Sft 1X24 Evp(1crtn*24pcs)",
+    "name": "Cling Film 100 Sft 1X24",
     "barcode": "6033000160065",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -379,7 +379,7 @@
   },
   {
     "sku": "CF02",
-    "name": "Cling Film 100 Sft \\ 1X24 Evp(1crtn*24pcs)",
+    "name": "Cling Film 100 Sft \\ 1X24 Evp(1crtn*24pcs) Evp(1crtn*24pcs)",
     "barcode": "6033000160782",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -393,7 +393,7 @@
   },
   {
     "sku": "CF03",
-    "name": "Cling Film 150m X30cm 1X6 (1crtn*6pcs)",
+    "name": "Cling Film 150m X30cm 1X6",
     "barcode": "6033000160409",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -421,7 +421,7 @@
   },
   {
     "sku": "CF05",
-    "name": "Cling Film 300m X45cm 1X6 (1crtn*6pcs)",
+    "name": "Cling Film 300m X45cm 1X6 (1crtn*6pcs) (1crtn*6pcs)",
     "barcode": "6033000160102",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -435,7 +435,7 @@
   },
   {
     "sku": "CF06",
-    "name": "Cling film 1 350MM x 600M",
+    "name": "Cling film 1",
     "barcode": "6033000162199",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -449,7 +449,7 @@
   },
   {
     "sku": "CF07",
-    "name": "Cling film 1 450MM x 600M",
+    "name": "Cling film 1 350MM x 600M",
     "barcode": "6033000162182",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -463,7 +463,7 @@
   },
   {
     "sku": "CF08",
-    "name": "Cling film 12 1 piece cartridge",
+    "name": "Cling film 12 450MM x 600M 1 piece cartridge",
     "barcode": "6033000162694",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -477,7 +477,7 @@
   },
   {
     "sku": "CF09",
-    "name": "Cling film with Plastic 12 Dispenser 300m x 30cm Black",
+    "name": "Cling film with Plastic 12",
     "barcode": "6033000162243",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -491,7 +491,7 @@
   },
   {
     "sku": "CF10",
-    "name": "Cling film with Plastic 12 Dispenser 300m x 30cm White",
+    "name": "Cling film with Plastic 12 Dispenser 300m x 30cm Black",
     "barcode": "6033000162243",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -505,7 +505,7 @@
   },
   {
     "sku": "CF11",
-    "name": "Cling Film 6kg x 35cm 1pcs",
+    "name": "Cling Film 6kg x 35cm 1pcs Dispenser 300m x 30cm White",
     "barcode": "",
     "unit": "pack",
     "taxCategory": "standard",
@@ -547,7 +547,7 @@
   },
   {
     "sku": "CF15",
-    "name": "CLING FILM 1X50 100SQFT(30.4X0.3)",
+    "name": "CLING FILM 1X50 SINGLE WRAP",
     "barcode": "6033000162472",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -575,7 +575,7 @@
   },
   {
     "sku": "CHF01",
-    "name": "Chaffing Fuel (EAGLE) 1X72",
+    "name": "Chaffing Fuel (EAGLE) 1X72 SHAFFING FUEL",
     "barcode": "6033000161253",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -771,7 +771,7 @@
   },
   {
     "sku": "CT11",
-    "name": "TRANSPARENT TAPE x 1X54 100M TAPE CORE",
+    "name": "TRANSPARENT TAPE x 1X54 TAPE CORE 100M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -785,7 +785,7 @@
   },
   {
     "sku": "CT12",
-    "name": "TRANSPARENT TAPE x 1X72 50M TAPE CORE",
+    "name": "TRANSPARENT TAPE x 1X72 TAPE CORE 50M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -799,7 +799,7 @@
   },
   {
     "sku": "CT13",
-    "name": "TRANSPARENT TAPE x 1X36 160M",
+    "name": "TRANSPARENT TAPE x 1X36 TAPE CORE 160M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -813,7 +813,7 @@
   },
   {
     "sku": "CT14",
-    "name": "TRANSPARENT TAPE x 1X30 240M TAPE CORE",
+    "name": "TRANSPARENT TAPE x 1X30 TAPE CORE 240M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -827,7 +827,7 @@
   },
   {
     "sku": "CT15",
-    "name": "TRANSPARENT TAPE x 1X30 320M TAPE CORE",
+    "name": "TRANSPARENT TAPE x 1X30 TAPE CORE 320M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -841,7 +841,7 @@
   },
   {
     "sku": "CT16",
-    "name": "TRANSPARENT TAPE x 1X6 900M",
+    "name": "TRANSPARENT TAPE x 1X6 TAPE CORE 900M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -855,7 +855,7 @@
   },
   {
     "sku": "CT17",
-    "name": "TRANSPARENT TAPE x 1X6 1000M SHAFFING FUEL",
+    "name": "TRANSPARENT TAPE x 1X6 TAPE CORE 1000M",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -883,7 +883,7 @@
   },
   {
     "sku": "DES01",
-    "name": "ROLL + 1X20 DOME LIDS",
+    "name": "ROLL + 1X20 DESERT CUPS 150CC 50PCS X20 DOME LIDS",
     "barcode": "603300161628",
     "unit": "roll",
     "taxCategory": "standard",
@@ -897,7 +897,7 @@
   },
   {
     "sku": "DES02",
-    "name": "2 LAYER COLORED 1X20 50PCS X20 ROLL + LIDS DESERT CUPS 200CC",
+    "name": "2 LAYER COLORED 1X20 DESERT CUPS 150CC 50PCS X20 ROLL + LIDS",
     "barcode": "603300161628",
     "unit": "roll",
     "taxCategory": "standard",
@@ -911,7 +911,7 @@
   },
   {
     "sku": "DES03",
-    "name": "PP 50 PCS/ROLL + 1X20 DOME LID DESERT CUPS 200CC",
+    "name": "PP 50 PCS/ROLL + 1X20 DESERT CUPS 200CC DOME LID",
     "barcode": "603300161635",
     "unit": "roll",
     "taxCategory": "standard",
@@ -925,7 +925,7 @@
   },
   {
     "sku": "DES04",
-    "name": "2 LAYER COLORED 1X20 50 PCS/ROLL + LIDS",
+    "name": "2 LAYER COLORED 1X20 DESERT CUPS 200CC 50 PCS/ROLL + LIDS",
     "barcode": "603300161635",
     "unit": "roll",
     "taxCategory": "standard",
@@ -939,7 +939,7 @@
   },
   {
     "sku": "DES05",
-    "name": "PCS/ROLL + 1X20 DOME LID DESERT CUPS 250CC",
+    "name": "PCS/ROLL + 1X20 DESERT F135CUPS 250CC PP 50 DOME LID",
     "barcode": "603300161642",
     "unit": "roll",
     "taxCategory": "standard",
@@ -953,7 +953,7 @@
   },
   {
     "sku": "DES06",
-    "name": "2 LAYER COLORED 1X20 50 PCS/ROLL + DOME LIDS YOGURT CUPS 170CC",
+    "name": "2 LAYER COLORED 1X20 DESERT CUPS 250CC 50 PCS/ROLL + DOME LIDS",
     "barcode": "603300161642",
     "unit": "roll",
     "taxCategory": "standard",
@@ -967,7 +967,7 @@
   },
   {
     "sku": "DES07",
-    "name": "WHITE + LIDS 1X20 50Pcs/Roll",
+    "name": "WHITE + LIDS 1X20 YOGURT CUPS 170CC 50Pcs/Roll",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -981,7 +981,7 @@
   },
   {
     "sku": "DLB01",
-    "name": "Delibox 1400ml (1crtn*150pcs) 1X150",
+    "name": "Delibox 1400ml (1crtn*150pcs) 1X150 (1crtnx200pcs) 2100ml",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1023,7 +1023,7 @@
   },
   {
     "sku": "DS01",
-    "name": "Dessert Spoon 1X30 White(100x30) Mini Dessert",
+    "name": "Dessert Spoon 1X30 (1crtn*30pkt*100pcs) White(100x30)",
     "barcode": "6033000161543",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1037,7 +1037,7 @@
   },
   {
     "sku": "DS02",
-    "name": "Spoon Colored 1X30 (1crt X30pkt",
+    "name": "Spoon Colored 1X30 Mini Dessert (1crt X30pkt",
     "barcode": "6033000162793",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1051,7 +1051,7 @@
   },
   {
     "sku": "DSP01",
-    "name": "SERVICE PACK NORMAL 1X500 PCS 1X500 (5-in-1)",
+    "name": "SERVICE PACK NORMAL 1X500 PCS 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1065,7 +1065,7 @@
   },
   {
     "sku": "DSP02",
-    "name": "SERVICE PACK HD 1X500 PCS (6-in- 1X500 1)",
+    "name": "SERVICE PACK HD 1X500 PCS (6-in- 1X500 (5-in-1)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1079,7 +1079,7 @@
   },
   {
     "sku": "DSP04",
-    "name": "SERVICE PACK NORMAL 1X50 PCS x 1X500 10 packets (3-in-1)",
+    "name": "SERVICE PACK NORMAL 1X50 PCS x 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1093,7 +1093,7 @@
   },
   {
     "sku": "DSP05",
-    "name": "WOODEN SERVICE PACK 1X500 PCS 1X10 (5-in-1)",
+    "name": "WOODEN SERVICE PACK 1X500 PCS 1X10 10 packets (3-in-1)",
     "barcode": "",
     "unit": "packs",
     "taxCategory": "standard",
@@ -1107,7 +1107,7 @@
   },
   {
     "sku": "DSP06",
-    "name": "WOODEN SERVICE PACK 1X500 PCS 1X500 (6-in-1)",
+    "name": "WOODEN SERVICE PACK 1X500 PCS 1X500 (5-in-1) (6-in-1)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1121,7 +1121,7 @@
   },
   {
     "sku": "DSP08",
-    "name": "SERVICE PACK HD 1X500 PCS (2-in- 1X500 1)",
+    "name": "SERVICE PACK HD 1X500 PCS (2-in- 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1135,7 +1135,7 @@
   },
   {
     "sku": "DSP09",
-    "name": "TOOTHPICK UNWRAPPED 1X800 1X800 PCS (1X60)",
+    "name": "TOOTHPICK UNWRAPPED 1X800 1X800 1) PCS (1X60)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1163,7 +1163,7 @@
   },
   {
     "sku": "FB01",
-    "name": "FRESHER'S ZIPPER BAG 18X25 CM , 1X60 20PCS/ PKT",
+    "name": "FRESHER'S ZIPPER BAG 18X25 CM , 1X60",
     "barcode": "6033000161246",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1177,7 +1177,7 @@
   },
   {
     "sku": "FB02",
-    "name": "FRESHER'S ZIPPER BAG 20X30 CM , 1X60 15 PCS/ PKT",
+    "name": "FRESHER'S ZIPPER BAG 20X30 CM , 1X60 20PCS/ PKT",
     "barcode": "6033000160812",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1191,7 +1191,7 @@
   },
   {
     "sku": "FB03",
-    "name": "FRESHER'S ZIPPER BAG 1X48 25X35 CM , 10 PCS/ PKT",
+    "name": "FRESHER'S ZIPPER BAG 1X48 15 PCS/ PKT 25X35 CM , 10 PCS/ PKT",
     "barcode": "6033000161239",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1219,7 +1219,7 @@
   },
   {
     "sku": "FB05",
-    "name": "18x25CM,20PCS/PKT DOUBLE ZIP BAG 6 FB06 25x35CM,10PCS/PKT 1X48 PKT 48 16.3 784",
+    "name": "18x25CM,20PCS/PKT DOUBLE ZIP BAG DOUBLE ZIP BAG 6 FB06 25x35CM,10PCS/PKT 1X48 PKT 48 16.3 784",
     "barcode": "6033000163318",
     "unit": "1x60",
     "taxCategory": "standard",
@@ -1233,7 +1233,7 @@
   },
   {
     "sku": "FB07",
-    "name": "10PCS/PKT 12.5gram 1X48 ZIP LOCK SLIDER BAG 20x30CM,",
+    "name": "10PCS/PKT 12.5gram 1X48 ZIP LOCK SLIDER BAG 25x35CM,",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1247,7 +1247,7 @@
   },
   {
     "sku": "FB08",
-    "name": "15PCS/PKT 9.3gram 1X60 ZIP LOCK SLIDER BAG 18x25CM,",
+    "name": "15PCS/PKT 9.3gram 1X60 ZIP LOCK SLIDER BAG 20x30CM,",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1261,7 +1261,7 @@
   },
   {
     "sku": "FB09",
-    "name": "20PCS/PKT 7.3gram 1X60",
+    "name": "20PCS/PKT 7.3gram 1X60 ZIP LOCK SLIDER BAG 18x25CM,",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1275,7 +1275,7 @@
   },
   {
     "sku": "FC01",
-    "name": "Colored 1X20 (20pkt*100pcs)",
+    "name": "Colored 1X20 Fine Cup 80cc",
     "barcode": "6033000162373",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1289,7 +1289,7 @@
   },
   {
     "sku": "FC02",
-    "name": "Fine Cup 200cc 1X30 (30pkt*100pcs) Cups 200cc 1/L",
+    "name": "Fine Cup 200cc 1X30 (20pkt*100pcs) (30pkt*100pcs)",
     "barcode": "6033000161178",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1303,7 +1303,7 @@
   },
   {
     "sku": "FC03",
-    "name": "Colored Fine 1X30 Short / Long ( 30pkt*100pcs)",
+    "name": "Colored Fine 1X30 Cups 200cc 1/L Short / Long ( 30pkt*100pcs)",
     "barcode": "6033000161178",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1317,7 +1317,7 @@
   },
   {
     "sku": "FC04",
-    "name": "Clear Fine 1X30 (30pkt*50pcs) Cups 370cc",
+    "name": "Clear Fine 1X30 Cups 370cc (30pkt*50pcs)",
     "barcode": "6033000161031",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1331,7 +1331,7 @@
   },
   {
     "sku": "FC05",
-    "name": "Colored Clear Fine 1X30 (30pkt*50pcs) Cups 500cc",
+    "name": "Colored Clear Fine 1X30 Cups 370cc (30pkt*50pcs)",
     "barcode": "6033000161031",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1345,7 +1345,7 @@
   },
   {
     "sku": "FC06",
-    "name": "Clear Fine 1X20 (20pkt*50pcs)",
+    "name": "Clear Fine 1X20 Cups 500cc (20pkt*50pcs)",
     "barcode": "6033000162991",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1429,7 +1429,7 @@
   },
   {
     "sku": "FT",
-    "name": "10 STAR NYLON 1X12 200 SHEETS",
+    "name": "10 STAR NYLON 1X12",
     "barcode": "6033000160331",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1443,7 +1443,7 @@
   },
   {
     "sku": "FT01",
-    "name": "AKWABA SMALL SIZE 1X36 76 SHEETS",
+    "name": "AKWABA SMALL SIZE 1X36",
     "barcode": "6033000160027",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1457,7 +1457,7 @@
   },
   {
     "sku": "FT02",
-    "name": "AKWABA LARGE SIZE 1X36 150 SHEETS",
+    "name": "AKWABA LARGE SIZE 1X36 76 SHEETS",
     "barcode": "6033000160010",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1471,7 +1471,7 @@
   },
   {
     "sku": "FT03",
-    "name": "PRIME SMALL SIZE 1X36 76 SHEETS",
+    "name": "PRIME SMALL SIZE 1X36 150 SHEETS 76 SHEETS",
     "barcode": "6033000160034",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1485,7 +1485,7 @@
   },
   {
     "sku": "FT04",
-    "name": "150 SHEETS 1X36 SPECIAL EDITION",
+    "name": "150 SHEETS 1X36 PRIME SIZE LARGE SIZE",
     "barcode": "6033000162441",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1499,7 +1499,7 @@
   },
   {
     "sku": "FT05",
-    "name": "MINI SAFARI 1X72 76 SHEETS",
+    "name": "MINI SAFARI 1X72 SPECIAL EDITION",
     "barcode": "6033000160317",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1513,7 +1513,7 @@
   },
   {
     "sku": "FT06",
-    "name": "SAFARI LARGE SIZE 1X36 150 SHEETS",
+    "name": "SAFARI LARGE SIZE 1X36 76 SHEETS 150 SHEETS",
     "barcode": "6033000160003",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1527,7 +1527,7 @@
   },
   {
     "sku": "FT07",
-    "name": "CLUB SPORT 1X36 150 SHEETS",
+    "name": "CLUB SPORT 1X36",
     "barcode": "6033000160546",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1555,7 +1555,7 @@
   },
   {
     "sku": "FT09",
-    "name": "CUBE TISSUE 1X36 100 SHEETS",
+    "name": "CUBE TISSUE 1X36 150 SHEETS 100 SHEETS",
     "barcode": "6033000162366",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1569,7 +1569,7 @@
   },
   {
     "sku": "FT11",
-    "name": "WET NAPKIN 1X1000 (1X1000 Pcs)",
+    "name": "WET NAPKIN 1X1000 200 SHEETS",
     "barcode": "6033000161697",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1583,7 +1583,7 @@
   },
   {
     "sku": "FT12",
-    "name": "SOFTY FACIAL TISSUE 1X50 (1*50 PKTS)",
+    "name": "SOFTY FACIAL TISSUE 1X50 (1X1000 Pcs) (1*50 PKTS)",
     "barcode": "6033000161918",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1597,7 +1597,7 @@
   },
   {
     "sku": "FT13",
-    "name": "FLUFFY FACIAL TISSUE 1X50 (1*50 PKTS)",
+    "name": "FLUFFY FACIAL TISSUE 1X50",
     "barcode": "6033000161918",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1611,7 +1611,7 @@
   },
   {
     "sku": "FT14",
-    "name": "MINI PACK 1X100",
+    "name": "MINI PACK 1X100 (1*50 PKTS)",
     "barcode": "6033000161796",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1653,7 +1653,7 @@
   },
   {
     "sku": "GL01",
-    "name": "DISPOSABLE GLOVES NYLON HDPE 1X100 (100 PCS)",
+    "name": "DISPOSABLE GLOVES NYLON HDPE 1X100",
     "barcode": "6033000161994",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1667,7 +1667,7 @@
   },
   {
     "sku": "GL02",
-    "name": "DISPOSABLE GLOVES NYLON 1X60 HDPE (100 PCS)",
+    "name": "DISPOSABLE GLOVES NYLON 1X60 (100 PCS) HDPE (100 PCS)",
     "barcode": "6033000161994",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1681,7 +1681,7 @@
   },
   {
     "sku": "GL03",
-    "name": "NITRILE GLOVES WHITE 1X10 (100 PCS)",
+    "name": "NITRILE GLOVES WHITE 1X10",
     "barcode": "6033000160591",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1695,7 +1695,7 @@
   },
   {
     "sku": "GL04",
-    "name": "NITRILE GLOVES 1X10 BLACK (100 PCS",
+    "name": "NITRILE GLOVES 1X10 (100 PCS)",
     "barcode": "6033000160591",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1709,7 +1709,7 @@
   },
   {
     "sku": "GL05",
-    "name": "NITRILE GLOVES 1X10 LIGHT BLUE (100 PCS)",
+    "name": "NITRILE GLOVES 1X10 BLACK (100 PCS LIGHT BLUE (100 PCS)",
     "barcode": "6033000160591",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1723,7 +1723,7 @@
   },
   {
     "sku": "GL06",
-    "name": "WHITE VINNYL 1X10 EXAMINATIOON GLOVES",
+    "name": "WHITE VINNYL 1X10",
     "barcode": "6033000162922",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1751,7 +1751,7 @@
   },
   {
     "sku": "GL08",
-    "name": "BLUE VINNYL 1X10 EXAMINATIOON GLOVES",
+    "name": "BLUE VINNYL 1X10 EXAMINATIOON GLOVES EXAMINATIOON GLOVES",
     "barcode": "6033000162939",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1765,7 +1765,7 @@
   },
   {
     "sku": "GL09",
-    "name": "WHITE NITRILE BLENDED 1X10 GLOVES (100 PCS)",
+    "name": "WHITE NITRILE BLENDED 1X10",
     "barcode": "6033000162830",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1793,7 +1793,7 @@
   },
   {
     "sku": "GL11",
-    "name": "BLUE NITRILE BLENDED 1X10 GLOVES (100 PCS)",
+    "name": "BLUE NITRILE BLENDED 1X10 GLOVES (100 PCS) GLOVES (100 PCS)",
     "barcode": "6033000162847",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1807,7 +1807,7 @@
   },
   {
     "sku": "GL12",
-    "name": "PINK NITRILE BLENDED 1X10 GLOVES (100 PCS) 6033000163219 GL13 DISPOSABLE GLOVES NYLON 1X24PKTS 24 28.0 672 HDPE (500 PCS)",
+    "name": "PINK NITRILE BLENDED 1X10 GLOVES (100 PCS) 6033000163219 GL13 DISPOSABLE GLOVES NYLON 1X24PKTS 24 28.0 672",
     "barcode": "6033000162854",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -1821,7 +1821,7 @@
   },
   {
     "sku": "HN01",
-    "name": "WHITE HAIR NET 20 x 100",
+    "name": "WHITE HAIR NET 20 x 100 HDPE (500 PCS)",
     "barcode": "6033000161123",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1863,7 +1863,7 @@
   },
   {
     "sku": "ICS01",
-    "name": "X20pkt 1X20 X100pcs) Dessert Spoon Colored(1crt",
+    "name": "X20pkt 1X20 Dessert Spoon Colored(1crt X100pcs)",
     "barcode": "6033000161529",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1877,7 +1877,7 @@
   },
   {
     "sku": "ICS02",
-    "name": "X30pkt 1X30 X100pcs)",
+    "name": "X30pkt 1X30 Dessert Spoon Colored(1crt",
     "barcode": "6033000161543",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1891,7 +1891,7 @@
   },
   {
     "sku": "ICS03",
-    "name": "Ice Cream Spoon White 1X30 (1crtn*30pkt*100",
+    "name": "Ice Cream Spoon White 1X30 X100pcs) (1crtn*30pkt*100",
     "barcode": "6033000161536",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1905,7 +1905,7 @@
   },
   {
     "sku": "ICS04",
-    "name": "Ice Cream Spoon Coloured 1X30 (1crtn*30pkt*100pcs)",
+    "name": "Ice Cream Spoon Coloured 1X30",
     "barcode": "6033000161536",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -1919,7 +1919,7 @@
   },
   {
     "sku": "JC",
-    "name": "CUP 350 CC 1X20 FRUIT PRINTED 50PCS*20PKT JUICE CLEAR",
+    "name": "CUP 350 CC 1X20 JUICE CLEAR FRUIT PRINTED 50PCS*20PKT",
     "barcode": "6033000160904",
     "unit": "roll",
     "taxCategory": "standard",
@@ -1947,7 +1947,7 @@
   },
   {
     "sku": "KT01",
-    "name": "EVERGREEN 1X12 TOWEL",
+    "name": "EVERGREEN 1X12",
     "barcode": "6033000161789",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1961,7 +1961,7 @@
   },
   {
     "sku": "KT02",
-    "name": "RAINBOW 1X12 TOWEL",
+    "name": "RAINBOW 1X12 TOWEL TOWEL",
     "barcode": "6033000161819",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1975,7 +1975,7 @@
   },
   {
     "sku": "KT03",
-    "name": "JUMBO TOWEL 1X6 (1* 6 PCS)",
+    "name": "JUMBO TOWEL 1X6",
     "barcode": "6033000160645",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -1989,7 +1989,7 @@
   },
   {
     "sku": "KT04",
-    "name": "JUMBO TOWEL (1* 12 PCS) 1X12",
+    "name": "JUMBO TOWEL (1* 12 PCS) 1X12 (1* 6 PCS)",
     "barcode": "6033000161833",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2017,7 +2017,7 @@
   },
   {
     "sku": "KT06",
-    "name": "MAXI TOWEL ROLL 21CM 1X6 TISSUE ROLL FOR AUTO CUT",
+    "name": "MAXI TOWEL ROLL 21CM 1X6",
     "barcode": "6033000160324",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2031,7 +2031,7 @@
   },
   {
     "sku": "KT07",
-    "name": "DISPENSER 1.2 KG 1 PLY 40GSM 1X6 (ELECTRONIC ROLL)",
+    "name": "DISPENSER 1.2 KG 1 PLY 40GSM 1X6 TISSUE ROLL FOR AUTO CUT",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2045,7 +2045,7 @@
   },
   {
     "sku": "KT08",
-    "name": "MAXI HANDY TOWEL 1 PLY 1X6",
+    "name": "MAXI HANDY TOWEL 1 PLY 1X6 (ELECTRONIC ROLL)",
     "barcode": "6033000160676",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2059,7 +2059,7 @@
   },
   {
     "sku": "KT09",
-    "name": "PAPA JUMBO 21 CM NON- 1X6 PERFORATED",
+    "name": "PAPA JUMBO 21 CM NON- 1X6",
     "barcode": "6033000160676",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2073,7 +2073,7 @@
   },
   {
     "sku": "KT10",
-    "name": "PAPA JUMBO COMPRESSED 1X6",
+    "name": "PAPA JUMBO COMPRESSED 1X6 PERFORATED",
     "barcode": "6033000160676",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2101,7 +2101,7 @@
   },
   {
     "sku": "KT12",
-    "name": "CLUB TOWEL 1X6 KITCHEN TOWEL",
+    "name": "CLUB TOWEL 1X6",
     "barcode": "6033000161987",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2115,7 +2115,7 @@
   },
   {
     "sku": "KT13",
-    "name": "(M/S) 2 ROLL / PKT 1X6 22.5CMX22.5 KITCHEN TOWEL (L/S)",
+    "name": "(M/S) 2 ROLL / PKT 1X6 KITCHEN TOWEL 22.5CMX22.5",
     "barcode": "6033000160294",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2129,7 +2129,7 @@
   },
   {
     "sku": "KT14",
-    "name": "2 ROLL/ PKT 1X6 28.5X22.5CM",
+    "name": "2 ROLL/ PKT 1X6 KITCHEN TOWEL (L/S) 28.5X22.5CM",
     "barcode": "6033000160300",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2143,7 +2143,7 @@
   },
   {
     "sku": "KT15",
-    "name": "MEGA KITCHEN 1 TOWEL 3KG",
+    "name": "MEGA KITCHEN 1",
     "barcode": "",
     "unit": "pc",
     "taxCategory": "standard",
@@ -2157,7 +2157,7 @@
   },
   {
     "sku": "KT16",
-    "name": "MEGA KITCHEN 1 TOWEL 5KG",
+    "name": "MEGA KITCHEN 1 TOWEL 3KG",
     "barcode": "",
     "unit": "pc",
     "taxCategory": "standard",
@@ -2171,7 +2171,7 @@
   },
   {
     "sku": "KT17",
-    "name": "V FOLD TISSUE 24cm x 1X10 24cm 200 SHEETS",
+    "name": "V FOLD TISSUE 24cm x 1X10 TOWEL 5KG 24cm 200 SHEETS",
     "barcode": "6033000160294",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2185,7 +2185,7 @@
   },
   {
     "sku": "KT18",
-    "name": "V FOLD 21cm x 21cm 1X10 TISSUE 200 SHEETS",
+    "name": "V FOLD 21cm x 21cm 1X10",
     "barcode": "6033000160294",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2199,7 +2199,7 @@
   },
   {
     "sku": "KT19",
-    "name": "MEDICAL ROLL S/S 1X6",
+    "name": "MEDICAL ROLL S/S 1X6 TISSUE 200 SHEETS",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2241,7 +2241,7 @@
   },
   {
     "sku": "KT22",
-    "name": "Z FOLD 21cm x 21cm 1X15 TISSUE 200 SHEETS",
+    "name": "Z FOLD 21cm x 21cm 1X15",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2255,7 +2255,7 @@
   },
   {
     "sku": "KT23",
-    "name": "MAXI TOWEL ROLL 21CM UKT 1X6",
+    "name": "MAXI TOWEL ROLL 21CM UKT 1X6 TISSUE 200 SHEETS",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2283,7 +2283,7 @@
   },
   {
     "sku": "LPC02",
-    "name": "8oz White 1X20 Paper Cup Lid",
+    "name": "8oz White 1X20",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2311,7 +2311,7 @@
   },
   {
     "sku": "LPC04",
-    "name": "12/16oz white 1X20 Paper Cup Lid",
+    "name": "12/16oz white 1X20 Paper Cup Lid Paper Cup Lid",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2325,7 +2325,7 @@
   },
   {
     "sku": "LPC06",
-    "name": "Lids 85 Dome PET Clear 1X20 Evp(20pkt*50pcs)",
+    "name": "Lids 85 Dome PET Clear 1X20",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2339,7 +2339,7 @@
   },
   {
     "sku": "LPC07",
-    "name": "Lids 85 Flat Clear PET Evp 1X20 (20pkt*50pcs)",
+    "name": "Lids 85 Flat Clear PET Evp 1X20 Evp(20pkt*50pcs)",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2353,7 +2353,7 @@
   },
   {
     "sku": "LPC08",
-    "name": "100mm Dome Lid 1X20 Pet",
+    "name": "100mm Dome Lid 1X20 (20pkt*50pcs) Pet",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2493,7 +2493,7 @@
   },
   {
     "sku": "LPC20",
-    "name": "4oz 1X20 Paper Cup Lid LIDS FOR PAPER BOWL",
+    "name": "4oz 1X20 Paper Cup Lid",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2507,7 +2507,7 @@
   },
   {
     "sku": "LPC21",
-    "name": "SMALL/LARGE SIZE (25 PCS X 20 1X20 PKTS) PAPER CUPS",
+    "name": "SMALL/LARGE SIZE (25 PCS X 20 1X20 LIDS FOR PAPER BOWL PKTS)",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2521,21 +2521,21 @@
   },
   {
     "sku": "MCB01",
-    "name": "Oval Black Cont 375cc + Lids 1X200 (1crtn*200pcs) Evp",
+    "name": "Mic Black Cont M/s 1comp 1X200 Deep(1crtn*200pcs)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
-    "salePriceMinor": 110,
-    "purchasePriceMinor": 108,
+    "salePriceMinor": 160,
+    "purchasePriceMinor": 158,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=215.00;page=66"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=315.00;page=63"
   },
   {
     "sku": "MCB02",
-    "name": "Oval Black Cont 500cc 1X200 + Lids (1crtn*200pcs) Evp Oval Black Cont 750cc + Lids",
+    "name": "Oval Black Cont 500cc 1X200 (1crtn*200pcs) Evp + Lids (1crtn*200pcs) Evp",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2549,7 +2549,7 @@
   },
   {
     "sku": "MCB03",
-    "name": "Mic Black Cont M/s 3 1X200 Comp Deep(1crtn*200pcs) 2L Mic Black & Red Cont M/s",
+    "name": "Mic Black Cont M/s 3 1X200 Comp Shallow(1crtn*200pcs) Comp Deep(1crtn*200pcs)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2563,21 +2563,21 @@
   },
   {
     "sku": "MCB04",
-    "name": "Oval Black Cont 1000cc + Lids 1X200 (1crtn*200pcs) Evp MICROWAVABLE MEAL",
+    "name": "1comp Deep with PET Lid 1X200 2L Mic Black & Red Cont M/s (1crtn*200pcs)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
-    "salePriceMinor": 160,
-    "purchasePriceMinor": 160,
+    "salePriceMinor": 170,
+    "purchasePriceMinor": 170,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=323.00;page=67"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=345.00;page=64"
   },
   {
     "sku": "MCB05",
-    "name": "(50PCS x 4 PKTS) 200pcs CLEAR / 1X4 BLACK NA MCB06 MICROWAVE HINGED EP - 750cc 1X4 PKT 4 49.3 197 (50PCS x 4 PKTS) CLEAR / BLACK NA MCB07 MICROWAVE HINGED EP - 500cc 1X4 PKT 4 44.8 179 (50PCS x 4 PKTS) CLEAR / BLACK",
+    "name": "(50PCS x 4 PKTS) 200pcs CLEAR / 1X4 MICROWAVE HINGED EP - 1000cc BLACK NA MCB06 MICROWAVE HINGED EP - 750cc 1X4 PKT 4 49.3 197 (50PCS x 4 PKTS) CLEAR / BLACK NA MCB07 MICROWAVE HINGED EP - 500cc 1X4 PKT 4 44.8 179 (50PCS",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2591,7 +2591,7 @@
   },
   {
     "sku": "MTC01",
-    "name": "TRAY 1X200 1 COMP + LIDS",
+    "name": "TRAY 1X200 MICROWAVABLE MEAL",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2605,7 +2605,7 @@
   },
   {
     "sku": "MTC02",
-    "name": "MICROWAVABLE MEAL TRAY 1X200 2 COMP + LIDS",
+    "name": "MICROWAVABLE MEAL TRAY 1X200 1 COMP + LIDS 2 COMP + LIDS",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2619,7 +2619,7 @@
   },
   {
     "sku": "NP01",
-    "name": "29X29CM 1X15 80 SHEETS PER PACK. RAINBOW NAPKIN",
+    "name": "29X29CM 1X15 EVERGREEN NAPKIN 80 SHEETS PER PACK.",
     "barcode": "6033000160690",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2633,7 +2633,7 @@
   },
   {
     "sku": "NP02",
-    "name": "29X29CM 1X15 80 SHEETS PER PACK.",
+    "name": "29X29CM 1X15 RAINBOW NAPKIN 80 SHEETS PER PACK.",
     "barcode": "6033000160393",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2647,7 +2647,7 @@
   },
   {
     "sku": "NP03",
-    "name": "29X29CM 1X15 100 SHEETS PER PACK. PICNIC NAPKIN CUSTOMIZED",
+    "name": "29X29CM 1X15 PICNIC NAPKIN 100 SHEETS PER PACK.",
     "barcode": "6033000160577",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2661,7 +2661,7 @@
   },
   {
     "sku": "NP04",
-    "name": "29x29CM 1X15 100 SHEETS PER PACK LUNCH NAPKIN",
+    "name": "29x29CM 1X15 PICNIC NAPKIN CUSTOMIZED 100 SHEETS PER PACK",
     "barcode": "6033000160577",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2675,7 +2675,7 @@
   },
   {
     "sku": "NP05",
-    "name": "33X33CM 1X15 100SHEETS PER PACK",
+    "name": "33X33CM 1X15 LUNCH NAPKIN 100SHEETS PER PACK",
     "barcode": "6033000160249",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2689,7 +2689,7 @@
   },
   {
     "sku": "NP06",
-    "name": "33X33CM 1X15 100 SHEETS PER PACK",
+    "name": "33X33CM 1X15 LUNCH NAPKIN PRINTED 100 SHEETS",
     "barcode": "6033000160256",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2703,7 +2703,7 @@
   },
   {
     "sku": "NP07",
-    "name": "COCKTAIL NAPKIN 1X30 23X23",
+    "name": "COCKTAIL NAPKIN 1X30 PER PACK",
     "barcode": "6033000160287",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2717,7 +2717,7 @@
   },
   {
     "sku": "NP08",
-    "name": "EVERYDAY NAPKIN 1X20 23X23",
+    "name": "EVERYDAY NAPKIN 1X20 23X23 23X23",
     "barcode": "6033000160287",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2731,7 +2731,7 @@
   },
   {
     "sku": "NP09",
-    "name": "2PLY 1X30 50 SHEETS PER PACK",
+    "name": "2PLY 1X30 DELUXE NAPKIN",
     "barcode": "6033000160485",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2745,7 +2745,7 @@
   },
   {
     "sku": "NP10",
-    "name": "HOLIDAY NAPKIN 1X20 23X29",
+    "name": "HOLIDAY NAPKIN 1X20 50 SHEETS PER PACK",
     "barcode": "6033000160621",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2759,7 +2759,7 @@
   },
   {
     "sku": "NP11",
-    "name": "TABLE NAPKIN 23X 32 FOLDED 1X40 200SHEETS",
+    "name": "TABLE NAPKIN 23X 32 FOLDED 1X40 23X29 200SHEETS",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -2773,7 +2773,7 @@
   },
   {
     "sku": "PB01",
-    "name": "PAPER BOWL S/S 12 OZ X 1X20 25 PCS Without LID",
+    "name": "PAPER BOWL S/S 12 OZ X 1X20",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2787,7 +2787,7 @@
   },
   {
     "sku": "PB02",
-    "name": "CHEZVOUS(1 BAG * 50 1X50 Pcs) PIZZA BOX 31CM LITALIE",
+    "name": "CHEZVOUS(1 BAG * 50 1X50 PIZZA BOX 29CM LITALIE Pcs)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2801,7 +2801,7 @@
   },
   {
     "sku": "PB03",
-    "name": "KRAFT PAPER BOWL 24OZ X 1X20 25 PCS Without LID",
+    "name": "KRAFT PAPER BOWL 24OZ X 1X20 25 PCS Without LID 25 PCS Without LID",
     "barcode": "",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2815,21 +2815,21 @@
   },
   {
     "sku": "PB04",
-    "name": "POPCORN BOWL 24 OZ X 1X20 25 PCS Without LID SOUP BOWL",
+    "name": "CHEZVOUS(1 BAG * 50 1X50 PIZZA BOX 33CM LITALIE Pcs)",
     "barcode": "",
-    "unit": "roll",
+    "unit": "pcs",
     "taxCategory": "standard",
-    "salePriceMinor": 1300,
-    "purchasePriceMinor": 1300,
+    "salePriceMinor": 580,
+    "purchasePriceMinor": 580,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=260.00;page=61"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=290.00;page=127"
   },
   {
     "sku": "PB05",
-    "name": "CHEZVOUS(1 BAG * 50 1X50 Pcs)",
+    "name": "CHEZVOUS(1 BAG * 50 1X50 PIZZA BOX 37CM LITALIE Pcs)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2843,7 +2843,7 @@
   },
   {
     "sku": "PC01",
-    "name": "PAPER CUPS 4 OZ SINGLE WALL 1X20 WITHOUT LIDS 50PCS/ROLL",
+    "name": "PAPER CUPS 4 OZ SINGLE WALL 1X20 PAPER CUPS WITHOUT LIDS 50PCS/ROLL",
     "barcode": "6033000162335",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2857,7 +2857,7 @@
   },
   {
     "sku": "PC02",
-    "name": "7 OZ SINGLE 1X20 WALL WITHOUT LIDS 50PCS/ROLL PAPER CUPS 8",
+    "name": "7 OZ SINGLE 1X20 PAPER CUPS WALL WITHOUT LIDS 50PCS/ROLL",
     "barcode": "6033000162342",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2871,7 +2871,7 @@
   },
   {
     "sku": "PC03",
-    "name": "OZ SINGLE WALL 1X20 WITHOUT LIDS 50PCS/ROLL PAPER CUPS 12 OZ",
+    "name": "OZ SINGLE WALL 1X20 PAPER CUPS 8 WITHOUT LIDS 50PCS/ROLL",
     "barcode": "6033000161369",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2885,7 +2885,7 @@
   },
   {
     "sku": "PC04",
-    "name": "SINGLE WALL WITHOUT 1X20 LIDS 50PCS/ROLL",
+    "name": "SINGLE WALL WITHOUT 1X20 PAPER CUPS 12 OZ LIDS 50PCS/ROLL",
     "barcode": "6033000161383",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2899,7 +2899,7 @@
   },
   {
     "sku": "PC05",
-    "name": "SINGLE WALL WITHOUT 30pcs roll 1X20 LIDS 50PCS/ROLL",
+    "name": "SINGLE WALL WITHOUT 30pcs roll 1X20 PAPER CUPS 16 OZ",
     "barcode": "6033000161772",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2913,7 +2913,7 @@
   },
   {
     "sku": "PC06",
-    "name": "RIPPLED PAPER CUP 1X20 8 OZ - 3COLOR",
+    "name": "RIPPLED PAPER CUP 1X20 LIDS 50PCS/ROLL",
     "barcode": "6033000162205",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2927,7 +2927,7 @@
   },
   {
     "sku": "PC07",
-    "name": "RIPPLED PAPER CUP 1X20 8 OZ - 3COLOR",
+    "name": "RIPPLED PAPER CUP 1X20 8 OZ - 3COLOR 8 OZ - 3COLOR",
     "barcode": "6033000162205",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2941,7 +2941,7 @@
   },
   {
     "sku": "PC08",
-    "name": "RIPPLED PAPER CUP 1X20 12 OZ - 3COLOR",
+    "name": "RIPPLED PAPER CUP 1X20",
     "barcode": "6033000162212",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2969,7 +2969,7 @@
   },
   {
     "sku": "PC10",
-    "name": "RIPPLED PAPER CUP 1X20 16 OZ - 3COLOR",
+    "name": "RIPPLED PAPER CUP 1X20 12 OZ - 3COLOR 16 OZ - 3COLOR",
     "barcode": "6033000162229",
     "unit": "roll",
     "taxCategory": "standard",
@@ -2983,7 +2983,7 @@
   },
   {
     "sku": "PC11",
-    "name": "French fries holder 50 pcs 1X1000 13 PC12 4oz ice cream paper cup 1X1000 PCS 1000 0.2 189.00 (1x1000pcs) without Lid",
+    "name": "French fries holder 50 pcs 1X1000 16 OZ - 3COLOR 13 PC12 4oz ice cream paper cup 1X1000 PCS 1000 0.2 189.00 (1x1000pcs) without Lid",
     "barcode": "6033000160201",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -2997,7 +2997,7 @@
   },
   {
     "sku": "PCB07",
-    "name": "POPCORN PAPER BAGS (100 Pcs X 12 10 PKts)(1000)",
+    "name": "POPCORN PAPER BAGS (100 Pcs X 12",
     "barcode": "",
     "unit": "kg",
     "taxCategory": "standard",
@@ -3011,7 +3011,7 @@
   },
   {
     "sku": "PCB08",
-    "name": "PAER BAG SQUARE BOTTOM 32X35 1X200 (1BAGX200PCS)",
+    "name": "PAER BAG SQUARE BOTTOM 32X35 1X200 10 PKts)(1000)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3025,7 +3025,7 @@
   },
   {
     "sku": "PCB09",
-    "name": "PAER BAG SQUARE BOTTOM 30X34 1X200 (1BAGX200PCS)",
+    "name": "PAER BAG SQUARE BOTTOM 30X34 1X200 (1BAGX200PCS) (1BAGX200PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3039,7 +3039,7 @@
   },
   {
     "sku": "PCB10",
-    "name": "PAER BAG SQUARE BOTTOM 26X34 1X400 (1BAGX200PCS)",
+    "name": "PAER BAG SQUARE BOTTOM 26X34 1X400",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3053,7 +3053,7 @@
   },
   {
     "sku": "PCB11",
-    "name": "PAER BAG SQUARE BOTTOM 20X28 1X400 (1BAGX400PCS)",
+    "name": "PAER BAG SQUARE BOTTOM 20X28 1X400 (1BAGX200PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3067,7 +3067,7 @@
   },
   {
     "sku": "PCB12",
-    "name": "PAER BAG SQUARE BOTTOM 22X26 1X400 (1BAGX400PCS)",
+    "name": "PAER BAG SQUARE BOTTOM 22X26 1X400 (1BAGX400PCS) (1BAGX400PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3095,7 +3095,7 @@
   },
   {
     "sku": "PCB16",
-    "name": "WITHOUT HANDLE 16X23 1X100 (1BAGX1000PCS) PAER BAG SQUARE BOTTOM",
+    "name": "WITHOUT HANDLE 16X23 1X100 PAER BAG SQUARE BOTTOM (1BAGX1000PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3109,7 +3109,7 @@
   },
   {
     "sku": "PCB17",
-    "name": "WITHOUT HANDLE 16X28 1X100 (1BAGX1000PCS) PAER BAG SQUARE BOTTOM",
+    "name": "WITHOUT HANDLE 16X28 1X100 PAER BAG SQUARE BOTTOM (1BAGX1000PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3123,7 +3123,7 @@
   },
   {
     "sku": "PCB18",
-    "name": "WITHOUT HANDLE 18X25 1X100 (1BAGX1000PCS)",
+    "name": "WITHOUT HANDLE 18X25 1X100 PAER BAG SQUARE BOTTOM (1BAGX1000PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3137,7 +3137,7 @@
   },
   {
     "sku": "PCB19",
-    "name": "WITHOUT HANDLE 13X22 1X100 (1BAGX1000PCS) PAER BAG SQUARE BOTTOM",
+    "name": "WITHOUT HANDLE 13X22 1X100 PAER BAG SQUARE BOTTOM (1BAGX1000PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3151,7 +3151,7 @@
   },
   {
     "sku": "PCB20",
-    "name": "WITHOUT HANDLE 15.5X19 1X100 (1BAGX1000PCS) PAER BAG SQUARE BOTTOM PCB21 WITHOUT HANDLE 26x34 1X200 PCS 200 1.3 258.00 (1BAGX200PCS)",
+    "name": "WITHOUT HANDLE 15.5X19 1X100 PAER BAG SQUARE BOTTOM (1BAGX1000PCS) PAER BAG SQUARE BOTTOM PCB21 WITHOUT HANDLE 26x34 1X200 PCS 200 1.3 258.00 (1BAGX200PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3165,7 +3165,7 @@
   },
   {
     "sku": "PCB22",
-    "name": "THANK YOU PAPER BAG 1X12 (225 Pcs X 12 Pkts) (2700 PCS)",
+    "name": "THANK YOU PAPER BAG 1X12",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -3193,7 +3193,7 @@
   },
   {
     "sku": "PCJ02",
-    "name": "BOTTLE CAPS BLUE 1X500 PIZZA BOX 29CM LITALIE",
+    "name": "BOTTLE CAPS BLUE 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3263,7 +3263,7 @@
   },
   {
     "sku": "PET08",
-    "name": "EVP 915 RECT. CONT 250CC Flate 1X600",
+    "name": "EVP 915 RECT. CONT 250CC Flate 1X600 NA PET07 EVP 112 RECT. CONT 375CC Flate 1X800 PCS 800 0.5 398",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3417,7 +3417,7 @@
   },
   {
     "sku": "PET19",
-    "name": "EVP 962 RECT. CONT 1000CC 1X500 DOME",
+    "name": "EVP 962 RECT. CONT 1000CC 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3431,7 +3431,7 @@
   },
   {
     "sku": "PET20",
-    "name": "EVP 900 RECT. CONT 1250CC FLAT 1X300",
+    "name": "EVP 900 RECT. CONT 1250CC FLAT 1X300 DOME",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3445,7 +3445,7 @@
   },
   {
     "sku": "PET21",
-    "name": "EVP 900 RECT. CONT 1250CC 1X300 DOME",
+    "name": "EVP 900 RECT. CONT 1250CC 1X300",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3459,7 +3459,7 @@
   },
   {
     "sku": "PET22",
-    "name": "EVP 969 RECT. CONT 1500CC FLAT 1X300",
+    "name": "EVP 969 RECT. CONT 1500CC FLAT 1X300 DOME",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3501,7 +3501,7 @@
   },
   {
     "sku": "PET25",
-    "name": "EVP 971 RECT. CONT 1750CC 1X300 DOME",
+    "name": "EVP 971 RECT. CONT 1750CC 1X300",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3515,7 +3515,7 @@
   },
   {
     "sku": "PET26",
-    "name": "Crystal Clear 400 CC PET 50pcs roll 1X20",
+    "name": "Crystal Clear 400 CC PET 50pcs roll 1X20 DOME",
     "barcode": "6033000162823",
     "unit": "roll",
     "taxCategory": "standard",
@@ -3529,7 +3529,7 @@
   },
   {
     "sku": "PET28",
-    "name": "EVP EGG TRAY x 6 1X200",
+    "name": "EVP EGG TRAY x 6 1X200 24 PET27 Crystal Clear 500CC PET 50pcs roll 1X20 ROLL 20 25.0 500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3571,7 +3571,7 @@
   },
   {
     "sku": "PET31",
-    "name": "ART 736 EVP PET ROUND BOWL 1X300 500CC WITH LID BLK / CLEAR",
+    "name": "ART 736 EVP PET ROUND BOWL 1X300",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3585,7 +3585,7 @@
   },
   {
     "sku": "PET32",
-    "name": "ART 981 EVP PET SALAD BOWL 1X300 HING 500CC",
+    "name": "ART 981 EVP PET SALAD BOWL 1X300 500CC WITH LID BLK / CLEAR HING 500CC",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3599,7 +3599,7 @@
   },
   {
     "sku": "PET33",
-    "name": "ART 982 EVP PET SALAD BOWL 1X300 HING 600CC",
+    "name": "ART 982 EVP PET SALAD BOWL 1X300",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3613,7 +3613,7 @@
   },
   {
     "sku": "PET34",
-    "name": "ART 983 EVP PET SALAD BOWL 1X300 HING 750CC",
+    "name": "ART 983 EVP PET SALAD BOWL 1X300 HING 600CC",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3627,7 +3627,7 @@
   },
   {
     "sku": "PET35",
-    "name": "ART 975 EVP PET FRUIT PANEL 1X1000 HING 250CC",
+    "name": "ART 975 EVP PET FRUIT PANEL 1X1000 HING 750CC HING 250CC",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3641,7 +3641,7 @@
   },
   {
     "sku": "PL01",
-    "name": "PLASTIC PLATE 10 INCH FLAT 20 1X40 PCS / PKT PLASTIC PLATE 10",
+    "name": "PLASTIC PLATE 10 INCH FLAT 20 1X40 PCS / PKT",
     "barcode": "6033000161680",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -3655,7 +3655,7 @@
   },
   {
     "sku": "PL02",
-    "name": "INCH 3 COMP 1X30 20 PCS/ PKT PLASTIC PLATE 9 INCH 50 PCSX20",
+    "name": "INCH 3 COMP 1X30 PLASTIC PLATE 10 20 PCS/ PKT",
     "barcode": "6033000161673",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -3669,7 +3669,7 @@
   },
   {
     "sku": "PL03",
-    "name": "PKT (1000 1X20 PCS)",
+    "name": "PKT (1000 1X20 PLASTIC PLATE 9 INCH 50 PCSX20 PCS)",
     "barcode": "6033000161000",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -3683,7 +3683,7 @@
   },
   {
     "sku": "PL04",
-    "name": "50 PCSX20 PKT SHALLOW(1000 1X20 PCS) PLASTIC PLATE 7 INCH 50 PCSX20",
+    "name": "50 PCSX20 PKT SHALLOW(1000 1X20 PLASTIC PLATE 7 INCH PCS)",
     "barcode": "6033000161567",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -3697,7 +3697,7 @@
   },
   {
     "sku": "PL05",
-    "name": "PKT 1X20 DEEP(1000",
+    "name": "PKT 1X20 PLASTIC PLATE 7 INCH 50 PCSX20 DEEP(1000",
     "barcode": "6033000161550",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -3711,7 +3711,7 @@
   },
   {
     "sku": "PLB01",
-    "name": "Pope Lunch Box No. 1 1X250 (1crtnx250pcs) 500ml",
+    "name": "Pope Lunch Box No. 1 1X250 (225 Pcs X 12 Pkts) (2700 PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3725,7 +3725,7 @@
   },
   {
     "sku": "PLB02",
-    "name": "Pope Lunch Box No. 2 1X350 (1crtnx350pcs) 700ml",
+    "name": "Pope Lunch Box No. 2 1X350 (1crtnx250pcs) 500ml (1crtnx350pcs) 700ml",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3739,7 +3739,7 @@
   },
   {
     "sku": "PLB03",
-    "name": "Pope Lunch Box No. 3 1X200 (1crtnx200pcs) 1000ml",
+    "name": "Pope Lunch Box No. 3 1X200",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3753,7 +3753,7 @@
   },
   {
     "sku": "PLB04",
-    "name": "Pope Lunch Box No. 4 1X200 (1crtnx200pcs) 1200ml",
+    "name": "Pope Lunch Box No. 4 1X200 (1crtnx200pcs) 1000ml",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3767,7 +3767,7 @@
   },
   {
     "sku": "PLB05",
-    "name": "Pope Lunch Box No. 5 1X200 (1crtnx200pcs) 1600ml",
+    "name": "Pope Lunch Box No. 5 1X200 (1crtnx200pcs) 1200ml (1crtnx200pcs) 1600ml",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3781,7 +3781,7 @@
   },
   {
     "sku": "PLB06",
-    "name": "Pope Lunch Box No. 6 1X200 (1crtnx200pcs) 2100ml",
+    "name": "Pope Lunch Box No. 6 1X200",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3809,7 +3809,7 @@
   },
   {
     "sku": "PPB02",
-    "name": "PP Bags 3.5x9 Inch 100 sheets 1X50 (1x50) 7.6kg",
+    "name": "PP Bags 3.5x9 Inch 100 sheets 1X50",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -3823,7 +3823,7 @@
   },
   {
     "sku": "PPB03",
-    "name": "PP Bags 4x9 Inch 100 sheets (1x50) 1X50 8.05kg",
+    "name": "PP Bags 4x9 Inch 100 sheets (1x50) 1X50 (1x50) 7.6kg",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -3837,7 +3837,7 @@
   },
   {
     "sku": "PPB04",
-    "name": "PP Bags 5x9 Inch 100 sheets (1x50) 1X50 10.65kg",
+    "name": "PP Bags 5x9 Inch 100 sheets (1x50) 1X50 8.05kg 10.65kg",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -3851,7 +3851,7 @@
   },
   {
     "sku": "PPB05",
-    "name": "PP Bags 6x10 Inch 100 sheets 1X50 (1x50) 12.1kg",
+    "name": "PP Bags 6x10 Inch 100 sheets 1X50",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -3865,7 +3865,7 @@
   },
   {
     "sku": "PPB06",
-    "name": "PP Bags 16x43 Inch 100 sheets 1X20 (1x20)",
+    "name": "PP Bags 16x43 Inch 100 sheets 1X20 (1x50) 12.1kg",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -3893,7 +3893,7 @@
   },
   {
     "sku": "PRC02",
-    "name": "PRC CUPS 1X500 350CC (500 PCS)",
+    "name": "PRC CUPS 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3907,7 +3907,7 @@
   },
   {
     "sku": "PRC03",
-    "name": "PRC CUPS 500CC 1X500 (500 PCS)",
+    "name": "PRC CUPS 500CC 1X500 350CC (500 PCS) (500 PCS)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3921,7 +3921,7 @@
   },
   {
     "sku": "PRC04",
-    "name": "PRC CUPS 500CC 1X500 (500 PCS) FLAT",
+    "name": "PRC CUPS 500CC 1X500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3935,7 +3935,7 @@
   },
   {
     "sku": "PRC05",
-    "name": "PRC CUPS 500CC 1X500 (500 PCS) BUMPY",
+    "name": "PRC CUPS 500CC 1X500 (500 PCS) FLAT",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3949,7 +3949,7 @@
   },
   {
     "sku": "PRC08",
-    "name": "MAZAT BOWL 1X300 350CC (300 PCS) WITH LIDS",
+    "name": "MAZAT BOWL 1X300 (CLEAR) 350CC (300 PCS) WITH LIDS",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -3963,7 +3963,7 @@
   },
   {
     "sku": "PT01",
-    "name": "100PCSX20 1X20 ROLL WITH LIDS SHITO CUPS CLEAR 1 Oz 30CC 2 PT02 100PCSX20 1X20 ROLL 20 8.2 164 ROLL WITH LIDS SHITO CUPS CLEAR",
+    "name": "100PCSX20 1X20 25CC ROLL WITH LIDS SHITO CUPS CLEAR 1 Oz 30CC 2 PT02 100PCSX20 1X20 ROLL 20 8.2 164 ROLL WITH LIDS",
     "barcode": "603300160942",
     "unit": "roll",
     "taxCategory": "standard",
@@ -3977,7 +3977,7 @@
   },
   {
     "sku": "PT02",
-    "name": "1/L Brown 1X20 (20pkt*100pcs) Coffee Cups",
+    "name": "1/L Brown 1X20 Coffee Cups 80cc (20pkt*100pcs)",
     "barcode": "6033000160997",
     "unit": "roll",
     "taxCategory": "standard",
@@ -3991,21 +3991,21 @@
   },
   {
     "sku": "PT03",
-    "name": "80cc 2/L 1X20 Brown (20pkt*100pcs)",
-    "barcode": "6033000160997",
+    "name": "40CC 1X20 SHITO CUPS CLEAR 100PCSX20ROLL WITH LIDS",
+    "barcode": "6033000160959",
     "unit": "roll",
     "taxCategory": "standard",
-    "salePriceMinor": 1420,
-    "purchasePriceMinor": 1420,
+    "salePriceMinor": 1600,
+    "purchasePriceMinor": 1595,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=285.00;page=37"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=319.00;page=31"
   },
   {
     "sku": "PT04",
-    "name": "100PCSX20 1X20 ROLL WITH LIDS SHITO CUPS BLACK",
+    "name": "100PCSX20 1X20 25CC ROLL WITH LIDS",
     "barcode": "603300160942",
     "unit": "roll",
     "taxCategory": "standard",
@@ -4033,7 +4033,7 @@
   },
   {
     "sku": "PT06",
-    "name": "SAUCE CUPS CLEAR 1X20 80CC 100PCSX20ROLL WITH LIDS SAUCE CUPS CLEAR",
+    "name": "SAUCE CUPS CLEAR 1X20 80CC 100PCSX20ROLL WITH LIDS",
     "barcode": "6033000160973",
     "unit": "roll",
     "taxCategory": "standard",
@@ -4047,49 +4047,49 @@
   },
   {
     "sku": "PT07",
-    "name": "CUPS 350CC PP 1X20 COLORED 50 PCS/ROLL",
-    "barcode": "6033000161079",
+    "name": "120CC 100PCSX20ROLL WITH 1X20 SAUCE CUPS CLEAR",
+    "barcode": "6033000160980",
     "unit": "roll",
     "taxCategory": "standard",
-    "salePriceMinor": 2040,
-    "purchasePriceMinor": 2035,
+    "salePriceMinor": 2430,
+    "purchasePriceMinor": 2430,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=407.00;page=39"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=486.00;page=33"
   },
   {
     "sku": "PT08",
-    "name": "400CC - CLEAR 50 PCS/ROLL 1X20 PARTY TIME CUPS 500CC COLOUR 2",
-    "barcode": "6033000160911",
+    "name": "SAUCE CUPS BLACK 1X20 LIDS 50CC 100PCSX20ROLL WITH LIDS",
+    "barcode": "6033000160966",
     "unit": "roll",
     "taxCategory": "standard",
-    "salePriceMinor": 1590,
-    "purchasePriceMinor": 1586,
+    "salePriceMinor": 2310,
+    "purchasePriceMinor": 2310,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=317.25;page=39"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=462.00;page=33"
   },
   {
     "sku": "PT09",
-    "name": "SAUCE CUPS BLACK 1X20 80CC 100PCSX20ROLL WITH LIDS SAUCE CUPS BLACK",
-    "barcode": "6033000160973",
+    "name": "LAYER 50 1X20 PARTY TIME CUPS 500CC COLOUR 2 PCS/ROLL",
+    "barcode": "6033000161062",
     "unit": "roll",
     "taxCategory": "standard",
-    "salePriceMinor": 2370,
-    "purchasePriceMinor": 2370,
+    "salePriceMinor": 2840,
+    "purchasePriceMinor": 2840,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=474.00;page=34"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=ROLL;boxPrice=568.70;page=39"
   },
   {
     "sku": "PT10",
-    "name": "120CC 100PCSX20ROLL WITH 1X20 LIDS DESERT CUPS 150CC 50PCS X20",
+    "name": "120CC 100PCSX20ROLL WITH 1X20 SAUCE CUPS BLACK LIDS",
     "barcode": "6033000160980",
     "unit": "roll",
     "taxCategory": "standard",
@@ -4131,21 +4131,21 @@
   },
   {
     "sku": "SB02",
-    "name": "Salad Bowl 700ml (1x300pcs) With 1X300 Lids",
-    "barcode": "",
-    "unit": "pcs",
+    "name": "SOUP BOWL LARGE 1X26 20 PCS/ PKT SIZE 20 PCS/ PKT",
+    "barcode": "6033000161659",
+    "unit": "pkt",
     "taxCategory": "standard",
-    "salePriceMinor": 200,
-    "purchasePriceMinor": 200,
+    "salePriceMinor": 2920,
+    "purchasePriceMinor": 2920,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=600.00;page=139"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=PKT;boxPrice=760.00;page=61"
   },
   {
     "sku": "SB03",
-    "name": "Salad Bowl 1000ml (1x300pcs) 1X300 With Lids",
+    "name": "Salad Bowl 1000ml (1x300pcs) 1X300 Lids",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4159,7 +4159,7 @@
   },
   {
     "sku": "SB04",
-    "name": "Salad Bowl 1300ml (1x300pcs) 1X300 With Lids",
+    "name": "Salad Bowl 1300ml (1x300pcs) 1X300 With Lids With Lids",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4271,7 +4271,7 @@
   },
   {
     "sku": "SLC04",
-    "name": "350cc Sealable 1X1500 Clear Cup",
+    "name": "350cc Sealable 1X1500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4285,7 +4285,7 @@
   },
   {
     "sku": "SLC05",
-    "name": "500cc Sealable 1X1500 ClearCup",
+    "name": "500cc Sealable 1X1500 Clear Cup ClearCup",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4299,17 +4299,17 @@
   },
   {
     "sku": "SLC06",
-    "name": "500cc Sealable Cup 1L 1X1500 Clear Printed 500cc Sealable Cup",
+    "name": "Clear / Short 1X500 500cc Sealable Cup Clear Printed",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
-    "salePriceMinor": 60,
-    "purchasePriceMinor": 59,
+    "salePriceMinor": 90,
+    "purchasePriceMinor": 89,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=886.00;page=43"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=PCS;boxPrice=443.00;page=43"
   },
   {
     "sku": "SLC07",
@@ -4369,7 +4369,7 @@
   },
   {
     "sku": "SLC12",
-    "name": "160cc Sealable 1L White 1X1500 Printed",
+    "name": "160cc Sealable 1L White 1X1500",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4383,7 +4383,7 @@
   },
   {
     "sku": "SLC13",
-    "name": "200cc Sealable Clear 1X2000",
+    "name": "200cc Sealable Clear 1X2000 Printed",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4397,7 +4397,7 @@
   },
   {
     "sku": "SLC14",
-    "name": "200cc Sealable Clear 1X2000 JUICE CLEAR",
+    "name": "200cc Sealable Clear 1X2000",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4411,7 +4411,7 @@
   },
   {
     "sku": "SP01",
-    "name": "Spoon 50pcs (1X40pkt) 1X40",
+    "name": "Spoon 50pcs (1X40pkt) 1X40 5 HDFK01 HD Forks 50pcs BLACK (1X20pkt) 1X20 PKT 20 16.3 325.00",
     "barcode": "6033000160133",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -4467,7 +4467,7 @@
   },
   {
     "sku": "SS01",
-    "name": "SHEET)(1*12 1X12 Pkts)",
+    "name": "SHEET)(1*12 1X12 SEPARATION SHEET (NYLON Pkts)",
     "barcode": "",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -4481,7 +4481,7 @@
   },
   {
     "sku": "ST01",
-    "name": "10 L 30 PCS/ 1X12 PKT",
+    "name": "10 L 30 PCS/ 1X12 TRASH BAGS SMALL SIZE (WHITE)",
     "barcode": "6033000160355",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -4495,7 +4495,7 @@
   },
   {
     "sku": "ST02",
-    "name": "TRASH BAGS HOUSEHOLD SIZE 1X12 (YELLOW) 20 L30pcs/ PKT",
+    "name": "TRASH BAGS HOUSEHOLD SIZE 1X12 PKT (YELLOW) 20 L30pcs/ PKT",
     "barcode": "6033000160362",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -4509,7 +4509,7 @@
   },
   {
     "sku": "ST03",
-    "name": "10mm*140mm flexible 50pkt*100pcs (unwrapped) 4 15+1 / 50+4 / 100+10 FREE ST04 STRAW 90pkt*100pcs 260*5.7mm 90pkt*55pcs 90 1.6 144 (unwrapped)- picnic STRAW 50pkt*50pcs",
+    "name": "10mm*140mm flexible 50pkt*100pcs STRAW 50pkt*100pcs (unwrapped) 4 15+1 / 50+4 / 100+10 FREE ST04 STRAW 90pkt*100pcs 260*5.7mm 90pkt*55pcs 90 1.6 144 (unwrapped)- picnic",
     "barcode": "6033000160768",
     "unit": "pack",
     "taxCategory": "standard",
@@ -4523,7 +4523,7 @@
   },
   {
     "sku": "ST04",
-    "name": "TRASH BAGS LARGE SIZE (BLACK) 55 1X6 L 30PCS / PKT",
+    "name": "TRASH BAGS LARGE SIZE (BLACK) 55 1X6 (BLUE)25 L 30PCS /",
     "barcode": "6033000160386",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -4537,7 +4537,7 @@
   },
   {
     "sku": "ST05",
-    "name": "TRASH BAGS XTRA LARGE SIZE 1X6 (BLACK) 110 L 12PCS / PKT",
+    "name": "TRASH BAGS XTRA LARGE SIZE 1X6 L 30PCS / PKT (BLACK) 110 L 12PCS / PKT",
     "barcode": "6033000161703",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -4551,7 +4551,7 @@
   },
   {
     "sku": "ST06",
-    "name": "6mm*230mm flexible 50pkt*100pcs (wrapped) STRAW 25pkt*200pcs 7 ST07 6mm*230mm flexible 25pkt*200pcs 25 15.1 378 (wrapped)",
+    "name": "6mm*230mm flexible 50pkt*100pcs STRAW 50pkt*100pcs (wrapped) STRAW 25pkt*200pcs 7 ST07 6mm*230mm flexible 25pkt*200pcs 25 15.1 378",
     "barcode": "6033000161895",
     "unit": "pack",
     "taxCategory": "standard",
@@ -4565,7 +4565,7 @@
   },
   {
     "sku": "ST07",
-    "name": "TRASH BAGS XXX LARGE 240 L 1X6 BLACK 8PCS/ PKT",
+    "name": "TRASH BAGS XXX LARGE 240 L 1X6 12PCS/ PKT BLACK 8PCS/ PKT",
     "barcode": "6033000161864",
     "unit": "pkts",
     "taxCategory": "standard",
@@ -4579,7 +4579,7 @@
   },
   {
     "sku": "ST08",
-    "name": "Party time straw wrapped 10 mm 50pkt*50pcs 50x50",
+    "name": "Party time straw wrapped 10 mm 50pkt*50pcs (wrapped) 50x50",
     "barcode": "6033000163189",
     "unit": "pack",
     "taxCategory": "standard",
@@ -4593,21 +4593,21 @@
   },
   {
     "sku": "ST09",
-    "name": "Party time straw 50pkt*100pcs 10 mm unwrapeed 100x50",
-    "barcode": "",
-    "unit": "pack",
+    "name": "Easy Tie Small 15L / 15pcs/pack 1X12",
+    "barcode": "3033000162755",
+    "unit": "pkts",
     "taxCategory": "standard",
-    "salePriceMinor": 870,
-    "purchasePriceMinor": 870,
+    "salePriceMinor": 2160,
+    "purchasePriceMinor": 2158,
     "reorderLevel": 10,
     "trackStock": true,
     "resellable": true,
     "location": "Main",
-    "customFields": "source=Everpack price list 17 Oct 2026;pack=N/A;boxPrice=437.00;page=107"
+    "customFields": "source=Everpack price list 17 Oct 2026;pack=PKTS;boxPrice=259.00;page=111"
   },
   {
     "sku": "ST10",
-    "name": "Party time straw 50pkt*100pcs 10 mm wrapeed 100x50",
+    "name": "Party time straw 50pkt*100pcs 10 mm unwrapeed 100x50",
     "barcode": "",
     "unit": "pack",
     "taxCategory": "standard",
@@ -4621,7 +4621,7 @@
   },
   {
     "sku": "ST11",
-    "name": "Picnic Straws unwrapped 1box*40pk t*200pcs Box 200 pcs",
+    "name": "Picnic Straws unwrapped 1box*40pk t*200pcs 10 mm wrapeed 100x50 Box 200 pcs",
     "barcode": "6033000161581",
     "unit": "pack",
     "taxCategory": "standard",
@@ -4635,7 +4635,7 @@
   },
   {
     "sku": "ST12",
-    "name": "Party time wrapped 1box*40pk t*200pcs straw Box 200pcs TRASH BAGS SMALL SIZE (WHITE)",
+    "name": "Party time wrapped 1box*40pk t*200pcs straw Box 200pcs",
     "barcode": "6033000161574",
     "unit": "pack",
     "taxCategory": "standard",
@@ -4663,7 +4663,7 @@
   },
   {
     "sku": "SWA01",
-    "name": "ALUMINUM FOIL 25 SQFT (7.6 X 50 0.3) SINGLE WRAP",
+    "name": "ALUMINUM FOIL 25 SQFT (7.6 X 50 SINGLE WRAP 0.3)",
     "barcode": "6033000162489",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -4677,7 +4677,7 @@
   },
   {
     "sku": "SWA02",
-    "name": "ALUMINUM FOIL 35 ALUMINIUM FOIL 37.5SQ.FT SINGLE WRAP",
+    "name": "ALUMINUM FOIL 35 SINGLE WRAP ALUMINIUM FOIL 37.5SQ.FT",
     "barcode": "6033000162434",
     "unit": "pkt",
     "taxCategory": "standard",
@@ -4691,7 +4691,7 @@
   },
   {
     "sku": "TRCP01",
-    "name": "CENTER PULLING TOILET 1X12 ROLL Customized (500 gms)",
+    "name": "CENTER PULLING TOILET 1X12",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4705,7 +4705,7 @@
   },
   {
     "sku": "TRCP02",
-    "name": "CENTER PULLING TOILET 1X12 ROLL S/S (530 gms)",
+    "name": "CENTER PULLING TOILET 1X12 ROLL Customized (500 gms) ROLL S/S (530 gms)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4733,7 +4733,7 @@
   },
   {
     "sku": "TRE01",
-    "name": "EVERGREEN 4 IN 1 X 6 PKT TOILET ROLL",
+    "name": "EVERGREEN TOILET ROLL 4 IN 1 X 6 PKT",
     "barcode": "6033000160706",
     "unit": "1x6",
     "taxCategory": "standard",
@@ -4747,7 +4747,7 @@
   },
   {
     "sku": "TRE02",
-    "name": "EVERGREEN UNWRAPPED 7 (10 PCS X 7 PKT) TOILET ROLL EVERGREEN",
+    "name": "EVERGREEN UNWRAPPED 7 TOILET ROLL (10 PCS X 7 PKT)",
     "barcode": "6033000160751",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4761,7 +4761,7 @@
   },
   {
     "sku": "TRE04",
-    "name": "UNWRAPPED 7 (12 PCS X 7 PKT)",
+    "name": "UNWRAPPED 7 TOILET ROLL EVERGREEN",
     "barcode": "6033000160713",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4775,7 +4775,7 @@
   },
   {
     "sku": "TRE05",
-    "name": "TOILET ROLL EVERGREEN 1 FAMILY X 24 PCS",
+    "name": "TOILET ROLL EVERGREEN 1 (12 PCS X 7 PKT)",
     "barcode": "6033000160720",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4789,7 +4789,7 @@
   },
   {
     "sku": "TRE06",
-    "name": "TOILET ROLL OFF CUT X50 1",
+    "name": "TOILET ROLL OFF CUT X50 1 FAMILY X 24 PCS",
     "barcode": "",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4803,7 +4803,7 @@
   },
   {
     "sku": "TRE07",
-    "name": "EVERGREEN 1 X 50 PCS",
+    "name": "EVERGREEN 1 TOILET ROLL X 50 PCS",
     "barcode": "",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4817,7 +4817,7 @@
   },
   {
     "sku": "TRE1",
-    "name": "UNWRAPPED 7 (12 PCS X 7 PKT)",
+    "name": "UNWRAPPED 7 TOILET ROLL PANDA \\",
     "barcode": "6033000161529",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4831,7 +4831,7 @@
   },
   {
     "sku": "TRE2",
-    "name": "SOFTY TOILET ROLL (12 PCS X 7 PKT) 7",
+    "name": "SOFTY TOILET ROLL (12 PCS X 7 PKT) 7 (12 PCS X 7 PKT)",
     "barcode": "6033000160607",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4845,7 +4845,7 @@
   },
   {
     "sku": "TRE3",
-    "name": "Gentle Touch 6 1 125598 TRJ01 JUMBO TOILET ROLL 1X12 PCS 12 19.9 239 (530)",
+    "name": "Gentle Touch 6 1 125598 TRJ01 JUMBO TOILET ROLL 1X12 PCS 12 19.9 239",
     "barcode": "6033000163042",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4859,7 +4859,7 @@
   },
   {
     "sku": "TRF02",
-    "name": "Fluffy Mega T-Roll 1X12 4 IN 1",
+    "name": "Fluffy Mega T-Roll 1X12 WRAP 4 IN 1",
     "barcode": "6033000160430",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -4873,7 +4873,7 @@
   },
   {
     "sku": "TRF03",
-    "name": "TOILET ROLL FLUFFY 4 IN 1 TOILET ROLL FLUFFY",
+    "name": "TOILET ROLL FLUFFY 4 IN 1",
     "barcode": "6033000160447",
     "unit": "1x6",
     "taxCategory": "standard",
@@ -4887,7 +4887,7 @@
   },
   {
     "sku": "TRF04",
-    "name": "unwrapped 7 (10 PCS X 7 PKT) TOILET ROLL FLUFFY",
+    "name": "unwrapped 7 TOILET ROLL FLUFFY (10 PCS X 7 PKT)",
     "barcode": "6033000160454",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4901,7 +4901,7 @@
   },
   {
     "sku": "TRF05",
-    "name": "wrapped 7 (10 PCS X 7 PKT)",
+    "name": "wrapped 7 TOILET ROLL FLUFFY (10 PCS X 7 PKT)",
     "barcode": "6033000161314",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4915,7 +4915,7 @@
   },
   {
     "sku": "TRF07",
-    "name": "(10 PCS X 7 PKT) 110g 7 TOILET ROLL FLUFFY ALOE VERA",
+    "name": "(10 PCS X 7 PKT) 110g 7 TOILET ROLL XXL",
     "barcode": "6033000160423",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4929,7 +4929,7 @@
   },
   {
     "sku": "TRF08",
-    "name": "unwrapped 7 (10 PCS X 7 PKT) TOILET ROLL FLUFFY",
+    "name": "unwrapped 7 TOILET ROLL FLUFFY ALOE VERA (10 PCS X 7 PKT)",
     "barcode": "6033000163059",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4943,7 +4943,7 @@
   },
   {
     "sku": "TRF09",
-    "name": "3 PLY 7 unwrapped (10 PCS X 7 PKT)",
+    "name": "3 PLY 7 TOILET ROLL FLUFFY unwrapped (10 PCS X 7 PKT)",
     "barcode": "6033000160232",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4957,7 +4957,7 @@
   },
   {
     "sku": "TRF10",
-    "name": "TOILET ROLL PLAIN 7 (10 PCS X 7PKT) TOILET ROLL",
+    "name": "TOILET ROLL PLAIN 7 (10 PCS X 7PKT)",
     "barcode": "6033000160737",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4971,7 +4971,7 @@
   },
   {
     "sku": "TRF11",
-    "name": "FLUFFY FAMILY 1 24 PCS TOILET ROLL FLUFFY",
+    "name": "FLUFFY FAMILY 1 TOILET ROLL 24 PCS",
     "barcode": "6033000160843",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4985,7 +4985,7 @@
   },
   {
     "sku": "TRF12",
-    "name": "SUPER FAMILY 1 X 32 PCS",
+    "name": "SUPER FAMILY 1 TOILET ROLL FLUFFY X 32 PCS",
     "barcode": "",
     "unit": "bag",
     "taxCategory": "standard",
@@ -4999,7 +4999,7 @@
   },
   {
     "sku": "TRF13",
-    "name": "TOILET ROLL PLAIN 1 X 50 PCS TOILET ROLL FLUFFY BIGOOO 15cm Width",
+    "name": "TOILET ROLL PLAIN 1 X 50 PCS TOILET ROLL FLUFFY BIGOOO 15cm",
     "barcode": "",
     "unit": "bag",
     "taxCategory": "standard",
@@ -5013,7 +5013,7 @@
   },
   {
     "sku": "TRF14",
-    "name": "2 PLY 5 unwrapped (10 PCS X 5 PKT)",
+    "name": "2 PLY 5 Width unwrapped (10 PCS X 5 PKT)",
     "barcode": "",
     "unit": "bag",
     "taxCategory": "standard",
@@ -5027,7 +5027,7 @@
   },
   {
     "sku": "TRJ02",
-    "name": "JUMBO TOILET ROLL 1X12 SPECIAL (500 gms)",
+    "name": "JUMBO TOILET ROLL 1X12 (530) SPECIAL (500 gms)",
     "barcode": "6033000160461",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -5041,7 +5041,7 @@
   },
   {
     "sku": "TRJ03",
-    "name": "INDUSTRIAL 1X12 (750 gms)",
+    "name": "INDUSTRIAL 1X12 JUMBO TOILET ROLL (750 gms)",
     "barcode": "",
     "unit": "pcs",
     "taxCategory": "standard",
@@ -5167,7 +5167,7 @@
   },
   {
     "sku": "WSP01",
-    "name": "SANDWICH PAPER WHITE ALL SIZES 10 SANDWICH PAPER PRINTED",
+    "name": "SANDWICH PAPER WHITE ALL SIZES 10",
     "barcode": "",
     "unit": "kg",
     "taxCategory": "standard",
@@ -5181,7 +5181,7 @@
   },
   {
     "sku": "WSP02",
-    "name": "EVERPACK 10 30cm x 25cm (500grm x 20packts)",
+    "name": "EVERPACK 10 SANDWICH PAPER PRINTED 30cm x 25cm (500grm x 20packts)",
     "barcode": "",
     "unit": "kg",
     "taxCategory": "standard",
@@ -5195,7 +5195,7 @@
   },
   {
     "sku": "ZB02",
-    "name": "20X30 CM , 100pcs x 10 PKT / 1X10 BUNDLE ZIPPER BAG",
+    "name": "20X30 CM , 100pcs x 10 PKT / 1X10 ZIPPER BAG BUNDLE",
     "barcode": "",
     "unit": "pkt",
     "taxCategory": "standard",
