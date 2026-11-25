@@ -312,12 +312,13 @@ function MasterCsvImport({
 }
 
 function MastersContent() {
-  const { can } = useAuth();
+  const { can, isAdmin, role } = useAuth();
   const [tab, setTab] = useState("accounts");
   const [catalogueVersion, setCatalogueVersion] = useState(0);
   const [partiesVersion, setPartiesVersion] = useState(0);
   const [itemsVersion, setItemsVersion] = useState(0);
   const canWriteMasters = can("masters");
+  const canImportMasters = isAdmin || role === "admin" || role === "accountant";
   const canWriteSettings = can("settings");
 
   const tabs = [
@@ -367,7 +368,7 @@ function MastersContent() {
         ) : null}
         {tab === "parties" ? (
           <>
-            {canWriteMasters ? (
+            {canImportMasters ? (
               <MasterCsvImport
                 collection="parties"
                 title="parties"
@@ -389,7 +390,7 @@ function MastersContent() {
         ) : null}
         {tab === "items" ? (
           <>
-            {canWriteMasters ? (
+            {canImportMasters ? (
               <MasterCsvImport
                 collection="items"
                 title="items"
@@ -419,7 +420,9 @@ function MastersContent() {
         ) : null}
         {tab === "catalogue" ? (
           <>
-            <CatalogueImport onImported={() => setCatalogueVersion((value) => value + 1)} />
+            {canImportMasters ? (
+              <CatalogueImport onImported={() => setCatalogueVersion((value) => value + 1)} />
+            ) : null}
             <ResourceManager
               key={`catalogue-${catalogueVersion}`}
               collection="catalogue"

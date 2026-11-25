@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   if (member instanceof NextResponse) {
     return member;
   }
-  if (!member.admin && member.role !== "accountant") {
+  if (!member.admin && !["admin", "accountant"].includes(member.role)) {
     return NextResponse.json({ error: "You cannot import masters." }, { status: 403 });
   }
 
