@@ -42,14 +42,31 @@ function DashboardContent() {
     }
     try {
       const token = await user.getIdToken();
+      const emptyAccounts = Promise.resolve({ items: [] as unknown[] });
+      const emptyItems = Promise.resolve({ items: [] as Array<{ id?: string; reorderLevel?: number }> });
+      const emptyInvoices = Promise.resolve({
+        items: [] as Array<{ totalMinor?: number; status?: string; dueDate?: string }>,
+      });
+      const emptyStock = Promise.resolve({
+        items: [] as Array<{ itemId?: string; quantity?: number; reorderLevel?: number }>,
+      });
+      const emptySettings = Promise.resolve({ items: [] as Array<Record<string, unknown>> });
       const [accounts, parties, items, vouchers, invoices, stock, settings] = await Promise.all([
-        apiFetch<{ items: unknown[] }>(token, "/api/data/accounts"),
-        apiFetch<{ items: unknown[] }>(token, "/api/data/parties"),
-        apiFetch<{ items: unknown[] }>(token, "/api/data/items"),
-        apiFetch<{ items: Array<{ totalDebitMinor?: number }> }>(token, "/api/vouchers"),
-        apiFetch<{ items: Array<{ totalMinor?: number; status?: string; dueDate?: string }> }>(token, "/api/invoices"),
-        apiFetch<{ items: Array<{ quantity?: number; reorderLevel?: number }> }>(token, "/api/data/stock"),
-        apiFetch<{ items: Array<Record<string, unknown>> }>(token, "/api/data/settings"),
+        can("masters") ? apiFetch<{ items: unknown[] }>(token, "/api/data/accounts") : emptyAccounts,
+        can("masters") ? apiFetch<{ items: unknown[] }>(token, "/api/data/parties") : emptyAccounts,
+        can("masters")
+          ? apiFetch<{ items: Array<{ id?: string; reorderLevel?: number }> }>(token, "/api/data/items")
+          : emptyItems,
+        can("vouchers") ? apiFetch<{ items: unknown[] }>(token, "/api/vouchers") : emptyAccounts,
+        can("invoicing")
+          ? apiFetch<{ items: Array<{ totalMinor?: number; status?: string; dueDate?: string }> }>(token, "/api/invoices")
+          : emptyInvoices,
+        can("inventory")
+          ? apiFetch<{ items: Array<{ itemId?: string; quantity?: number; reorderLevel?: number }> }>(token, "/api/data/stock")
+          : emptyStock,
+        can("settings")
+          ? apiFetch<{ items: Array<Record<string, unknown>> }>(token, "/api/data/settings")
+          : emptySettings,
       ]);
       setStats({
         accounts: accounts.items.length,
@@ -57,9 +74,12 @@ function DashboardContent() {
         items: items.items.length,
         vouchers: vouchers.items.length,
         invoices: invoices.items.length,
-        stockAlerts: stock.items.filter(
-          (row) => Number(row.quantity ?? 0) <= Number(row.reorderLevel ?? 0),
-        ).length,
+        stockAlerts: stock.items.filter((row) => {
+          const reorder =
+            Number(row.reorderLevel ?? 0) ||
+            Number(items.items.find((item) => item.id === row.itemId)?.reorderLevel ?? 0);
+          return Number(row.quantity ?? 0) <= reorder;
+        }).length,
         overdueInvoices: invoices.items.filter(
           (invoice) =>
             invoice.status === "sent" &&
@@ -80,20 +100,20 @@ function DashboardContent() {
     } catch (loadError) {
       setError(getErrorMessage(loadError));
     }
-  }, [user]);
+  }, [user, can]);
 
   useEffect(() => {
     void Promise.resolve().then(() => load());
   }, [load]);
 
   const cards = [
-    { label: "Accounts", value: String(stats.accounts) },
-    { label: "Parties", value: String(stats.parties) },
-    { label: "Items", value: String(stats.items) },
-    { label: "Vouchers", value: String(stats.vouchers) },
-    { label: "Invoices", value: String(stats.invoices) },
-    { label: "Invoice value", value: formatMoney(stats.salesMinor) },
-  ];
+    { label: "Accounts", value: String(stats.accounts), feature: "masters" as const },
+    { label: "Parties", value: String(stats.parties), feature: "masters" as const },
+    { label: "Items", value: String(stats.items), feature: "masters" as const },
+    { label: "Vouchers", value: String(stats.vouchers), feature: "vouchers" as const },
+    { label: "Invoices", value: String(stats.invoices), feature: "invoicing" as const },
+    { label: "Invoice value", value: formatMoney(stats.salesMinor), feature: "invoicing" as const },
+  ].filter((card) => can(card.feature));
 
   return (
     <AppShell

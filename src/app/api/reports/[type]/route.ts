@@ -68,7 +68,7 @@ export async function GET(request: Request, context: Context) {
     const payments = paymentDocs as unknown as Payment[];
     const stock = stockDocs as unknown as StockDoc[];
     const movements = movementDocs as unknown as StockMovement[];
-    const items = itemDocs as Array<{ id: string; name: string }>;
+    const items = itemDocs as Array<{ id: string; name: string; reorderLevel?: number }>;
     const settings = settingDocs.find((doc) => doc.key === "company");
     const method = settings?.valuationMethod === "fifo" ? "fifo" : "weighted";
     const asOf = new Date().toISOString().slice(0, 10);
@@ -79,7 +79,10 @@ export async function GET(request: Request, context: Context) {
         data = profitAndLoss(vouchers, accounts);
         break;
       case "trial-balance":
-        data = trialBalance(vouchers);
+        data = trialBalance(vouchers).map(({ accountId, ...row }) => ({
+          ...row,
+          account: accounts.find((account) => account.id === accountId)?.name ?? accountId,
+        }));
         break;
       case "balance-sheet":
         data = balanceSheet(vouchers, accounts);

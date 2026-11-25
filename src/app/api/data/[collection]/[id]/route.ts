@@ -4,6 +4,7 @@ import { requireMember } from "@/lib/api-member";
 import { COLLECTION_ACCESS, isGenericCollection } from "@/lib/collections";
 import { deleteDoc, getDoc, updateDoc } from "@/lib/data";
 import { getErrorMessage } from "@/lib/errors";
+import { canChangePaymentProofStatus } from "@/lib/payment-proofs";
 
 type Context = { params: Promise<{ collection: string; id: string }> };
 
@@ -46,6 +47,19 @@ export async function PATCH(request: Request, context: Context) {
   const body = await readBody(request);
   if (body instanceof NextResponse) {
     return body;
+  }
+
+  if (collection === "paymentRequests" && "status" in body) {
+    const existing = await getDoc(collection, id);
+    if (!existing) {
+      return NextResponse.json({ error: "Record not found." }, { status: 404 });
+    }
+    if (!canChangePaymentProofStatus(member.admin, existing.submittedBy, member.uid)) {
+      return NextResponse.json(
+        { error: "Only another administrator can change payment proof status." },
+        { status: 403 },
+      );
+    }
   }
 
   try {
