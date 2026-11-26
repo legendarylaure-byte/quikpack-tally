@@ -57,6 +57,9 @@ The script sets the `admin` custom claim, seeds `companies/quikpack-main`, creat
 - [Firebase setup](docs/FIREBASE_SETUP.md)
 - [Handover checklist](docs/HANDOVER.md)
 - [User help](docs/USER_HELP.md)
+- [Client demo script](docs/CLIENT_DEMO_SCRIPT.md)
+- [Client demo slides](docs/client-demo-slides.html)
+- [Client demo handout](docs/CLIENT_DEMO_HANDOUT.md)
 - [GitHub](https://github.com/legendarylaure-byte/quikpack-tally)
 
 ## Firebase environments

@@ -45,7 +45,7 @@ function InventoryContent() {
       const [stockData, movementData, itemData] = await Promise.all([
         apiFetch<{ items: Row[] }>(token, "/api/data/stock"),
         apiFetch<{ items: Row[] }>(token, "/api/stock/movements"),
-        apiFetch<{ items: Row[] }>(token, "/api/data/items"),
+        apiFetch<{ items: Row[] }>(token, "/api/inventory/options"),
       ]);
       setStock(stockData.items);
       setMovements(movementData.items);

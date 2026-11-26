@@ -74,16 +74,17 @@ function InvoicesContent() {
     }
     try {
       const token = await user.getIdToken();
-      const [invoiceData, partyData, itemData, taxData] = await Promise.all([
+      const [invoiceData, options] = await Promise.all([
         apiFetch<{ items: Row[] }>(token, "/api/invoices"),
-        apiFetch<{ items: Row[] }>(token, "/api/data/parties"),
-        apiFetch<{ items: Row[] }>(token, "/api/data/items"),
-        apiFetch<{ items: Row[] }>(token, "/api/data/taxRates"),
+        apiFetch<{ parties: Row[]; items: Row[]; taxRates: TaxRate[] }>(
+          token,
+          "/api/invoices/options",
+        ),
       ]);
       setInvoices(invoiceData.items);
-      setParties(partyData.items);
-      setItems(itemData.items);
-      setTaxRates(taxData.items as unknown as TaxRate[]);
+      setParties(options.parties);
+      setItems(options.items);
+      setTaxRates(options.taxRates);
     } catch (loadError) {
       setError(getErrorMessage(loadError));
     }

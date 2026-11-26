@@ -11,6 +11,7 @@ import { CURRENCIES } from "@/lib/constants";
 import type { Currency, VoucherType } from "@/lib/domain";
 import { getErrorMessage } from "@/lib/errors";
 import { formatMoney, moneyInput, parseMoney } from "@/lib/money";
+import type { VoucherAccountOption, VoucherPartyOption } from "@/lib/voucher-options";
 
 const TYPES: VoucherType[] = [
   "payment",
@@ -73,8 +74,8 @@ function VouchersContent() {
   const { user, can } = useAuth();
   const canWrite = can("vouchers");
   const [vouchers, setVouchers] = useState<Array<Record<string, unknown> & { id: string }>>([]);
-  const [accounts, setAccounts] = useState<Array<Record<string, unknown> & { id: string }>>([]);
-  const [parties, setParties] = useState<Array<Record<string, unknown> & { id: string }>>([]);
+  const [accounts, setAccounts] = useState<VoucherAccountOption[]>([]);
+  const [parties, setParties] = useState<VoucherPartyOption[]>([]);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -86,14 +87,16 @@ function VouchersContent() {
     }
     try {
       const token = await user.getIdToken();
-      const [voucherData, accountData, partyData] = await Promise.all([
+      const [voucherData, options] = await Promise.all([
         apiFetch<{ items: Array<Record<string, unknown> & { id: string }> }>(token, "/api/vouchers"),
-        apiFetch<{ items: Array<Record<string, unknown> & { id: string }> }>(token, "/api/data/accounts"),
-        apiFetch<{ items: Array<Record<string, unknown> & { id: string }> }>(token, "/api/data/parties"),
+        apiFetch<{ accounts: VoucherAccountOption[]; parties: VoucherPartyOption[] }>(
+          token,
+          "/api/vouchers/options",
+        ),
       ]);
       setVouchers(voucherData.items);
-      setAccounts(accountData.items);
-      setParties(partyData.items);
+      setAccounts(options.accounts);
+      setParties(options.parties);
     } catch (loadError) {
       setError(getErrorMessage(loadError));
     }
@@ -243,7 +246,7 @@ function VouchersContent() {
                 <label className="text-sm font-semibold text-navy">
                   Party
                   <select value={draft.partyId} onChange={(event) => setDraft({ ...draft, partyId: event.target.value })} className={inputClass}>
-                    <option value="">None</option>
+                    <option value="">{parties.length ? "None" : "No parties yet"}</option>
                     {parties.map((party) => (
                       <option key={party.id} value={party.id}>{String(party.name ?? party.id)}</option>
                     ))}
@@ -297,7 +300,9 @@ function VouchersContent() {
                 {draft.lines.map((line, index) => (
                   <div key={index} className="mt-2 grid gap-3 sm:grid-cols-[1fr_120px_120px_1fr_40px]">
                     <select value={line.accountId} onChange={(event) => setLine(index, { accountId: event.target.value })} className={inputClass} required aria-label={`Account line ${index + 1}`}>
-                      <option value="">Select…</option>
+                      <option value="" disabled>
+                        {accounts.length ? "Select…" : "No accounts yet — ask an admin to add them"}
+                      </option>
                       {accounts.map((account) => (
                         <option key={account.id} value={account.id}>
                           {String(account.code ?? "")} {String(account.name ?? "")}
@@ -375,7 +380,6 @@ function VouchersContent() {
             </table>
           )}
         </div>
-        <p className="mt-4 text-xs text-navy/50">Account names: {accounts.map((account) => String(account.name ?? "")).slice(0, 6).join(", ") || "none"}</p>
       </section>
     </AppShell>
   );

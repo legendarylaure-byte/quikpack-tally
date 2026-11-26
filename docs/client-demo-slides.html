@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUIKPACK Tally — Client Walkthrough</title>
+<style>
+  :root{
+    --green:#7DBD17; --green-accent:#68C924; --purple:#2F1D58;
+    --blue:#011BCA; --gold:#FFD215; --red:#F74028; --gray:#F5F5F5;
+    --glass:rgba(255,255,255,.8); --tint:rgba(125,189,23,.12);
+    --shadow:0 14px 44px rgba(47,29,88,.12);
+    --heading:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--gray);color:var(--purple);font-family:var(--heading);overflow:hidden}
+  .deck{position:relative;width:100vw;height:100vh;overflow:hidden;
+    background:radial-gradient(900px 500px at 85% -10%,var(--tint),transparent 70%);}
+  @media(min-width:769px){.deck{max-width:calc(100vh * 16 / 9);max-height:calc(100vw * 9 / 16);margin:auto;position:absolute;inset:0}}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(32px,6vw,84px);opacity:0;visibility:hidden;transition:opacity .35s;overflow:hidden}
+  .slide.active{opacity:1;visibility:visible}
+  .inner{width:100%;max-height:100%;overflow:hidden;display:flex;flex-direction:column;gap:clamp(14px,2.4vw,28px)}
+  .eyebrow{font-size:clamp(11px,1.4vw,15px);letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:800}
+  h1{font-size:clamp(38px,7vw,88px);line-height:1.05;letter-spacing:-.03em}
+  h2{font-size:clamp(28px,5vw,62px);line-height:1.1;letter-spacing:-.02em}
+  .sub{font-size:clamp(15px,2.2vw,26px);color:rgba(47,29,88,.72);max-width:70ch;line-height:1.45}
+  .brand{display:inline-block;font-weight:900;letter-spacing:-.05em;color:var(--purple)}
+  .brand em{font-style:normal;color:var(--green)}
+  .tag{margin-top:8px;font-size:clamp(12px,1.6vw,18px);color:rgba(47,29,88,.55);font-weight:700}
+  .card{background:var(--glass);border:1px solid rgba(125,189,23,.3);border-radius:18px;
+    padding:clamp(14px,2vw,24px);box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+  .grid{display:grid;gap:clamp(10px,1.6vw,20px)}
+  .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+  .g5{grid-template-columns:repeat(5,1fr)}
+  .card h3{font-size:clamp(14px,1.9vw,24px);margin-bottom:6px}
+  .card p{font-size:clamp(11px,1.45vw,17px);color:rgba(47,29,88,.7);line-height:1.4}
+  .chip{background:var(--tint);border:1px solid rgba(125,189,23,.35);border-radius:999px;
+    padding:clamp(8px,1.3vw,15px) clamp(10px,1.6vw,20px);font-weight:800;text-align:center;font-size:clamp(12px,1.7vw,22px)}
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .arrow{color:var(--green);font-weight:900;font-size:clamp(14px,2vw,26px)}
+  ul{list-style:none;display:grid;gap:clamp(8px,1.2vw,14px)}
+  li{display:flex;gap:12px;align-items:flex-start;font-size:clamp(13px,1.8vw,22px);line-height:1.35}
+  li::before{content:"✓";color:#fff;background:var(--green);border-radius:50%;
+    width:1.5em;height:1.5em;flex:none;display:grid;place-items:center;font-size:.8em;font-weight:900}
+  .note{margin-top:auto;font-size:clamp(11px,1.4vw,16px);color:rgba(47,29,88,.6);
+    border-left:4px solid var(--gold);padding-left:12px}
+  .tax{display:flex;gap:10px;flex-wrap:wrap}
+  .tax span{background:rgba(1,27,202,.08);border:1px solid rgba(1,27,202,.2);border-radius:10px;
+    padding:8px 14px;font-weight:800;font-size:clamp(12px,1.6vw,20px)}
+  .bar{position:fixed;top:0;left:0;height:4px;background:var(--green);transition:width .3s;z-index:1000}
+  .nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;
+    gap:14px;z-index:1000;background:var(--glass);border:1px solid rgba(125,189,23,.3);
+    border-radius:999px;padding:6px 10px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+  .nav button{border:0;background:var(--tint);color:var(--purple);width:36px;height:36px;
+    border-radius:50%;cursor:pointer;font-size:17px;font-weight:900}
+  .nav button:hover{background:var(--green);color:#fff}
+  .count{font-size:13px;font-weight:800;color:rgba(47,29,88,.65);min-width:52px;text-align:center}
+  @media(max-width:768px){.g5{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+  @media print{
+    body{overflow:visible;background:#fff}
+    .deck{position:static;width:auto;height:auto;max-width:none;max-height:none;background:#fff}
+    .slide{position:relative;inset:auto;page-break-after:always;opacity:1;visibility:visible;
+      min-height:100vh;background:#fff}
+    .nav,.bar{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck">
+
+  <section class="slide active"><div class="inner">
+    <span class="eyebrow">QUIKPACK Tally · Live walkthrough</span>
+    <h1>How your business <span style="color:var(--green)">will run.</span></h1>
+    <p class="sub">One private workspace for your accounts, stock and invoicing — built in Ghana, usable on desktop and mobile.</p>
+    <div class="brand">quik<em>pack</em></div>
+    <div class="tag">PACK IT. SERVE IT. LOVE IT.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Access</span><h2>One workspace. Five roles.</h2>
+    <div class="grid g5">
+      <div class="card"><h3>Admin</h3><p>Users, settings, everything</p></div>
+      <div class="card"><h3>Accountant</h3><p>Masters, vouchers, reports</p></div>
+      <div class="card"><h3>Cashier</h3><p>Invoices, payments, stock</p></div>
+      <div class="card"><h3>Viewer</h3><p>Read-only</p></div>
+      <div class="card"><h3>Auditor</h3><p>Read-only + audit log</p></div>
+    </div>
+    <div class="note">Only your admin creates users. There is no public signup.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Day 1</span><h2>Set up your lists once.</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Chart of accounts</h3><p>The buckets every transaction lands in.</p></div>
+      <div class="card"><h3>Parties</h3><p>Customers and suppliers, with TIN and contacts.</p></div>
+      <div class="card"><h3>Items / SKUs</h3><p>Products, units, prices and tax category.</p></div>
+      <div class="card"><h3>CSV import</h3><p>Load your data from a file — no retyping.</p></div>
+    </div>
+    <div class="note">We load these from your real records during onboarding. The 372 products in this demo are samples.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">The daily loop</span><h2>One story, recorded once.</h2>
+    <div class="flow">
+      <span class="chip">Goods in</span><span class="arrow">→</span>
+      <span class="chip">Purchase / payment</span><span class="arrow">→</span>
+      <span class="chip">Invoice</span><span class="arrow">→</span>
+      <span class="chip">Receipt</span><span class="arrow">→</span>
+      <span class="chip">Reports</span>
+    </div>
+    <p class="sub">Every step updates the same set of books. Nothing is copied into a separate spreadsheet.</p>
+    <div class="note">Mistakes are fixed with a reversal entry — posted records are never silently edited.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Sales</span><h2>One invoice. Your brand.</h2>
+    <div class="tax"><span>GHS</span><span>USD</span><span>NPR</span><span>VAT 15%</span><span>NHIL 2.5%</span><span>GETFund 2.5%</span></div>
+    <div class="grid g3">
+      <div class="card"><h3>Your identity</h3><p>Your name, address and TIN on the invoice.</p></div>
+      <div class="card"><h3>Tax lines</h3><p>VAT, NHIL and GETFund shown separately.</p></div>
+      <div class="card"><h3>PDF download</h3><p>Send it straight to your customer.</p></div>
+    </div>
+    <div class="note" style="border-color:var(--red)">Tax rates use built-in defaults for this demo. Final treatment needs accountant / GRA sign-off.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Inventory</span><h2>Stock you can trust.</h2>
+    <ul>
+      <li>Stock tracked by item and location</li>
+      <li>Low-stock alerts on the dashboard and stock list</li>
+      <li>FIFO and weighted-average valuation</li>
+      <li>Batch and expiry fields ready for later use</li>
+    </ul>
+    <div class="note">The demo shows sample movements. Your real stock levels come during onboarding.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Reporting</span><h2>Reports your accountant can use.</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Financial</h3><p>Trial balance · P&amp;L · Balance sheet · Cashflow</p></div>
+      <div class="card"><h3>Tax</h3><p>VAT / NHIL / GETFund summary</p></div>
+      <div class="card"><h3>Operations</h3><p>Stock · AR/AP aging · Ledger · Day book</p></div>
+    </div>
+    <p class="sub">All generated from the same records — no retyping, no reconciliation by hand.</p>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Trust</span><h2>Safety and control.</h2>
+    <ul>
+      <li>Roles control who can see and change what</li>
+      <li>Append-only audit log records every change</li>
+      <li>Posted vouchers are reversed, never overwritten</li>
+      <li>Full JSON / CSV export whenever you need it</li>
+    </ul>
+    <div class="note">Your data stays in your own company workspace.</div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Next step</span><h2>What we need to go live.</h2>
+    <ul>
+      <li>Written confirmation of this demo + change requests</li>
+      <li>Company profile, branches, fiscal period, currencies</li>
+      <li>Chart of accounts, parties, items, prices, tax categories</li>
+      <li>Opening balances</li>
+      <li>One real transaction cycle to reconcile reports</li>
+      <li>Accountant / GRA sign-off on tax treatment</li>
+      <li>Written approval to move to production</li>
+    </ul>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <span class="eyebrow">Questions</span><h2>Let's note anything we can't answer today.</h2>
+    <p class="sub">Tax and accounting questions go to your accountant before we rely on them. Everything else we capture as a change request.</p>
+    <div class="card" style="max-width:640px"><h3>Support</h3><p>WhatsApp +233592810728 · tally.vyomai.cloud</p></div>
+    <div class="tag">quikpack · PACK IT. SERVE IT. LOVE IT.</div>
+  </div></section>
+
+</div>
+
+<div class="nav">
+  <button onclick="go(current-1)" aria-label="Previous">←</button>
+  <span class="count"><span id="current">1</span> / <span id="total">10</span></span>
+  <button onclick="go(current+1)" aria-label="Next">→</button>
+  <button onclick="full()" aria-label="Fullscreen" title="Fullscreen (F)">⛶</button>
+</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let current=1;
+  document.getElementById('total').textContent=slides.length;
+  function go(n){
+    current=Math.min(Math.max(n,1),slides.length);
+    slides.forEach((s,i)=>s.classList.toggle('active',i===current-1));
+    document.getElementById('current').textContent=current;
+    document.getElementById('bar').style.width=(current/slides.length*100)+'%';
+  }
+  function full(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(current+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();go(current-1)}
+    if(e.key==='f'||e.key==='F'){full()}
+  });
+  go(1);
+</script>
+</body>
+</html>

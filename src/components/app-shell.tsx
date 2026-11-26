@@ -35,7 +35,7 @@ const LINKS: NavLink[] = [
 ];
 
 export function AppShell({ title, subtitle, children, actions }: AppShellProps) {
-  const { isAdmin, can } = useAuth();
+  const { isAdmin, can, role } = useAuth();
   const router = useRouter();
   const [commandOpen, setCommandOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -68,9 +68,12 @@ export function AppShell({ title, subtitle, children, actions }: AppShellProps) 
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  const quickCreate = visibleLinks.find(
-    (link) => ["/vouchers", "/invoices", "/masters", "/inventory"].includes(link.href),
-  );
+  const readOnlyRole = role === "viewer" || role === "auditor";
+  const quickCreate = readOnlyRole
+    ? undefined
+    : visibleLinks.find((link) =>
+        ["/vouchers", "/invoices", "/masters", "/inventory"].includes(link.href),
+      );
 
   return (
     <div className="flex min-h-screen flex-col bg-surface">
@@ -128,9 +131,23 @@ export function AppShell({ title, subtitle, children, actions }: AppShellProps) 
       </main>
 
       <footer className="border-t border-navy/10">
-        <div className="mx-auto w-full max-w-6xl px-6 py-6 text-xs text-navy/55">
-          {COMPANY.legalName} · Reg {COMPANY.registrationNumber} · TIN{" "}
-          {COMPANY.tin}
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-2 px-6 py-6 text-xs text-navy/55">
+          <span>
+            {COMPANY.legalName} · Reg {COMPANY.registrationNumber} · TIN{" "}
+            {COMPANY.tin}
+          </span>
+          <span className="ml-auto">
+            Crafted in Kathmandu · Deployed Globally{" "}
+            <a
+              href="https://www.vyomai.cloud/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="VYOMAICLOUD website (opens in a new tab)"
+              className="font-semibold text-navy/70 underline-offset-2 transition hover:text-navy hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            >
+              @VYOMAICLOUD
+            </a>
+          </span>
         </div>
       </footer>
 

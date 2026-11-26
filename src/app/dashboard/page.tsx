@@ -1,204 +1,139 @@
 "use client";
 
-import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AppShell } from "@/components/app-shell";
 import { AuthGuard } from "@/components/auth-guard";
-import { useAuth } from "@/components/auth-provider";
+import { BriefView } from "@/components/dashboard/brief-view";
+import { DashboardSkeleton } from "@/components/dashboard/dashboard-skeleton";
 import { SignOutButton } from "@/components/sign-out-button";
+import { useAuth } from "@/components/auth-provider";
 import { apiFetch } from "@/lib/api-client";
-import { COMPANY, TAX } from "@/lib/constants";
+import { buildDashboardBrief, type DashboardData } from "@/lib/dashboard";
+import { getDashboardFixtures } from "@/lib/dashboard.fixtures";
+import type {
+  Account,
+  Invoice,
+  Payment,
+  StockDoc,
+  StockMovement,
+  Voucher,
+} from "@/lib/domain";
 import { getErrorMessage } from "@/lib/errors";
-import { formatMoney } from "@/lib/money";
-import { FEATURES } from "@/lib/permissions";
 
-const LINKS: Array<{ href: string; label: string; feature: (typeof FEATURES)[number]["key"] }> = [
-  { href: "/masters", label: "Masters", feature: "masters" },
-  { href: "/vouchers", label: "Vouchers", feature: "vouchers" },
-  { href: "/inventory", label: "Inventory", feature: "inventory" },
-  { href: "/invoices", label: "Invoices", feature: "invoicing" },
-  { href: "/reports", label: "Reports", feature: "reports" },
-  { href: "/settings", label: "Settings", feature: "settings" },
-];
+function emptyList(): Promise<{ items: unknown[] }> {
+  return Promise.resolve({ items: [] });
+}
 
 function DashboardContent() {
-  const { user, membership, isAdmin, can } = useAuth();
-  const [stats, setStats] = useState({
-    accounts: 0,
-    parties: 0,
-    items: 0,
-    vouchers: 0,
-    invoices: 0,
-    stockAlerts: 0,
-    overdueInvoices: 0,
-    salesMinor: 0,
-  });
-  const [company, setCompany] = useState<{ displayName: string; baseCurrency: string } | null>(null);
+  const { user, isAdmin, role, can } = useAuth();
+  const [data, setData] = useState<DashboardData>({});
+  const [lastChecked, setLastChecked] = useState(() => new Date());
+  const [refreshing, setRefreshing] = useState(false);
+  const [isDemo, setIsDemo] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [error, setError] = useState("");
 
   const load = useCallback(async () => {
     if (!user) {
       return;
     }
+    setRefreshing(true);
+    setError("");
+
     try {
-      const token = await user.getIdToken();
-      const emptyAccounts = Promise.resolve({ items: [] as unknown[] });
-      const emptyItems = Promise.resolve({ items: [] as Array<{ id?: string; reorderLevel?: number }> });
-      const emptyInvoices = Promise.resolve({
-        items: [] as Array<{ totalMinor?: number; status?: string; dueDate?: string }>,
-      });
-      const emptyStock = Promise.resolve({
-        items: [] as Array<{ itemId?: string; quantity?: number; reorderLevel?: number }>,
-      });
-      const emptySettings = Promise.resolve({ items: [] as Array<Record<string, unknown>> });
-      const [accounts, parties, items, vouchers, invoices, stock, settings] = await Promise.all([
-        can("masters") ? apiFetch<{ items: unknown[] }>(token, "/api/data/accounts") : emptyAccounts,
-        can("masters") ? apiFetch<{ items: unknown[] }>(token, "/api/data/parties") : emptyAccounts,
-        can("masters")
-          ? apiFetch<{ items: Array<{ id?: string; reorderLevel?: number }> }>(token, "/api/data/items")
-          : emptyItems,
-        can("vouchers") ? apiFetch<{ items: unknown[] }>(token, "/api/vouchers") : emptyAccounts,
-        can("invoicing")
-          ? apiFetch<{ items: Array<{ totalMinor?: number; status?: string; dueDate?: string }> }>(token, "/api/invoices")
-          : emptyInvoices,
-        can("inventory")
-          ? apiFetch<{ items: Array<{ itemId?: string; quantity?: number; reorderLevel?: number }> }>(token, "/api/data/stock")
-          : emptyStock,
-        can("settings")
-          ? apiFetch<{ items: Array<Record<string, unknown>> }>(token, "/api/data/settings")
-          : emptySettings,
-      ]);
-      setStats({
-        accounts: accounts.items.length,
-        parties: parties.items.length,
-        items: items.items.length,
-        vouchers: vouchers.items.length,
-        invoices: invoices.items.length,
-        stockAlerts: stock.items.filter((row) => {
-          const reorder =
-            Number(row.reorderLevel ?? 0) ||
-            Number(items.items.find((item) => item.id === row.itemId)?.reorderLevel ?? 0);
-          return Number(row.quantity ?? 0) <= reorder;
-        }).length,
-        overdueInvoices: invoices.items.filter(
-          (invoice) =>
-            invoice.status === "sent" &&
-            !!invoice.dueDate &&
-            invoice.dueDate < new Date().toISOString().slice(0, 10),
-        ).length,
-        salesMinor: invoices.items
-          .filter((invoice) => invoice.status !== "void")
-          .reduce((sum, invoice) => sum + Number(invoice.totalMinor ?? 0), 0),
-      });
-      const saved = settings.items.find((doc) => doc.key === "company");
-      if (saved) {
-        setCompany({
-          displayName: String(saved.displayName ?? COMPANY.brandName),
-          baseCurrency: String(saved.baseCurrency ?? "GHS"),
-        });
+      const useDemo =
+        process.env.NODE_ENV === "development" &&
+        typeof window !== "undefined" &&
+        new URLSearchParams(window.location.search).get("demo") === "1";
+      setIsDemo(useDemo);
+
+      if (useDemo) {
+        setData(getDashboardFixtures());
+        setLastChecked(new Date());
+        return;
       }
+
+      const token = await user.getIdToken();
+      const list = (path: string) => apiFetch<{ items: unknown[] }>(token, path);
+
+      const [accounts, parties, items, vouchers, invoices, payments, stock, movements, settings, auditLogs, users] =
+        await Promise.all([
+          can("masters") ? list("/api/data/accounts") : emptyList(),
+          can("masters") ? list("/api/data/parties") : emptyList(),
+          can("masters") ? list("/api/data/items") : emptyList(),
+          can("vouchers") ? list("/api/vouchers") : emptyList(),
+          can("invoicing") ? list("/api/invoices") : emptyList(),
+          can("invoicing") ? list("/api/data/payments") : emptyList(),
+          can("inventory") ? list("/api/data/stock") : emptyList(),
+          can("inventory") ? list("/api/data/stockMovements") : emptyList(),
+          can("settings") ? list("/api/data/settings") : emptyList(),
+          can("reports") ? list("/api/data/auditLogs") : emptyList(),
+          isAdmin
+            ? apiFetch<{ users: unknown[] }>(token, "/api/admin/users")
+            : Promise.resolve({ users: [] as unknown[] }),
+        ]);
+
+      const company = settings.items.find(
+        (row) => (row as Record<string, unknown>).key === "company",
+      ) as Record<string, unknown> | undefined;
+
+      setData({
+        accounts: accounts.items as Account[],
+        parties: parties.items as Array<{ id?: string; name?: string; type?: string }>,
+        items: items.items as Array<{ id?: string; name?: string; sku?: string; reorderLevel?: number }>,
+        vouchers: vouchers.items as Voucher[],
+        invoices: invoices.items as Invoice[],
+        payments: payments.items as Payment[],
+        stock: stock.items as StockDoc[],
+        movements: movements.items as StockMovement[],
+        settings: company,
+        auditLogs: auditLogs.items as Array<Record<string, unknown> & { id?: string }>,
+        users: users.users as Array<{ uid?: string; email?: string; role?: string; status?: string }>,
+      });
+      setLastChecked(new Date());
     } catch (loadError) {
       setError(getErrorMessage(loadError));
+    } finally {
+      setRefreshing(false);
+      setHasLoaded(true);
     }
-  }, [user, can]);
+  }, [user, can, isAdmin]);
 
   useEffect(() => {
     void Promise.resolve().then(() => load());
   }, [load]);
 
-  const cards = [
-    { label: "Accounts", value: String(stats.accounts), feature: "masters" as const },
-    { label: "Parties", value: String(stats.parties), feature: "masters" as const },
-    { label: "Items", value: String(stats.items), feature: "masters" as const },
-    { label: "Vouchers", value: String(stats.vouchers), feature: "vouchers" as const },
-    { label: "Invoices", value: String(stats.invoices), feature: "invoicing" as const },
-    { label: "Invoice value", value: formatMoney(stats.salesMinor), feature: "invoicing" as const },
-  ].filter((card) => can(card.feature));
+  const brief = useMemo(
+    () =>
+      buildDashboardBrief({
+        role: role ?? "viewer",
+        can,
+        data,
+        now: lastChecked,
+      }),
+    [role, can, data, lastChecked],
+  );
 
   return (
     <AppShell
-      title="Dashboard"
+      title={brief.title}
       subtitle={user?.email ? `Signed in as ${user.email}` : "Your workspace"}
       actions={<SignOutButton />}
     >
       {error ? (
         <p role="alert" className="mb-5 rounded-xl bg-error/10 p-4 text-sm text-error">{error}</p>
       ) : null}
-
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {cards.map((card) => (
-          <section key={card.label} className="glass-panel rounded-2xl p-5">
-            <p className="text-xs font-bold uppercase tracking-wide text-navy/50">{card.label}</p>
-            <p className="mt-2 text-2xl font-black text-navy">{card.value}</p>
-          </section>
-        ))}
-      </div>
-
-      {(stats.stockAlerts > 0 || stats.overdueInvoices > 0) ? (
-        <div className="mt-5 space-y-2">
-          {stats.stockAlerts > 0 ? (
-            <p className="rounded-xl bg-error/10 p-4 text-sm font-semibold text-error">
-              {stats.stockAlerts} item{stats.stockAlerts === 1 ? "" : "s"} at or below reorder level.
-            </p>
-          ) : null}
-          {stats.overdueInvoices > 0 ? (
-            <p className="rounded-xl bg-error/10 p-4 text-sm font-semibold text-error">
-              {stats.overdueInvoices} sent invoice{stats.overdueInvoices === 1 ? " is" : "s are"} overdue.
-            </p>
-          ) : null}
-        </div>
-      ) : null}
-
-      <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <section className="glass-panel rounded-2xl p-6">
-          <h2 className="text-lg font-bold text-navy">Workspace</h2>
-          <p className="mt-2 text-2xl font-black text-navy">{company?.displayName ?? COMPANY.brandName}</p>
-          <p className="mt-1 text-sm text-navy/65">{COMPANY.legalName}</p>
-          <div className="mt-5 grid gap-2 text-sm text-navy/70">
-            <p>Reg: {COMPANY.registrationNumber}</p>
-            <p>TIN: {COMPANY.tin}</p>
-            <p>Base currency: {company?.baseCurrency ?? "GHS"}</p>
-            <p>
-              VAT {(TAX.vatRate * 100).toFixed(0)}% · NHIL {(TAX.nhilRate * 100).toFixed(1)}% · GETFund{" "}
-              {(TAX.getfundRate * 100).toFixed(1)}%
-            </p>
-          </div>
-        </section>
-
-        <section className="glass-panel rounded-2xl p-6">
-          <h2 className="text-lg font-bold text-navy">Quick actions</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {LINKS.filter((link) => can(link.feature)).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-xl border border-brand/30 px-4 py-2 text-sm font-bold text-brand transition hover:bg-brand/10"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <h3 className="mt-6 text-sm font-bold text-navy">Your access</h3>
-          <p className="mt-1 text-sm font-semibold text-brand capitalize">
-            {isAdmin ? "Administrator" : (membership?.role ?? "No role assigned")}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {FEATURES.map((feature) => {
-              const enabled = can(feature.key);
-              return (
-                <span
-                  key={feature.key}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-bold ${
-                    enabled ? "bg-brand/15 text-brand" : "bg-navy/5 text-navy/40 line-through"
-                  }`}
-                >
-                  {feature.label}
-                </span>
-              );
-            })}
-          </div>
-        </section>
-      </div>
+      {!hasLoaded ? (
+        <DashboardSkeleton />
+      ) : (
+        <BriefView
+          brief={brief}
+          lastChecked={lastChecked}
+          refreshing={refreshing}
+          isDemo={isDemo}
+          onRefresh={() => void load()}
+        />
+      )}
     </AppShell>
   );
 }
