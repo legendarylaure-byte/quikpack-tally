@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { PRODUCT_CATEGORIES, SITE } from "@/lib/marketing";
 
@@ -103,7 +104,10 @@ export function EnquiryForm() {
           Chat directly
         </a>
       </div>
-      <p className="mk-form__note">This opens WhatsApp with your enquiry prefilled — no separate account needed.</p>
+      <p className="mk-form__note">
+        This opens WhatsApp with your enquiry prefilled — no separate account needed. See our{" "}
+        <Link href="/privacy">Privacy Policy</Link>.
+      </p>
     </form>
   );
 }

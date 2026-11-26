@@ -1765,6 +1765,16 @@ body.mk-dark-nav .mk-badge b {
   line-height: 1.5;
 }
 
+.mk-form__note a {
+  color: var(--mk-brand);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--mk-accent-ink);
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 .mk-product-hero {
   display: flex;
   min-height: 84vh;
@@ -2082,6 +2092,8 @@ h2[data-reveal].is-visible,
   color: var(--mk-accent-ink);
   text-decoration: underline;
   text-decoration-color: var(--mk-accent-ink);
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
 

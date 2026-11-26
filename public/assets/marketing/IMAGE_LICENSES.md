@@ -32,7 +32,7 @@ Attribution is not required, but the source and photographer are recorded here a
 | `login-background.mp4` | `/Users/saykar/Downloads/Google Chrome/motionsites-background-9be460b1.mp4` | Sign-in background video supplied for this project. |
 | `login-background.jpg` | Poster frame extracted from `login-background.mp4` at 00:02. | Reduced-motion and video-loading fallback. |
 
-Usage rights for the company-supplied logo and video are asserted by the project owner. Keep this record with the launch approval and obtain written owner confirmation before public release if the source is third-party.
+Usage rights for the company-supplied logo and video are asserted by the project owner. The project owner authorised public release with the production go-ahead on 26 November 2026, which is recorded here as the client/owner approval for these assets. If a third-party source is later disputed, replace the disputed asset with an approved alternative.
 
 ## Catalogue product images
 
@@ -48,3 +48,15 @@ Extracted from `/Users/Ai Mark/Ghana/CompanyDocuments/Price List as 17102026 DST
 | `catalogue-trash-bags.jpg` | 108 | Trash bags |
 | `catalogue-paper-bags.jpg` | 126 | Paper bags |
 | `catalogue-aluminium-containers.jpg` | 145 | Aluminium containers |
+
+Product images from the catalogue are supplied by the project owner for marketing use on this site. The production go-ahead on 26 November 2026 is recorded as the client/owner approval for these assets.
+
+## Bee mascot assets
+
+| Asset | Source | Use / notes |
+| --- | --- | --- |
+| Bee GLB | `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132918_e8364d8f-7df2-4788-a725-dec28ec19af8.glb` | Animated mascot on the marketing site. |
+| Wing texture | `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261017_132814_3a56ac14-47d8-4e49-a163-94234dea5639.png` | Wing detail for the animated mascot. |
+| `bee-fallback.png` | Static fallback rendered from the same mascot artwork. | Used for reduced motion, loading and load failure. |
+
+The project owner authorised public use and production release of the bee mascot assets on 26 November 2026. The external CloudFront URLs remain a live third-party dependency; if they become unavailable or are disputed, the local static fallback is the approved replacement.

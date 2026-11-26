@@ -56,6 +56,10 @@ export function MarketingFooter() {
 
       <div className="mk-footer__legal">
         <span>Powered by QUIKPACK · Ghana-first disposables and cleaning supply.</span>
+        <nav aria-label="Legal links">
+          <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
+          <Link href="/data-deletion">Data deletion</Link>
+        </nav>
         <span>
           Crafted in Kathmandu · Deployed Globally{" "}
           <a

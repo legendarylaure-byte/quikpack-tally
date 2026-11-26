@@ -14,6 +14,9 @@ const routes = [
   "/insights",
   "/careers",
   "/contact",
+  "/privacy",
+  "/terms",
+  "/data-deletion",
   "/login",
   ...PRODUCT_CATEGORIES.map((category) => `/products/${category.slug}`),
 ];
