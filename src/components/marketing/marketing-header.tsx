@@ -20,16 +20,18 @@ const MOBILE_LINKS = [
 export function MarketingHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [legalBrand, legalSuffix] = SITE.legalName.split(" GLOBAL ");
 
   return (
     <>
       <header className="mk-nav">
         <div className="mk-nav__inner">
-          <Link href="/" className="mk-logo" aria-label="QUIKPACK home" onClick={() => setOpen(false)}>
+          <Link href="/" className="mk-logo" aria-label={`QUIKPACK home — ${SITE.legalName}`} onClick={() => setOpen(false)}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="mk-logo__image" src={MARKETING_ASSETS.logo} alt="" />
-            <span>
-              <small>{SITE.legalName}</small>
+            <span className="mk-logo__legal">
+              <span>{legalBrand} GLOBAL</span>{" "}
+              <span>{legalSuffix}</span>
             </span>
           </Link>
 

@@ -72,7 +72,7 @@ export function MarketingPage({ content, contact = false }: { content: Marketing
       <section className="mk-page-hero" data-theme="light">
         <div className="mk-page-hero__inner">
           <p className="mk-eyebrow" data-reveal>{content.eyebrow}</p>
-          <h1 data-reveal><AccentText text={content.heroTitle} animated /></h1>
+          <h1 data-reveal><AccentText text={content.heroTitle} /></h1>
           <p className="mk-page-hero__body" data-reveal>{content.heroBody}</p>
           <div className="mk-page-hero__actions" data-reveal>
             <Link href="/products" className="mk-button mk-button--primary">Explore products</Link>
@@ -86,7 +86,7 @@ export function MarketingPage({ content, contact = false }: { content: Marketing
           <div className="mk-section__inner">
             <div className="mk-section__lead">
               <p className="mk-eyebrow" data-reveal>Contact / enquiry</p>
-              <h2 data-reveal>Send us the <span className="mk-accent mk-accent--sheen">details.</span></h2>
+              <h2 data-reveal>Send us the <span className="mk-accent">details.</span></h2>
               <p className="mk-section__body" data-reveal>We will respond on WhatsApp with practical options for your business or home.</p>
             </div>
             <div data-reveal><EnquiryForm /></div>
@@ -101,7 +101,7 @@ export function MarketingPage({ content, contact = false }: { content: Marketing
       <section className="mk-page-cta" data-theme="dark">
         <div>
           <p className="mk-eyebrow">{contact ? "Let's begin" : "Next step"}</p>
-          <h2 data-reveal><AccentText text={content.ctaTitle} animated /></h2>
+          <h2 data-reveal><AccentText text={content.ctaTitle} /></h2>
           <p data-reveal>{content.ctaBody}</p>
           {contact ? null : (
             <Link href="/contact" className="mk-button mk-button--light" data-reveal>Contact QUIKPACK</Link>

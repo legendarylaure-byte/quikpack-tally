@@ -9,7 +9,7 @@ export function MarketingFooter() {
     <footer className="mk-footer" id="contact">
       <div className="mk-footer__cta">
         <p className="mk-eyebrow">Ready when you are</p>
-        <h2>Tell us what you <span className="mk-accent mk-accent--sheen">need.</span></h2>
+        <h2>Tell us what you <span className="mk-accent">need.</span></h2>
         <p>We will help you choose the right products, packs and supply rhythm.</p>
         <Link href="/contact" className="mk-button mk-button--primary">
           Start an enquiry

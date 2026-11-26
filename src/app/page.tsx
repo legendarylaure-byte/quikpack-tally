@@ -23,8 +23,8 @@ export default function Home() {
         />
         <h1 className="mk-hero__title" data-speed="0.35">
           <span className="line"><span>Everything your business</span></span>{" "}
-          <span className="line"><span><span className="mk-accent mk-accent--sheen">needs to serve, pack</span></span></span>{" "}
-          <span className="line"><span>and <span className="mk-accent">clean.</span></span></span>
+          <span className="line"><span>needs to serve, <span className="mk-accent">pack</span></span></span>{" "}
+          <span className="line"><span>and clean.</span></span>
         </h1>
         <div className="mk-hero__side">
           <p>
@@ -47,7 +47,7 @@ export default function Home() {
         <div className="mk-section__inner">
           <div className="mk-section__lead">
             <p className="mk-eyebrow" data-reveal>One dependable source</p>
-            <h2 data-reveal>Everything your operation <span className="mk-accent mk-accent--sheen">reaches for every day.</span></h2>
+            <h2 data-reveal>Everything your operation <span className="mk-accent">reaches for every day.</span></h2>
             <p className="mk-section__body" data-reveal>
               We bring the products busy kitchens, counters, homes and washrooms
               use again and again into one practical supply relationship.

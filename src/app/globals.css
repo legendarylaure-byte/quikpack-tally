@@ -48,50 +48,56 @@ body {
 .auth-shell {
   --mk-accent: #97c93e;
   --mk-accent-ink: #97c93e;
+  --mk-pad: clamp(18px, 3.2vw, 46px);
 
-  display: grid;
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
-  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
-  background: #f6faf0;
-}
-
-.auth-shell__story {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
+  overflow: hidden;
   background: #145a4a;
   color: #fff;
 }
 
-.auth-shell__media {
-  position: relative;
-  flex: 1 1 auto;
-  min-height: 42vh;
+.auth-shell__video-wrap {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   overflow: hidden;
   background: #145a4a url("/assets/marketing/login-background.jpg") center / cover no-repeat;
 }
 
-.auth-shell__media::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 44, 35, 0.08), rgba(20, 90, 74, 0.5));
-  content: "";
-  pointer-events: none;
-}
-
 .auth-shell__video {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.auth-shell__story-content {
-  position: relative;
+.auth-shell__overlay {
+  position: absolute;
   z-index: 1;
-  padding: clamp(28px, 4vw, 56px);
-  background: linear-gradient(135deg, #145a4a, #0f473b);
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 44, 35, 0.88), rgba(8, 44, 35, 0.62) 48%, rgba(8, 44, 35, 0.34)),
+    linear-gradient(180deg, rgba(8, 44, 35, 0.2), rgba(8, 44, 35, 0.52));
+  pointer-events: none;
+}
+
+.auth-shell__layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  align-items: center;
+  gap: clamp(48px, 7vw, 110px);
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 460px);
+  margin: 0 auto;
+  padding: clamp(96px, 10vh, 130px) var(--mk-pad) clamp(48px, 8vh, 90px);
+}
+
+.auth-shell__story {
+  max-width: 560px;
 }
 
 .auth-shell__eyebrow {
@@ -102,19 +108,18 @@ body {
   text-transform: uppercase;
 }
 
-.auth-shell__story-content h2 {
+.auth-shell__story h2 {
   margin-top: 14px;
-  max-width: 520px;
-  font-size: clamp(28px, 3vw, 46px);
+  font-size: clamp(36px, 4.5vw, 64px);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
-.auth-shell__story-content > p:not(.auth-shell__eyebrow) {
+.auth-shell__copy {
   max-width: 520px;
-  margin-top: 16px;
-  color: rgba(238, 248, 226, 0.8);
+  margin-top: 18px;
+  color: rgba(238, 248, 226, 0.86);
   font-size: 15px;
   line-height: 1.6;
 }
@@ -130,7 +135,7 @@ body {
   border: 1px solid rgba(151, 201, 62, 0.5);
   border-radius: 999px;
   padding: 6px 12px;
-  color: rgba(238, 248, 226, 0.9);
+  color: rgba(238, 248, 226, 0.92);
   font-size: 12px;
   font-weight: 600;
 }
@@ -158,12 +163,14 @@ body {
   display: grid;
   min-width: 0;
   place-items: center;
-  padding: clamp(32px, 5vw, 72px);
+  width: 100%;
 }
 
 .auth-shell__content {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 460px;
 }
 
 .auth-shell__brand img {
@@ -173,23 +180,41 @@ body {
 }
 
 .auth-shell .glass-panel {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   border-color: rgba(20, 90, 74, 0.14);
-  box-shadow: 0 30px 80px rgba(8, 44, 35, 0.16);
+  box-shadow: 0 30px 80px rgba(8, 44, 35, 0.22);
   backdrop-filter: blur(18px);
 }
 
 @media (max-width: 900px) {
-  .auth-shell {
+  .auth-shell__layout {
     grid-template-columns: 1fr;
+    align-items: start;
+    gap: 48px;
+    padding: 80px 20px 56px;
   }
 
-  .auth-shell__media {
-    min-height: 34vh;
+  .auth-shell__story {
+    max-width: 620px;
   }
 
   .auth-shell__form-side {
-    padding: 36px 20px 56px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .auth-shell__overlay {
+    background: linear-gradient(180deg, rgba(8, 44, 35, 0.9), rgba(8, 44, 35, 0.72));
+  }
+
+  .auth-shell__story h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .auth-shell__chips span {
+    padding: 5px 9px;
+    font-size: 11px;
   }
 }
 
@@ -228,12 +253,12 @@ body {
 .mk-site {
   --mk-ink: #123f35;
   --mk-muted: #4d6a5f;
-  --mk-lilac: #eef6e7;
+  --mk-lilac: #fafbf7;
   --mk-num: #d9ecbd;
   --mk-num-dark: rgba(151, 201, 62, 0.55);
   --mk-brand: #145a4a;
   --mk-accent: #97c93e;
-  --mk-accent-ink: #4f7a15;
+  --mk-accent-ink: #3f6a12;
   --mk-brand-dark: #0f473b;
   --mk-pad: clamp(18px, 3.2vw, 46px);
 
@@ -284,7 +309,7 @@ body {
 .mk-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-right: clamp(20px, 4vw, 64px);
 }
 
@@ -297,16 +322,72 @@ body {
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7));
 }
 
-.mk-logo small {
-  display: block;
-  max-width: 210px;
-  margin-top: 3px;
-  font-size: 8.5px;
+.mk-logo__legal {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  border-left: 1px solid rgba(20, 90, 74, 0.28);
+  padding-left: 11px;
+  color: var(--mk-ink);
+}
+
+.mk-logo__legal::before {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--mk-accent);
+  content: "";
+}
+
+.mk-logo__legal span:first-child {
+  color: var(--mk-brand);
+  font-size: 9.5px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.mk-logo__legal span:last-child {
+  font-size: 7.5px;
   font-weight: 600;
   line-height: 1.25;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.82;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+  opacity: 0.95;
+}
+
+body.mk-dark-nav .mk-logo__legal {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+body.mk-dark-nav .mk-logo__legal span:first-child {
+  color: #fff;
+}
+
+body.mk-dark-nav .mk-logo__legal span:last-child {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 560px) {
+  .mk-logo__legal {
+    padding-left: 8px;
+  }
+
+  .mk-logo__legal span:first-child {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .mk-logo__legal span:last-child {
+    font-size: 6.5px;
+    letter-spacing: 0.11em;
+  }
 }
 
 .mk-nav__links {
@@ -574,7 +655,7 @@ body.mk-dark-nav .mk-badge b {
 .mk-hero {
   z-index: 3;
   overflow: visible;
-  background: #eef6e7
+  background: #fafbf7
     url("/assets/marketing/hero-backdrop.jpg")
     center / cover no-repeat;
 }
@@ -583,7 +664,7 @@ body.mk-dark-nav .mk-badge b {
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: linear-gradient(180deg, rgba(238, 246, 231, 0.92), rgba(238, 246, 231, 0.68) 55%, rgba(238, 246, 231, 0.9));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 251, 247, 0.62) 55%, rgba(255, 255, 255, 0.9));
   content: "";
 }
 
@@ -599,7 +680,6 @@ body.mk-dark-nav .mk-badge b {
   line-height: 1.04;
   letter-spacing: -0.035em;
   color: var(--mk-brand-dark);
-  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.85);
   will-change: transform;
 }
 
@@ -646,10 +726,10 @@ body.mk-dark-nav .mk-badge b {
 }
 
 .mk-hero__side p {
-  color: var(--mk-muted);
-  font-size: clamp(14px, 1.25vw, 18px);
-  font-weight: 400;
-  line-height: 1.42;
+  color: #123f35;
+  font-size: clamp(14px, 1.25vw, 17px);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .mk-hero__actions {
@@ -747,48 +827,15 @@ body.mk-dark-nav .mk-badge b {
   transform: scaleX(1);
 }
 
-.mk-accent--sheen {
-  background-image: linear-gradient(100deg, var(--mk-accent-ink) 0%, #5f8a1e 50%, var(--mk-accent-ink) 100%);
-  background-size: 220% 100%;
-  background-clip: text;
-  color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: mk-accent-sheen 5s ease-in-out infinite;
-}
-
-@keyframes mk-accent-sheen {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 .mk-section--dark .mk-accent,
 .mk-page-cta .mk-accent {
   --mk-accent-ink: var(--mk-accent);
-}
-
-.mk-section--dark .mk-accent--sheen,
-.mk-page-cta .mk-accent--sheen {
-  background-image: linear-gradient(100deg, #97c93e 0%, #c6ef79 50%, #97c93e 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .mk-accent::after {
     transform: scaleX(1);
     transition: none;
-  }
-
-  .mk-accent--sheen,
-  .mk-section--dark .mk-accent--sheen,
-  .mk-page-cta .mk-accent--sheen {
-    background-image: none;
-    color: var(--mk-accent-ink);
-    -webkit-text-fill-color: currentColor;
-    animation: none;
   }
 }
 
@@ -807,12 +854,16 @@ body.mk-dark-nav .mk-badge b {
 .mk-footer__cta h2::after,
 .mk-product-hero h1::after {
   display: block;
-  width: 64px;
-  height: 4px;
+  width: 48px;
+  height: 3px;
   margin-top: 18px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--mk-accent), transparent);
+  background: linear-gradient(90deg, var(--mk-brand), var(--mk-accent));
   content: "";
+}
+
+.mk-page-cta h2::after {
+  background: linear-gradient(90deg, var(--mk-accent), rgba(151, 201, 62, 0.2));
 }
 
 .mk-section__body,
@@ -956,7 +1007,7 @@ body.mk-dark-nav .mk-badge b {
 
 .mk-section--range {
   z-index: 2;
-  background: linear-gradient(180deg, #eef6e7 0%, #f6faf0 100%);
+  background: linear-gradient(180deg, #fafbf7 0%, #f7f9f4 100%);
 }
 
 .mk-section--range .mk-section__inner {
@@ -1035,7 +1086,7 @@ body.mk-dark-nav .mk-badge b {
 
 .mk-section--sustainability {
   z-index: 1;
-  background: linear-gradient(180deg, #f6faf0 0%, #eef6e7 100%);
+  background: linear-gradient(180deg, #f7f9f4 0%, #fafbf7 100%);
 }
 
 .mk-text-link {
@@ -1057,12 +1108,24 @@ body.mk-dark-nav .mk-badge b {
   min-height: 86vh;
   align-items: center;
   padding: 20vh var(--mk-pad) 10vh;
-  background: #eef6e7
+  background: #fafbf7
     url("/assets/marketing/hero-backdrop.jpg")
     center / cover no-repeat;
 }
 
+.mk-page-hero::before,
+.mk-product-hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 42%, rgba(255, 255, 255, 0) 78%);
+  content: "";
+  pointer-events: none;
+}
+
 .mk-page-hero__inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -1070,10 +1133,17 @@ body.mk-dark-nav .mk-badge b {
 
 .mk-page-hero h1 {
   margin-top: 18px;
+  color: var(--mk-brand-dark);
   font-size: clamp(42px, 6vw, 92px);
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.035em;
+}
+
+.mk-page-hero__body {
+  color: #123f35;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 500;
 }
 
 .mk-page-hero__actions {
@@ -1179,12 +1249,14 @@ body.mk-dark-nav .mk-badge b {
   min-height: 84vh;
   align-items: center;
   padding: 20vh var(--mk-pad) 10vh;
-  background: #eef6e7
+  background: #fafbf7
     url("/assets/marketing/hero-backdrop.jpg")
     center / cover no-repeat;
 }
 
 .mk-product-hero__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   width: 100%;
   max-width: 1200px;
@@ -1196,6 +1268,7 @@ body.mk-dark-nav .mk-badge b {
 
 .mk-product-hero h1 {
   margin-top: 18px;
+  color: var(--mk-brand-dark);
   font-size: clamp(44px, 6vw, 96px);
   font-weight: 800;
   line-height: 1.02;
@@ -1205,9 +1278,10 @@ body.mk-dark-nav .mk-badge b {
 .mk-product-hero__inner > div > p:last-child {
   max-width: 620px;
   margin-top: 22px;
-  color: var(--mk-muted);
-  font-size: clamp(16px, 1.5vw, 22px);
-  line-height: 1.45;
+  color: #123f35;
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .mk-product-hero__visual {
@@ -1309,7 +1383,7 @@ body.mk-dark-nav .mk-badge b {
   z-index: 2;
   min-height: 100vh;
   padding: 16vh var(--mk-pad) 60px;
-  background: #eef6e7;
+  background: #fafbf7;
 }
 
 .mk-footer__cta {

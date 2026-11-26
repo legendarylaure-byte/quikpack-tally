@@ -35,7 +35,7 @@ export default async function ProductCategoryPage({ params }: Params) {
         <div className="mk-product-hero__inner">
           <div>
             <p className="mk-eyebrow" data-reveal>{category.eyebrow}</p>
-            <h1 data-reveal><AccentText text={category.name} words={1} animated /></h1>
+            <h1 data-reveal><AccentText text={category.name} words={1} /></h1>
             <p data-reveal>{category.title}</p>
           </div>
           <div className="mk-product-hero__visual" data-speed="-0.12" data-rot="4">
