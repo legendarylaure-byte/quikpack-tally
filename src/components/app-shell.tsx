@@ -74,7 +74,7 @@ export function AppShell({ title, subtitle, children, actions }: AppShellProps) 
 
   return (
     <div className="flex min-h-screen flex-col bg-surface">
-      <header className="border-b border-navy/10 bg-white/80 backdrop-blur">
+      <header className="app-header">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <Link href="/dashboard" className="flex items-center gap-3">
             <span className="brand-gradient flex size-9 items-center justify-center rounded-lg font-black text-white">
@@ -155,7 +155,7 @@ export function AppShell({ title, subtitle, children, actions }: AppShellProps) 
             role="dialog"
             aria-modal="true"
             aria-label="Command bar"
-            className="w-full max-w-lg rounded-2xl bg-white p-4 shadow-2xl"
+            className="glass-panel w-full max-w-lg p-4"
             onClick={(event) => event.stopPropagation()}
           >
             <input

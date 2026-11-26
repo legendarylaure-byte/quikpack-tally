@@ -16,6 +16,16 @@
 :root {
   --background: #f5f5f5;
   --foreground: #145a4a;
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-bg-strong: rgba(255, 255, 255, 0.94);
+  --glass-bg-app: rgba(255, 255, 255, 0.96);
+  --glass-border: rgba(20, 90, 74, 0.14);
+  --glass-highlight: rgba(255, 255, 255, 0.66);
+  --glass-shadow: 0 20px 50px rgba(14, 63, 51, 0.12);
+  --glass-shadow-strong: 0 30px 80px rgba(8, 44, 35, 0.22);
+  --glass-radius: 16px;
+  --glass-blur: 12px;
+  --glass-blur-strong: 18px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,16 +42,85 @@ body {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(151, 201, 62, 0.18);
-  box-shadow: 0 20px 50px rgba(14, 63, 51, 0.12);
-  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: var(--glass-bg-app);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(151, 201, 62, 0.3);
+.app-header {
+  border-bottom: 1px solid var(--glass-border);
+  background: var(--glass-bg-app);
+  box-shadow: inset 0 -1px 0 var(--glass-highlight);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel,
+  body .auth-shell .glass-panel,
+  .app-header,
+  .mk-hero__side,
+  .mk-mobile-menu,
+  .mk-form,
+  .mk-detail-list article,
+  .mk-category-card,
+  .mk-product-card {
+    background: #fff;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-panel,
+  body .auth-shell .glass-panel,
+  .app-header,
+  .mk-hero__side,
+  .mk-mobile-menu,
+  .mk-form,
+  .mk-detail-list article,
+  .mk-category-card,
+  .mk-product-card {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .glass-panel,
+  body .auth-shell .glass-panel,
+  .app-header,
+  .mk-hero__side,
+  .mk-mobile-menu,
+  .mk-form,
+  .mk-detail-list article,
+  .mk-category-card,
+  .mk-product-card {
+    background: #fff;
+    border-color: CanvasText;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media print {
+  .glass-panel,
+  body .auth-shell .glass-panel,
+  .app-header,
+  .mk-hero__side,
+  .mk-mobile-menu,
+  .mk-form,
+  .mk-detail-list article,
+  .mk-category-card,
+  .mk-product-card {
+    background: #fff;
+    border-color: #145a4a;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 
@@ -180,10 +259,11 @@ body {
 }
 
 .auth-shell .glass-panel {
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(20, 90, 74, 0.14);
-  box-shadow: 0 30px 80px rgba(8, 44, 35, 0.22);
-  backdrop-filter: blur(18px);
+  background: var(--glass-bg-strong);
+  border-color: rgba(20, 90, 74, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--glass-shadow-strong);
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  backdrop-filter: blur(var(--glass-blur-strong));
 }
 
 @media (max-width: 900px) {
@@ -535,11 +615,12 @@ body.mk-dark-nav .mk-nav .mk-button--outline {
   top: 70px;
   right: 18px;
   left: 18px;
-  border: 1px solid rgba(20, 90, 74, 0.18);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 30px 70px rgba(14, 63, 51, 0.2);
-  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: var(--glass-bg-strong);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 30px 70px rgba(14, 63, 51, 0.2);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 .mk-mobile-menu nav {
@@ -727,12 +808,13 @@ body.mk-dark-nav .mk-badge b {
   right: clamp(24px, 6.5vw, 120px);
   box-sizing: border-box;
   width: min(330px, 80vw);
-  border: 1px solid rgba(20, 90, 74, 0.14);
-  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
   padding: 18px 20px 20px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 20px 50px rgba(14, 63, 51, 0.12);
-  backdrop-filter: blur(10px);
+  background: var(--glass-bg);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   opacity: 0;
 }
 
@@ -982,11 +1064,12 @@ body.mk-dark-nav .mk-badge b {
 .mk-product-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(20, 90, 74, 0.16);
-  border-radius: 24px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(238, 246, 231, 0.62));
-  box-shadow: 0 24px 60px rgba(14, 63, 51, 0.1);
-  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), var(--glass-bg));
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
@@ -1227,12 +1310,13 @@ body.mk-dark-nav .mk-badge b {
 .mk-form {
   display: grid;
   gap: 16px;
-  border: 1px solid rgba(20, 90, 74, 0.16);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 30px 70px rgba(14, 63, 51, 0.12);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: var(--glass-bg);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
   padding: 28px;
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 .mk-form__row {
@@ -1595,6 +1679,16 @@ body.mk-dark-nav .mk-badge b {
     bottom: 12vh;
     width: min(330px, calc(100vw - 36px));
     padding: 16px 18px 18px;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .mk-form,
+  .mk-mobile-menu,
+  .mk-detail-list article,
+  .mk-category-card,
+  .mk-product-card {
+    -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 

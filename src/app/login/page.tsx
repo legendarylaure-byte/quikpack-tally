@@ -100,7 +100,7 @@ export default function LoginPage() {
   return (
     <AuthCard
       title="Welcome back"
-      subtitle="Sign in to your quikpack Tally workspace."
+      subtitle="Sign in to your QUIKPACK Tally workspace."
       footer={
         <a
           href={SUPPORT.whatsappUrl}

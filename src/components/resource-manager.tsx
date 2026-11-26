@@ -221,7 +221,7 @@ export function ResourceManager({
       ) : null}
 
       {draft ? (
-        <form onSubmit={submit} className="mt-6 rounded-2xl border border-brand/25 bg-white/60 p-5">
+        <form onSubmit={submit} className="mt-6 rounded-xl border border-navy/15 bg-white p-5">
           <p className="mb-4 text-sm font-bold text-navy">
             {editingId ? "Edit record" : "New record"}
           </p>

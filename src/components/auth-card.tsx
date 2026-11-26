@@ -29,7 +29,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
 
       <div className="auth-shell__layout">
         <aside className="auth-shell__story">
-          <p className="auth-shell__eyebrow">Ghana-first supply partner</p>
+          <p className="auth-shell__eyebrow">Supplying Ghana, every day</p>
           <h2>Stocked for service, <span className="mk-accent">packed</span> for speed.</h2>
           <p className="auth-shell__copy">
             From napkins and tissue to takeaway containers and cleaning
@@ -54,7 +54,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
               <img src={MARKETING_ASSETS.logo} alt="QUIKPACK" />
             </Link>
 
-            <section className="glass-panel rounded-3xl p-7 sm:p-9">
+            <section className="glass-panel p-7 sm:p-9">
               <h1 className="text-2xl font-black tracking-tight text-navy">{title}</h1>
               <p className="mt-2 text-sm text-navy/65">{subtitle}</p>
               <div className="mt-7">{children}</div>
