@@ -7,6 +7,7 @@ import {
   type MultiFactorError,
   type MultiFactorResolver,
 } from "firebase/auth";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import { AuthCard } from "@/components/auth-card";
@@ -200,6 +201,10 @@ export default function LoginPage() {
           </button>
         </form>
       )}
+
+      <Link href="/" className="auth-shell__back mt-6 flex items-center justify-center gap-2">
+        <span aria-hidden="true">←</span> Back to website
+      </Link>
     </AuthCard>
   );
 }
