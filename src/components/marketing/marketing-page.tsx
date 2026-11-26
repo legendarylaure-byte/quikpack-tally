@@ -72,7 +72,7 @@ export function MarketingPage({ content, contact = false }: { content: Marketing
       <section className="mk-page-hero" data-theme="light">
         <div className="mk-page-hero__inner">
           <p className="mk-eyebrow" data-reveal>{content.eyebrow}</p>
-          <h1 data-reveal><AccentText text={content.heroTitle} /></h1>
+          <h1 data-reveal><AccentText text={content.heroTitle} className={contact ? "mk-accent--tight" : undefined} /></h1>
           <p className="mk-page-hero__body" data-reveal>{content.heroBody}</p>
           <div className="mk-page-hero__actions" data-reveal>
             <Link href="/products" className="mk-button mk-button--primary">Explore products</Link>

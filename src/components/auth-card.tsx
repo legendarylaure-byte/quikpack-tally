@@ -56,7 +56,7 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
 
             <section className="glass-panel p-7 sm:p-9">
               <h1 className="text-2xl font-black tracking-tight text-navy">{title}</h1>
-              <p className="mt-2 text-sm text-navy/65">{subtitle}</p>
+              <p className="mt-2 text-sm font-bold text-navy/80">{subtitle}</p>
               <div className="mt-7">{children}</div>
             </section>
 

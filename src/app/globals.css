@@ -156,8 +156,18 @@ body {
   z-index: 1;
   inset: 0;
   background:
+    radial-gradient(85% 70% at 8% 0%, rgba(151, 201, 62, 0.22), transparent 58%),
+    radial-gradient(70% 60% at 92% 12%, rgba(255, 255, 255, 0.18), transparent 62%),
     linear-gradient(90deg, rgba(8, 44, 35, 0.88), rgba(8, 44, 35, 0.62) 48%, rgba(8, 44, 35, 0.34)),
     linear-gradient(180deg, rgba(8, 44, 35, 0.2), rgba(8, 44, 35, 0.52));
+  pointer-events: none;
+}
+
+.auth-shell__overlay::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 44%, rgba(255, 255, 255, 0.07) 50%, transparent 56%);
+  content: "";
   pointer-events: none;
 }
 
@@ -262,8 +272,8 @@ body {
   background: var(--glass-bg-strong);
   border-color: rgba(20, 90, 74, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--glass-shadow-strong);
-  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
-  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(1.08);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(1.08);
 }
 
 @media (max-width: 900px) {
@@ -285,7 +295,9 @@ body {
 
 @media (max-width: 560px) {
   .auth-shell__overlay {
-    background: linear-gradient(180deg, rgba(8, 44, 35, 0.9), rgba(8, 44, 35, 0.72));
+    background:
+      radial-gradient(90% 55% at 12% 0%, rgba(151, 201, 62, 0.16), transparent 60%),
+      linear-gradient(180deg, rgba(8, 44, 35, 0.9), rgba(8, 44, 35, 0.72));
   }
 
   .auth-shell__story h2 {
@@ -776,6 +788,16 @@ body.mk-dark-nav .mk-badge b {
   will-change: transform;
 }
 
+.mk-hero__title::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--mk-brand), var(--mk-accent));
+  content: "";
+}
+
 .mk-hero__title .line {
   display: block;
   overflow: hidden;
@@ -804,7 +826,7 @@ body.mk-dark-nav .mk-badge b {
 .mk-hero__side {
   position: absolute;
   z-index: 2;
-  top: 60vh;
+  top: 56vh;
   right: clamp(24px, 6.5vw, 120px);
   box-sizing: border-box;
   width: min(330px, 80vw);
@@ -931,6 +953,10 @@ body.mk-dark-nav .mk-badge b {
   text-decoration: none;
 }
 
+.mk-accent--tight {
+  white-space: nowrap;
+}
+
 .mk-accent::after {
   position: absolute;
   right: 0;
@@ -939,7 +965,7 @@ body.mk-dark-nav .mk-badge b {
   height: 0.075em;
   min-height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(151, 201, 62, 0.2), var(--mk-accent) 25%, var(--mk-accent) 75%, rgba(151, 201, 62, 0.2));
+  background: var(--mk-accent-ink);
   content: "";
   transform: scaleX(0);
   transform-origin: left;

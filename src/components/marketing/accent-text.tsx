@@ -1,9 +1,10 @@
 type AccentTextProps = {
   text: string;
   words?: number;
+  className?: string;
 };
 
-export function AccentText({ text, words }: AccentTextProps) {
+export function AccentText({ text, words, className = "" }: AccentTextProps) {
   const parts = text.trim().split(/\s+/);
   if (parts.length < 2) return <>{text}</>;
 
@@ -15,7 +16,7 @@ export function AccentText({ text, words }: AccentTextProps) {
   return (
     <>
       {parts.slice(0, start).join(" ")}{" "}
-      <span className="mk-accent">{parts.slice(start).join(" ")}</span>
+      <span className={`mk-accent ${className}`.trim()}>{parts.slice(start).join(" ")}</span>
     </>
   );
 }

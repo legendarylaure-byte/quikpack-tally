@@ -25,7 +25,7 @@ export default function Home() {
           <p className="mk-eyebrow mk-hero__eyebrow">Supplying Ghana, every day</p>
           <h1 className="mk-hero__title" data-speed="0.35">
             <span className="line"><span>Everything your business needs</span></span>{" "}
-            <span className="line"><span>to <span className="mk-accent">serve, pack</span> and clean.</span></span>
+            <span className="line"><span>to <span className="mk-accent mk-accent--tight">serve, pack</span> and clean.</span></span>
           </h1>
         </div>
         <div className="mk-hero__side">
