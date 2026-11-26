@@ -54,13 +54,15 @@ export function AuthCard({ title, subtitle, children, footer }: AuthCardProps) {
               <img src={MARKETING_ASSETS.logo} alt="QUIKPACK" />
             </Link>
 
-            <section className="glass-panel p-7 sm:p-9">
-              <h1 className="text-2xl font-black tracking-tight text-navy">{title}</h1>
-              <p className="mt-2 text-sm font-bold text-navy/80">{subtitle}</p>
-              <div className="mt-7">{children}</div>
+            <section className="auth-shell__card">
+              <div className="auth-shell__intro">
+                <h1 className="text-2xl font-black tracking-tight text-white">{title}</h1>
+                <p className="mt-2 text-sm font-bold text-white/85">{subtitle}</p>
+              </div>
+              <div className="glass-panel auth-shell__card-body p-7 sm:p-9">{children}</div>
             </section>
 
-            <p className="mt-6 text-center text-sm text-navy/65">{footer}</p>
+            <p className="auth-shell__footer mt-6 text-center text-sm">{footer}</p>
           </div>
         </section>
       </div>
