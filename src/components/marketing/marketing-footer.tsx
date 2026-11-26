@@ -54,7 +54,20 @@ export function MarketingFooter() {
         </div>
       </div>
 
-      <p className="mk-footer__legal">Powered by quikpack · Ghana-first disposables and cleaning supply.</p>
+      <div className="mk-footer__legal">
+        <span>Powered by QUIKPACK · Ghana-first disposables and cleaning supply.</span>
+        <span>
+          Crafted in Kathmandu · Deployed Globally{" "}
+          <a
+            href="https://www.vyomai.cloud/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="VYOMAICLOUD website (opens in a new tab)"
+          >
+            @VYOMAICLOUD
+          </a>
+        </span>
+      </div>
     </footer>
   );
 }
