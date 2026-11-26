@@ -22,13 +22,16 @@ export function ScrollEffects() {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
+          const rect = entry.target.getBoundingClientRect();
+
+          if (entry.intersectionRatio >= 0.15) {
             entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+          } else if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            entry.target.classList.remove("is-visible");
           }
         }
       },
-      { threshold: 0.15 },
+      { threshold: [0, 0.15, 0.6], rootMargin: "0px 0px -10% 0px" },
     );
 
     for (const element of reveals) {

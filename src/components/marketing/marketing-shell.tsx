@@ -9,6 +9,9 @@ export function MarketingShell({ children }: { children: ReactNode }) {
   return (
     <div className="mk-site">
       <a className="mk-skip-link" href="#main-content">Skip to content</a>
+      <noscript>
+        <style>{`[data-reveal]{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}`}</style>
+      </noscript>
       <MarketingHeader />
       <BeeScene />
       <ScrollEffects />

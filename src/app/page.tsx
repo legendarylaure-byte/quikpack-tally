@@ -75,7 +75,7 @@ export default function Home() {
       <section className="mk-section mk-section--dark mk-section--manufacturing" id="manufacturing" data-theme="dark">
         <div className="mk-section__inner">
           <div className="mk-section__lead">
-            <div className="mk-big-num" data-speed="0.18" data-reveal>02</div>
+            <div className="mk-big-num" data-speed="0.18">02</div>
             <p className="mk-eyebrow" data-reveal>Manufacturing · new</p>
             <h2 data-reveal>From trading strength to <span className="mk-accent">local production.</span></h2>
             <p className="mk-section__body" data-reveal>
