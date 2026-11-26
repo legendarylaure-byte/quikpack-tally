@@ -18,7 +18,7 @@ export function MarketingFooter() {
 
       <div className="mk-footer__grid">
         <div className="mk-footer__brand">
-          <strong>{SITE.brand.slice(0, 4)}<span className="mk-accent">{SITE.brand.slice(4)}</span></strong>
+          <strong>{SITE.brand.slice(0, 4)}<span className="mk-accent mk-accent--plain">{SITE.brand.slice(4)}</span></strong>
           <span>{SITE.tagline}</span>
           <p>{SITE.legalName}</p>
           <p>
@@ -45,7 +45,7 @@ export function MarketingFooter() {
           </div>
           <div>
             <h3>Reach us</h3>
-            <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer">
+            <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer">
               WhatsApp {SITE.whatsapp}
             </a>
             <Link href={SITE.loginUrl}>Sign in</Link>

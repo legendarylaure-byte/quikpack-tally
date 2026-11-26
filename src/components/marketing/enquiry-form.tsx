@@ -99,7 +99,7 @@ export function EnquiryForm() {
         <button type="submit" className="mk-button mk-button--primary">
           Send via WhatsApp
         </button>
-        <a className="mk-button mk-button--outline" href={SITE.whatsappUrl} target="_blank" rel="noreferrer">
+        <a className="mk-button mk-button--outline" href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer">
           Chat directly
         </a>
       </div>

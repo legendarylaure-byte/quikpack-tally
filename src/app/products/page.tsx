@@ -35,7 +35,7 @@ export default function ProductsPage() {
               </div>
               <div className="mk-product-card__body">
                 <span className="mk-category-card__num">0{index + 1}</span>
-                <h2>{category.name}</h2>
+                <h2><AccentText text={category.name} /></h2>
                 <p>{category.body}</p>
                 <ul>
                   {category.items.slice(0, 3).map((item) => (
@@ -54,7 +54,7 @@ export default function ProductsPage() {
       <section className="mk-page-cta" data-theme="dark">
         <div>
           <p className="mk-eyebrow">Not sure where to start?</p>
-          <h2 data-reveal>Send us your list. We will find the fit.</h2>
+          <h2 data-reveal><AccentText text="Send us your list. We will find the fit." words={3} /></h2>
           <p data-reveal>Tell us what you use today and we will suggest practical options.</p>
           <Link href="/contact" className="mk-button mk-button--light" data-reveal>
             Start an enquiry

@@ -9,6 +9,16 @@ export function ScrollEffects() {
     site?.classList.add("is-loaded");
     const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
 
+    if (reduced) {
+      for (const element of reveals) {
+        element.classList.add("is-visible");
+      }
+
+      return () => {
+        document.body.classList.remove("mk-dark-nav");
+      };
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -23,13 +33,6 @@ export function ScrollEffects() {
 
     for (const element of reveals) {
       observer.observe(element);
-    }
-
-    if (reduced) {
-      return () => {
-        observer.disconnect();
-        document.body.classList.remove("mk-dark-nav");
-      };
     }
 
     const parallaxTargets = Array.from(

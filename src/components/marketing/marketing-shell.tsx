@@ -8,6 +8,7 @@ import { ScrollEffects } from "./scroll-effects";
 export function MarketingShell({ children }: { children: ReactNode }) {
   return (
     <div className="mk-site">
+      <a className="mk-skip-link" href="#main-content">Skip to content</a>
       <MarketingHeader />
       <BeeScene />
       <ScrollEffects />
@@ -15,7 +16,7 @@ export function MarketingShell({ children }: { children: ReactNode }) {
         <span className="mk-badge__dot" />
         Ghana-first supply · <b>QUIKPACK</b>
       </div>
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <MarketingFooter />
     </div>
   );

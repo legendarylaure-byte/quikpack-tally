@@ -25,7 +25,7 @@ export default function Home() {
           <p className="mk-eyebrow mk-hero__eyebrow">Supplying Ghana, every day</p>
           <h1 className="mk-hero__title" data-speed="0.35">
             <span className="line"><span>Everything your business needs</span></span>{" "}
-            <span className="line"><span>to <span className="mk-accent mk-accent--tight">serve, pack</span> and clean.</span></span>
+            <span className="line"><span>to <span className="mk-accent mk-accent--tight">serve, pack</span> <span className="mk-accent mk-accent--tight">and clean.</span></span></span>
           </h1>
         </div>
         <div className="mk-hero__side">
@@ -77,7 +77,7 @@ export default function Home() {
           <div className="mk-section__lead">
             <div className="mk-big-num" data-speed="0.18" data-reveal>02</div>
             <p className="mk-eyebrow" data-reveal>Manufacturing · new</p>
-            <h2 data-reveal>From trading strength to local production.</h2>
+            <h2 data-reveal>From trading strength to <span className="mk-accent">local production.</span></h2>
             <p className="mk-section__body" data-reveal>
               QUIKPACK is setting up manufacturing for table napkins and other
               tissue materials — giving customers a more consistent, locally
@@ -98,7 +98,7 @@ export default function Home() {
         <div className="mk-section__inner">
           <div className="mk-section__lead">
             <p className="mk-eyebrow" data-reveal>Sustainability</p>
-            <h2 data-reveal>Practical choices for less waste.</h2>
+            <h2 data-reveal>Practical choices for <span className="mk-accent">less waste.</span></h2>
             <p className="mk-section__body" data-reveal>
               Sustainability in disposables is about better decisions at the
               product, pack and replenishment level — not slogans. We focus on

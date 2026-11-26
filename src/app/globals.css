@@ -135,6 +135,7 @@ body {
   overflow: hidden;
   background: #145a4a;
   color: #fff;
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
 
 .auth-shell__video-wrap {
@@ -339,6 +340,11 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Marketing website ------------------------------------------------------ */
@@ -352,6 +358,7 @@ body {
   --mk-accent: #97c93e;
   --mk-accent-ink: #3f6a12;
   --mk-brand-dark: #0f473b;
+  --mk-focus: var(--mk-accent-ink);
   --mk-pad: clamp(18px, 3.2vw, 46px);
 
   position: relative;
@@ -365,6 +372,38 @@ body {
 .mk-site a:not(.mk-button) {
   color: inherit;
   text-decoration: none;
+}
+
+.mk-skip-link {
+  position: absolute;
+  z-index: 100;
+  top: -100px;
+  left: var(--mk-pad);
+  border-radius: 999px;
+  background: var(--mk-brand-dark);
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mk-skip-link:focus {
+  top: 12px;
+}
+
+#main-content {
+  scroll-margin-top: 96px;
+}
+
+.mk-site a:focus-visible,
+.mk-site button:focus-visible,
+.mk-site input:focus-visible,
+.mk-site select:focus-visible,
+.mk-site textarea:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--mk-focus);
+  outline-offset: 3px;
 }
 
 .mk-site section {
@@ -960,10 +999,9 @@ body.mk-dark-nav .mk-badge b {
 .mk-accent::after {
   position: absolute;
   right: 0;
-  bottom: -0.08em;
+  bottom: -6px;
   left: 0;
-  height: 0.075em;
-  min-height: 2px;
+  height: 2px;
   border-radius: 999px;
   background: var(--mk-accent-ink);
   content: "";
@@ -972,9 +1010,18 @@ body.mk-dark-nav .mk-badge b {
   transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.15, 1);
 }
 
+.mk-accent--plain::after {
+  display: none;
+}
+
 .mk-site.is-loaded .mk-accent::after,
 .auth-shell .mk-accent::after {
   transform: scaleX(1);
+}
+
+.mk-section--dark,
+.mk-page-cta {
+  --mk-focus: var(--mk-accent);
 }
 
 .mk-section--dark .mk-accent,
@@ -1462,6 +1509,7 @@ body.mk-dark-nav .mk-badge b {
 
 .mk-product-card__visual {
   min-height: 260px;
+  overflow: hidden;
   background: var(--mk-lilac);
 }
 
@@ -1469,6 +1517,11 @@ body.mk-dark-nav .mk-badge b {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mk-product-card:hover .mk-product-card__visual img {
+  transform: scale(1.03);
 }
 
 .mk-product-card__body {
