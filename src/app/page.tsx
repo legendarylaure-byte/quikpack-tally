@@ -21,17 +21,18 @@ export default function Home() {
           data-speed="-0.25"
           data-rot="8"
         />
-        <h1 className="mk-hero__title" data-speed="0.35">
-          <span className="line"><span>Everything your business</span></span>{" "}
-          <span className="line"><span>needs to serve, <span className="mk-accent">pack</span></span></span>{" "}
-          <span className="line"><span>and clean.</span></span>
-        </h1>
+        <div className="mk-hero__headline">
+          <p className="mk-eyebrow mk-hero__eyebrow">Supplying Ghana, every day</p>
+          <h1 className="mk-hero__title" data-speed="0.35">
+            <span className="line"><span>Everything your business needs</span></span>{" "}
+            <span className="line"><span>to <span className="mk-accent">serve, pack</span> and clean.</span></span>
+          </h1>
+        </div>
         <div className="mk-hero__side">
           <p>
-            From paper towels and napkins to takeaway containers, carry bags and
-            cleaning supplies — QUIKPACK supplies HORECA, corporate and household
-            customers across Ghana.
+            Paper, takeaway and cleaning essentials for businesses and homes across Ghana.
           </p>
+          <p className="mk-hero__proof">HORECA · CORPORATE · HOUSEHOLD</p>
           <div className="mk-hero__actions">
             <Link href="/products" className="mk-button mk-button--primary">
               Explore solutions
